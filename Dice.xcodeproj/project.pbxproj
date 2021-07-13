@@ -72,6 +72,37 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		784E6876269DBDE800C01B78 /* DiceFlow */ = {
+			isa = PBXGroup;
+			children = (
+				784E6877269DBE4900C01B78 /* Login */,
+				784E6878269DBE5E00C01B78 /* Game */,
+				784E6879269DBE6900C01B78 /* LeaderBoard */,
+			);
+			path = DiceFlow;
+			sourceTree = "<group>";
+		};
+		784E6877269DBE4900C01B78 /* Login */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		784E6878269DBE5E00C01B78 /* Game */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Game;
+			sourceTree = "<group>";
+		};
+		784E6879269DBE6900C01B78 /* LeaderBoard */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = LeaderBoard;
+			sourceTree = "<group>";
+		};
 		78681CF6269C93B100975FA6 = {
 			isa = PBXGroup;
 			children = (
@@ -128,7 +159,7 @@
 			children = (
 				78681D34269D8D2D00975FA6 /* Extensions */,
 				78681D35269D8D3700975FA6 /* UI */,
-				78681D36269D8D4000975FA6 /* Controllers */,
+				78681D36269D8D4000975FA6 /* Coordinators */,
 				78681D37269D8D5000975FA6 /* Models */,
 			);
 			path = Source;
@@ -144,15 +175,16 @@
 		78681D35269D8D3700975FA6 /* UI */ = {
 			isa = PBXGroup;
 			children = (
+				784E6876269DBDE800C01B78 /* DiceFlow */,
 			);
 			path = UI;
 			sourceTree = "<group>";
 		};
-		78681D36269D8D4000975FA6 /* Controllers */ = {
+		78681D36269D8D4000975FA6 /* Coordinators */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Controllers;
+			path = Coordinators;
 			sourceTree = "<group>";
 		};
 		78681D37269D8D5000975FA6 /* Models */ = {
