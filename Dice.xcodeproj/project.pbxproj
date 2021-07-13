@@ -95,7 +95,7 @@
 		78681D01269C93B100975FA6 /* Dice */ = {
 			isa = PBXGroup;
 			children = (
-				78681D32269D844E00975FA6 /* Source */,
+				78681D33269D8AA100975FA6 /* Source */,
 				78681D02269C93B100975FA6 /* AppDelegate.swift */,
 				78681D08269C93B100975FA6 /* Main.storyboard */,
 				78681D0B269C93B400975FA6 /* Assets.xcassets */,
@@ -123,11 +123,43 @@
 			path = DiceUITests;
 			sourceTree = "<group>";
 		};
-		78681D32269D844E00975FA6 /* Source */ = {
+		78681D33269D8AA100975FA6 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				78681D34269D8D2D00975FA6 /* Extensions */,
+				78681D35269D8D3700975FA6 /* UI */,
+				78681D36269D8D4000975FA6 /* Controllers */,
+				78681D37269D8D5000975FA6 /* Models */,
+			);
+			path = Source;
+			sourceTree = "<group>";
+		};
+		78681D34269D8D2D00975FA6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
 			);
-			path = Source;
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		78681D35269D8D3700975FA6 /* UI */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = UI;
+			sourceTree = "<group>";
+		};
+		78681D36269D8D4000975FA6 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		78681D37269D8D5000975FA6 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
