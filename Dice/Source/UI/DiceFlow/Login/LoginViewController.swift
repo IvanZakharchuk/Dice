@@ -7,23 +7,43 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+enum LoginViewControllerEvents {
+    
+    case needDisplayGame
+    // user name 
+}
 
+class LoginViewController: UIViewController, RootViewGetable {
+    
+    typealias RootView = LoginView
+
+    // MARK: -
+    // MARK: Properties
+    
+    public var eventHandler: ((LoginViewControllerEvents) -> ())?
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func configureLoginView() {
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
+    }
+    
+    private func handle(event: LoginViewEvents) {
+//        switch event {
+//        case let .enterButtonPressed:
+//            self.
+//            // func to export string from view to controller
+//        }
+    }
+    
+    // MARK: -
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        self.configureLoginView()
     }
-
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }

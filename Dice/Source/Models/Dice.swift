@@ -6,3 +6,22 @@
 //
 
 import Foundation
+
+struct Dice {
+    
+}
+
+class User {
+    
+    // MARK: -
+    // MARK: Properties
+    
+    public var userName: String
+    
+    // MARK: -
+    // MARK: Initialization
+    
+    public init(userName: String) {
+        self.userName = userName
+    }
+}
