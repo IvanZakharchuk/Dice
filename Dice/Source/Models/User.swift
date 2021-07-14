@@ -16,12 +16,6 @@ class User {
     // MARK: -
     // MARK: Properties
     
-    public var userName: String
+    public var userName = ""
     
-    // MARK: -
-    // MARK: Initialization
-    
-    public init(userName: String) {
-        self.userName = userName
-    }
 }

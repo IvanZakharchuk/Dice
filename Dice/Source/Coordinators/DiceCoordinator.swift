@@ -11,11 +11,19 @@ import UIKit
 class DiceCoordinator: BaseCoordinator {
     
     // MARK: -
+    // MARK: LifeCycle
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    }
+    
+    // MARK: -
     // MARK: Private
     // хендлери прописати сюда від основних контрллерів
     
     private func presentLogin() {
-        let controller = LoginViewController()
+        self.setupNavigation()
+        let controller = LoginViewController(user: User())
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -23,11 +31,19 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func handle(event: LoginViewControllerEvents) {
-        switch event {
-        case let .needDisplayLogin:
-            <#code#>
-        }
+//        switch event {
+//        case let .needDisplayGame:
+//            <#code#>
+//        }
     }
+    
+    
+    private func setupNavigation() {
+        navigationItem.hidesBackButton = true
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
+    }
+    
     
     // MARK: -
     // MARK: Ovverided

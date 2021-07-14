@@ -10,7 +10,7 @@ import UIKit
 
 enum LoginViewEvents {
     
-    case enterButtonPressed(User)
+    case enterButtonPressed(String)
 }
 
 class LoginView: UIView, UITextFieldDelegate {
@@ -19,19 +19,6 @@ class LoginView: UIView, UITextFieldDelegate {
     // MARK: Properties
     
     public var eventHandler: ((LoginViewEvents) -> ())?
-    
-    public var user: User
-    
-    // MARK: -
-    // MARK: Initialization
-    
-    public init(user: User) {
-        self.user = user
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
     
     // MARK: -
     // MARK: IBOutlets
@@ -43,16 +30,32 @@ class LoginView: UIView, UITextFieldDelegate {
     // MARK: IBActions
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
-        self.eventHandler?(.enterButtonPressed(user))
+        let userName = userNameTextField?.text
+        
+        self.eventHandler?(.enterButtonPressed(userName ?? "user"))
     }
     
     // MARK: -
     // MARK: Public
+    public func setupView() {
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
+        self.setupTextField()
+        self.setupEnterButton()
+    }
     
     public func setupTextField() {
         self.userNameTextField?.delegate = self
-        self.userNameTextField?.borderStyle = .none
-        self.userNameTextField?.text = user.userName
-        
+        self.userNameTextField?.borderStyle = .roundedRect
     }
+    
+    public func setupEnterButton() {
+        enterButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
+        enterButton?.layer.cornerRadius = 25
+        enterButton?.layer.borderWidth = 1
+        enterButton?.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    // MARK: -
+    // MARK: Private
+
 }

@@ -11,6 +11,10 @@ class GameViewController: UIViewController, RootViewGetable {
     
     typealias RootView = GameView
     
+    
+    // MARK: -
+    // MARK: LifeCycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

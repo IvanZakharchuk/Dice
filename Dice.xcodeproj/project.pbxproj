@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687A269DC0A000C01B78 /* BaseCoordinator.swift */; };
 		784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687C269DC0D800C01B78 /* DiceCoordinator.swift */; };
-		784E687F269DC13900C01B78 /* Dice.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687E269DC13900C01B78 /* Dice.swift */; };
+		784E687F269DC13900C01B78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687E269DC13900C01B78 /* User.swift */; };
 		784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6880269DC95C00C01B78 /* LoginViewController.swift */; };
 		784E6883269DC95C00C01B78 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784E6881269DC95C00C01B78 /* LoginViewController.xib */; };
 		784E6886269DCB2A00C01B78 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6885269DCB2A00C01B78 /* LoginView.swift */; };
@@ -46,7 +46,7 @@
 /* Begin PBXFileReference section */
 		784E687A269DC0A000C01B78 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		784E687C269DC0D800C01B78 /* DiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceCoordinator.swift; sourceTree = "<group>"; };
-		784E687E269DC13900C01B78 /* Dice.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dice.swift; sourceTree = "<group>"; };
+		784E687E269DC13900C01B78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		784E6880269DC95C00C01B78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		784E6881269DC95C00C01B78 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		784E6885269DCB2A00C01B78 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -222,7 +222,7 @@
 		78681D37269D8D5000975FA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				784E687E269DC13900C01B78 /* Dice.swift */,
+				784E687E269DC13900C01B78 /* User.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -362,7 +362,7 @@
 				784E6886269DCB2A00C01B78 /* LoginView.swift in Sources */,
 				78681D03269C93B100975FA6 /* AppDelegate.swift in Sources */,
 				784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */,
-				784E687F269DC13900C01B78 /* Dice.swift in Sources */,
+				784E687F269DC13900C01B78 /* User.swift in Sources */,
 				784E688E269ED51100C01B78 /* GameView.swift in Sources */,
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				784E6888269DCB8500C01B78 /* RootViewGetable.swift in Sources */,

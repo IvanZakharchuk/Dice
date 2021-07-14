@@ -22,22 +22,39 @@ class LoginViewController: UIViewController, RootViewGetable {
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
+    private var user: User
+    
+    // MARK: -
+    // MARK: Initialization
+    
+    deinit {
+        print("deinit")
+    }
+    
+    public init(user: User) {
+        self.user = user
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     // MARK: -
     // MARK: Private
     
     private func configureLoginView() {
-        self.rootView?.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
+        self.rootView?.setupView()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
     }
     
     private func handle(event: LoginViewEvents) {
-//        switch event {
-//        case let .enterButtonPressed:
-//            self.
-//            // func to export string from view to controller
-//        }
+        switch event {
+        case let .enterButtonPressed(user):
+            self.shareToGame(user: user)
+        }
     }
     
     // MARK: -
@@ -47,4 +64,16 @@ class LoginViewController: UIViewController, RootViewGetable {
         super.viewDidLoad()
         self.configureLoginView()
     }
+    
+    // MARK: -
+    // MARK: Public
+    
+    public func shareToGame(user: String) {
+        
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+   
 }

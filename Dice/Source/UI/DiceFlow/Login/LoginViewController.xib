@@ -22,28 +22,36 @@
                     <rect key="frame" x="30" y="74" width="354" height="758"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="300" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6W-eQ-6tX" userLabel="Stack View(Button)">
-                            <rect key="frame" x="56" y="163.5" width="242.5" height="431.5"/>
+                            <rect key="frame" x="36" y="162" width="282" height="434.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="p7q-39-60t" userLabel="Stack View(Label, TextField)">
-                                    <rect key="frame" x="0.0" y="0.0" width="242.5" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="282" height="131.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro8-av-9v2">
-                                            <rect key="frame" x="0.0" y="0.0" width="242.5" height="36"/>
-                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="30"/>
-                                            <nil key="textColor"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="282" height="42"/>
+                                            <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUl-jL-ycX" userLabel="PlayerTextField">
-                                            <rect key="frame" x="40" y="86" width="162.5" height="45.5"/>
-                                            <fontDescription key="fontDescription" type="system" pointSize="30"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUl-jL-ycX" userLabel="PlayerTextField">
+                                            <rect key="frame" x="16" y="92" width="250" height="39.5"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="250" id="6Te-YW-5lP"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <textInputTraits key="textInputTraits"/>
                                         </textField>
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6X-bg-49F">
-                                    <rect key="frame" x="92.5" y="389.5" width="57" height="42"/>
-                                    <fontDescription key="fontDescription" type="system" pointSize="25"/>
-                                    <state key="normal" title="Enter"/>
+                                    <rect key="frame" x="41" y="386.5" width="200" height="48"/>
+                                    <constraints>
+                                        <constraint firstAttribute="width" constant="200" id="2jh-UU-xdR"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="30"/>
+                                    <state key="normal" title="Enter">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
                                 </button>
                             </subviews>
                         </stackView>
