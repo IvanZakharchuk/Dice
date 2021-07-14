@@ -10,7 +10,7 @@ import UIKit
 enum LoginViewControllerEvents {
     
     case needDisplayGame
-    // user name 
+    // user name
 }
 
 class LoginViewController: UIViewController, RootViewGetable {
@@ -26,6 +26,7 @@ class LoginViewController: UIViewController, RootViewGetable {
     // MARK: Private
     
     private func configureLoginView() {
+        self.rootView?.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }

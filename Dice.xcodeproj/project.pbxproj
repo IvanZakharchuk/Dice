@@ -17,6 +17,7 @@
 		784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6889269ED4F000C01B78 /* GameViewController.swift */; };
 		784E688C269ED4F000C01B78 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784E688A269ED4F000C01B78 /* GameViewController.xib */; };
 		784E688E269ED51100C01B78 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E688D269ED51100C01B78 /* GameView.swift */; };
+		784E6890269EE04100C01B78 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E688F269EE04100C01B78 /* ScoreView.swift */; };
 		78681D03269C93B100975FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78681D02269C93B100975FA6 /* AppDelegate.swift */; };
 		78681D0A269C93B100975FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78681D08269C93B100975FA6 /* Main.storyboard */; };
 		78681D0C269C93B400975FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78681D0B269C93B400975FA6 /* Assets.xcassets */; };
@@ -53,6 +54,7 @@
 		784E6889269ED4F000C01B78 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		784E688A269ED4F000C01B78 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		784E688D269ED51100C01B78 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
+		784E688F269EE04100C01B78 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		78681CFF269C93B100975FA6 /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78681D02269C93B100975FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78681D09269C93B100975FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -119,6 +121,7 @@
 				784E6889269ED4F000C01B78 /* GameViewController.swift */,
 				784E688A269ED4F000C01B78 /* GameViewController.xib */,
 				784E688D269ED51100C01B78 /* GameView.swift */,
+				784E688F269EE04100C01B78 /* ScoreView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -365,6 +368,7 @@
 				784E6888269DCB8500C01B78 /* RootViewGetable.swift in Sources */,
 				784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */,
 				784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */,
+				784E6890269EE04100C01B78 /* ScoreView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

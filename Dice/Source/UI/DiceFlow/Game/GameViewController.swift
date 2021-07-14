@@ -8,9 +8,9 @@
 import UIKit
 
 class GameViewController: UIViewController, RootViewGetable {
+    
     typealias RootView = GameView
     
-
     override func viewDidLoad() {
         super.viewDidLoad()
 
