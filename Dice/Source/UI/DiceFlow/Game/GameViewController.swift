@@ -10,6 +10,7 @@ import UIKit
 enum GameViewControllerEvents {
     
     case needDisplayLeaderboard
+    case updateScoreView(String)
 }
 
 class GameViewController: UIViewController, RootViewGetable {
@@ -23,8 +24,24 @@ class GameViewController: UIViewController, RootViewGetable {
     
 //    private var user: User
     
+    public var scoreView: ScoreView
+    
     // MARK: -
     // MARK: Initialization
+    
+    deinit {
+        print("deinit")
+    }
+    
+    public init(scoreView: ScoreView) {
+        self.scoreView = scoreView
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
     
 //    deinit {
 //        print("deinit")

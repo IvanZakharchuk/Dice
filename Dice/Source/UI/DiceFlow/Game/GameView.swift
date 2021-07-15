@@ -22,6 +22,8 @@ class GameView: UIView {
     
     public var scoreView: ScoreView
     
+    public var score = ScoreView()
+    
     // MARK: -
     // MARK: Initializatio
     
@@ -63,6 +65,7 @@ class GameView: UIView {
     
     public func scoreViewUpdate(user: String) {
         self.scoreView.setupScoreView(user: user)
+        self.score.setupScoreView(user: user)
         self.eventHandler?(.scoreViewUserName(user))
     }
 }

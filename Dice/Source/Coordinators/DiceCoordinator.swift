@@ -38,7 +38,8 @@ class DiceCoordinator: BaseCoordinator {
     
     private func presentGame(user: String) {
         self.setupNavigation()
-        let controller = GameViewController()
+        let scoreView = ScoreView()
+        let controller = GameViewController(scoreView: scoreView)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -51,6 +52,8 @@ class DiceCoordinator: BaseCoordinator {
         switch event {
         case let .needDisplayLeaderboard:
             self.presentLeaderBoard()
+        case .updateScoreView(_):
+            <#code#>
         }
     }
     
@@ -70,6 +73,7 @@ class DiceCoordinator: BaseCoordinator {
     // MARK: Ovverided
     
     override func prepare() {
-        self.presentLogin()
+//        self.presentLogin()
+        self.presentGame(user: "user")
     }
 }
