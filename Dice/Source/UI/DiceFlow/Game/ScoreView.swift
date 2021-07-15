@@ -21,7 +21,7 @@ class ScoreView: UIView {
     // MARK: -
     // MARK: Public
     
-    public func updateView() {
-        
+    public func setupScoreView(user: String) {
+        self.userLabel?.text = user
     }
 }

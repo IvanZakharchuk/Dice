@@ -10,7 +10,7 @@ import UIKit
 
 enum LoginViewEvents {
     
-    case enterButtonPressed(String)
+    case needDisplayGame(String)
 }
 
 class LoginView: UIView, UITextFieldDelegate {
@@ -32,7 +32,7 @@ class LoginView: UIView, UITextFieldDelegate {
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         let userName = userNameTextField?.text
         
-        self.eventHandler?(.enterButtonPressed(userName ?? "user"))
+        self.eventHandler?(.needDisplayGame(userName ?? "user"))
     }
     
     // MARK: -
@@ -45,6 +45,7 @@ class LoginView: UIView, UITextFieldDelegate {
     
     public func setupTextField() {
         self.userNameTextField?.delegate = self
+//        self.userNameTextField?.becomeFirstResponder()
         self.userNameTextField?.borderStyle = .roundedRect
     }
     
@@ -57,5 +58,12 @@ class LoginView: UIView, UITextFieldDelegate {
     
     // MARK: -
     // MARK: Private
+    
+    // MARK: -
+    // MARK: Overrided
+    
+    override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
+        userNameTextField?.resignFirstResponder()
+    }
 
 }

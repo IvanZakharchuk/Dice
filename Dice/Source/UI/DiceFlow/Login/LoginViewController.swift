@@ -9,7 +9,7 @@ import UIKit
 
 enum LoginViewControllerEvents {
     
-    case needDisplayGame
+    case needDisplayGame(String)
     // user name
 }
 
@@ -41,23 +41,6 @@ class LoginViewController: UIViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: Private
-    
-    private func configureLoginView() {
-        self.rootView?.setupView()
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
-    }
-    
-    private func handle(event: LoginViewEvents) {
-        switch event {
-        case let .enterButtonPressed(user):
-            self.shareToGame(user: user)
-        }
-    }
-    
-    // MARK: -
     // MARK: LifeCycle
     
     override func viewDidLoad() {
@@ -69,11 +52,24 @@ class LoginViewController: UIViewController, RootViewGetable {
     // MARK: Public
     
     public func shareToGame(user: String) {
-        
+        self.eventHandler?(.needDisplayGame(user))
+        print(self.eventHandler?(.needDisplayGame(user)))
     }
     
     // MARK: -
     // MARK: Private
     
-   
+    private func configureLoginView() {
+        self.rootView?.setupView()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
+    }
+    
+    private func handle(event: LoginViewEvents) {
+        switch event {
+        case let .needDisplayGame(user):
+            self.shareToGame(user: user)
+        }
+    }
 }

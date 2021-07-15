@@ -19,7 +19,6 @@ class DiceCoordinator: BaseCoordinator {
     
     // MARK: -
     // MARK: Private
-    // хендлери прописати сюда від основних контрллерів
     
     private func presentLogin() {
         self.setupNavigation()
@@ -31,10 +30,32 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func handle(event: LoginViewControllerEvents) {
-//        switch event {
-//        case let .needDisplayGame:
-//            <#code#>
-//        }
+        switch event {
+        case let .needDisplayGame(user):
+            self.presentGame(user: user)
+        }
+    }
+    
+    private func presentGame(user: String) {
+        self.setupNavigation()
+        let controller = GameViewController()
+        controller.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
+        controller.rootView?.scoreViewUpdate(user: user)
+        controller.modalPresentationStyle = .overFullScreen
+        self.present(controller, animated: true, completion: nil)
+    }
+    
+    private func handle(event: GameViewControllerEvents) {
+        switch event {
+        case let .needDisplayLeaderboard:
+            self.presentLeaderBoard()
+        }
+    }
+    
+    private func presentLeaderBoard() {
+        
     }
     
     
