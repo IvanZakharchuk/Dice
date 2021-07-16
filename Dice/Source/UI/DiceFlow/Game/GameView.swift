@@ -20,26 +20,26 @@ class GameView: UIView {
     
     public var eventHandler: ((GameViewEvents) -> ())?
     
-    public var scoreView: ScoreView
+//    public var scoreView: ScoreView
     
     public var score = ScoreView()
     
     // MARK: -
     // MARK: Initializatio
     
-    deinit {
-        print("deinit")
-    }
-    
-    public init(scoreView: ScoreView) {
-        self.scoreView = scoreView
-        
-        super.init(frame: .zero)
-    }
-    
-    required init?(coder: NSCoder) {
-        fatalError("init(coder:) has not been implemented")
-    }
+//    deinit {
+//        print("deinit")
+//    }
+//
+//    public init(scoreView: ScoreView) {
+//        self.scoreView = scoreView
+//
+//        super.init(coder: scoreView)
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
     
     // MARK: -
     // MARK: IBOutlets
@@ -64,7 +64,7 @@ class GameView: UIView {
     }
     
     public func scoreViewUpdate(user: String) {
-        self.scoreView.setupScoreView(user: user)
+//        self.scoreView.setupScoreView(user: user)
         self.score.setupScoreView(user: user)
         self.eventHandler?(.scoreViewUserName(user))
     }

@@ -52,6 +52,9 @@
                                     <state key="normal" title="Enter">
                                         <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     </state>
+                                    <connections>
+                                        <action selector="enterButtonPressed:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="ciO-LN-dzh"/>
+                                    </connections>
                                 </button>
                             </subviews>
                         </stackView>

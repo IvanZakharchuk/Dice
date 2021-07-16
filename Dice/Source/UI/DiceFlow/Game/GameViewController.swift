@@ -10,7 +10,6 @@ import UIKit
 enum GameViewControllerEvents {
     
     case needDisplayLeaderboard
-    case updateScoreView(String)
 }
 
 class GameViewController: UIViewController, RootViewGetable {
@@ -22,8 +21,7 @@ class GameViewController: UIViewController, RootViewGetable {
     
     public var eventHandler: ((GameViewControllerEvents) -> ())?
     
-//    private var user: User
-    
+    private var user: User
     public var scoreView: ScoreView
     
     // MARK: -
@@ -33,7 +31,8 @@ class GameViewController: UIViewController, RootViewGetable {
         print("deinit")
     }
     
-    public init(scoreView: ScoreView) {
+    public init(user: User, scoreView: ScoreView) {
+        self.user = user
         self.scoreView = scoreView
         
         super.init(nibName: nil, bundle: nil)
@@ -42,19 +41,6 @@ class GameViewController: UIViewController, RootViewGetable {
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
-//    deinit {
-//        print("deinit")
-//    }
-//
-//    public init(user: User) {
-//        self.user = user
-//        super.init(nibName: nil, bundle: nil)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     // MARK: -
     // MARK: LifeCycle
@@ -85,8 +71,7 @@ class GameViewController: UIViewController, RootViewGetable {
     }
     
     private func updateScoreView(user: String) {
-        
+        self.scoreView.setupScoreView(user: self.user.userName)
     }
-    
     
 }

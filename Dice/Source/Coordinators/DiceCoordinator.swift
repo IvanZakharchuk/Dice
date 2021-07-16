@@ -31,29 +31,27 @@ class DiceCoordinator: BaseCoordinator {
     
     private func handle(event: LoginViewControllerEvents) {
         switch event {
-        case let .needDisplayGame(user):
-            self.presentGame(user: user)
+        case .needDisplayGame:
+            self.presentGame()
         }
     }
     
-    private func presentGame(user: String) {
+    private func presentGame() {
         self.setupNavigation()
         let scoreView = ScoreView()
-        let controller = GameViewController(scoreView: scoreView)
+        let user = User()
+        let controller = GameViewController(user: user, scoreView: scoreView)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
-        controller.rootView?.scoreViewUpdate(user: user)
         controller.modalPresentationStyle = .overFullScreen
         self.present(controller, animated: true, completion: nil)
     }
     
     private func handle(event: GameViewControllerEvents) {
         switch event {
-        case let .needDisplayLeaderboard:
+        case .needDisplayLeaderboard:
             self.presentLeaderBoard()
-        case .updateScoreView(_):
-            <#code#>
         }
     }
     
@@ -73,7 +71,6 @@ class DiceCoordinator: BaseCoordinator {
     // MARK: Ovverided
     
     override func prepare() {
-//        self.presentLogin()
-        self.presentGame(user: "user")
+        self.presentLogin()
     }
 }
