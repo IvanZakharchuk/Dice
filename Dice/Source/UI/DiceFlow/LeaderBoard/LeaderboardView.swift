@@ -6,3 +6,22 @@
 //
 
 import Foundation
+import UIKit
+
+enum LeadeboardViewEnvents {
+    
+    case leaderBoardTableViewFill
+}
+
+class LeaderboardView: UIView {
+    
+    // MARK: -
+    // MARK: Properties
+    
+    public var eventHandler: ((GameViewEvents) -> ())?
+    
+    // MARK: -
+    // MARK: IBOutlets
+    
+    
+}

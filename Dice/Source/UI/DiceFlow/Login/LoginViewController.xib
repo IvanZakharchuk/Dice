@@ -22,19 +22,21 @@
                     <rect key="frame" x="30" y="74" width="354" height="758"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="300" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B6W-eQ-6tX" userLabel="Stack View(Button)">
-                            <rect key="frame" x="36" y="162" width="282" height="434.5"/>
+                            <rect key="frame" x="36" y="161" width="282" height="436.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="p7q-39-60t" userLabel="Stack View(Label, TextField)">
-                                    <rect key="frame" x="0.0" y="0.0" width="282" height="131.5"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="282" height="133.5"/>
                                     <subviews>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Welcome to Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ro8-av-9v2">
-                                            <rect key="frame" x="0.0" y="0.0" width="282" height="42"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="282" height="44"/>
                                             <fontDescription key="fontDescription" type="system" weight="heavy" pointSize="35"/>
                                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
+                                            <color key="highlightedColor" systemColor="opaqueSeparatorColor"/>
+                                            <color key="shadowColor" systemColor="opaqueSeparatorColor"/>
+                                            <size key="shadowOffset" width="0.0" height="2"/>
                                         </label>
                                         <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="user name" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="DUl-jL-ycX" userLabel="PlayerTextField">
-                                            <rect key="frame" x="16" y="92" width="250" height="39.5"/>
+                                            <rect key="frame" x="16" y="94" width="250" height="39.5"/>
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="6Te-YW-5lP"/>
                                             </constraints>
@@ -44,7 +46,7 @@
                                     </subviews>
                                 </stackView>
                                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k6X-bg-49F">
-                                    <rect key="frame" x="41" y="386.5" width="200" height="48"/>
+                                    <rect key="frame" x="41" y="388.5" width="200" height="48"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="200" id="2jh-UU-xdR"/>
                                     </constraints>
@@ -82,6 +84,9 @@
         </view>
     </objects>
     <resources>
+        <systemColor name="opaqueSeparatorColor">
+            <color red="0.77647058823529413" green="0.77647058823529413" blue="0.78431372549019607" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

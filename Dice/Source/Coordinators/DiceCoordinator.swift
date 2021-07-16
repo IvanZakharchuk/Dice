@@ -56,9 +56,22 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func presentLeaderBoard() {
-        
+        let user = User()
+        let controller = LeadeboardViewController(user: user)
+        controller.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
+        controller.modalPresentationStyle = .overFullScreen
+        self.present(controller, animated: true, completion: nil)
+
     }
     
+    private func handle(event: LeaderboardViewControllerEvents) {
+        switch event {
+        case .back:
+            self.dismiss(animated: true, completion: nil)
+        }
+    }
     
     private func setupNavigation() {
         navigationItem.hidesBackButton = true

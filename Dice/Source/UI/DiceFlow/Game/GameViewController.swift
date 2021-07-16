@@ -53,6 +53,10 @@ class GameViewController: UIViewController, RootViewGetable {
     // MARK: -
     // MARK: Public
     
+    public func presentLeaderboard() {
+        self.eventHandler?(.needDisplayLeaderboard)
+    }
+    
     // MARK: -
     // MARK: Private
     
@@ -67,11 +71,14 @@ class GameViewController: UIViewController, RootViewGetable {
         switch event {
         case let .scoreViewUserName(user):
             self.rootView?.scoreViewUpdate(user: user)
+        case .needDisplayLeaderBoard:
+            self.presentLeaderboard()
         }
     }
     
     private func updateScoreView(user: String) {
         self.scoreView.setupScoreView(user: self.user.userName)
+        self.rootView?.score.setupScoreView(user: self.user.userName)
     }
     
 }

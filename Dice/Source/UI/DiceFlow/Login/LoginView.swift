@@ -51,15 +51,15 @@ class LoginView: UIView, UITextFieldDelegate {
         self.userNameTextField?.borderStyle = .roundedRect
     }
     
-    public func setupEnterButton() {
-        enterButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
-        enterButton?.layer.cornerRadius = 25
-        enterButton?.layer.borderWidth = 1
-        enterButton?.layer.borderColor = UIColor.black.cgColor
-    }
-    
     // MARK: -
     // MARK: Private
+    
+    private func setupEnterButton() {
+        self.enterButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
+        self.enterButton?.layer.cornerRadius = 25
+        self.enterButton?.layer.borderWidth = 1
+        self.enterButton?.layer.borderColor = UIColor.black.cgColor
+    }
     
     // MARK: -
     // MARK: Overrided

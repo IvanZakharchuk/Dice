@@ -11,6 +11,7 @@ import UIKit
 enum GameViewEvents {
     
     case scoreViewUserName(String)
+    case needDisplayLeaderBoard
 }
 
 class GameView: UIView {
@@ -19,27 +20,8 @@ class GameView: UIView {
     // MARK: Properties
     
     public var eventHandler: ((GameViewEvents) -> ())?
-    
-//    public var scoreView: ScoreView
-    
+        
     public var score = ScoreView()
-    
-    // MARK: -
-    // MARK: Initializatio
-    
-//    deinit {
-//        print("deinit")
-//    }
-//
-//    public init(scoreView: ScoreView) {
-//        self.scoreView = scoreView
-//
-//        super.init(coder: scoreView)
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
     
     // MARK: -
     // MARK: IBOutlets
@@ -52,6 +34,10 @@ class GameView: UIView {
     // MARK: -
     // MARK: IBActions
     
+    @IBAction func leaderBoardButton(_ sender: UIButton) {
+        self.eventHandler?(.needDisplayLeaderBoard)
+    }
+    
     @IBAction func playGame(_ sender: UIButton) {
         
     }
@@ -60,13 +46,30 @@ class GameView: UIView {
     // MARK: Public
     
     public func setupView() {
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
+        self.setupLeaderboardButton()
+        self.setupPlayButton()
     }
     
     public func scoreViewUpdate(user: String) {
-//        self.scoreView.setupScoreView(user: user)
         self.score.setupScoreView(user: user)
         self.eventHandler?(.scoreViewUserName(user))
     }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func setupLeaderboardButton() {
+        self.leaderboardButton?.layer.backgroundColor = UIColor.yellow.cgColor
+        self.leaderboardButton?.layer.cornerRadius = 10
+        self.leaderboardButton?.layer.borderWidth = 1
+        self.leaderboardButton?.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    private func setupPlayButton() {
+        self.playGameButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
+        self.playGameButton?.layer.cornerRadius = 25
+        self.playGameButton?.layer.borderWidth = 1
+        self.playGameButton?.layer.borderColor = UIColor.black.cgColor
+    }
 }
-
