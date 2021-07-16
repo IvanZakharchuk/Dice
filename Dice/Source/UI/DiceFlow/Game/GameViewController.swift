@@ -22,7 +22,7 @@ class GameViewController: UIViewController, RootViewGetable {
     public var eventHandler: ((GameViewControllerEvents) -> ())?
     
     private var user: User
-    public var scoreView: ScoreView
+//    public var scoreView: ScoreView
     
     // MARK: -
     // MARK: Initialization
@@ -31,9 +31,8 @@ class GameViewController: UIViewController, RootViewGetable {
         print("deinit")
     }
     
-    public init(user: User, scoreView: ScoreView) {
+    public init(user: User) {
         self.user = user
-        self.scoreView = scoreView
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -77,7 +76,7 @@ class GameViewController: UIViewController, RootViewGetable {
     }
     
     private func updateScoreView(user: String) {
-        self.scoreView.setupScoreView(user: self.user.userName)
+//        self.scoreView.setupScoreView(user: self.user.userName)
         self.rootView?.score.setupScoreView(user: self.user.userName)
     }
     
