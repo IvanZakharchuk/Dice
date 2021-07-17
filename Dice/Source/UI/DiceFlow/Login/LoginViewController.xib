@@ -62,6 +62,7 @@
                         </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="B6W-eQ-6tX" firstAttribute="centerX" secondItem="Dfy-vy-8zo" secondAttribute="centerX" id="VKn-Ad-Rnp"/>
                         <constraint firstItem="B6W-eQ-6tX" firstAttribute="centerY" secondItem="Dfy-vy-8zo" secondAttribute="centerY" id="jkQ-m6-V0c"/>

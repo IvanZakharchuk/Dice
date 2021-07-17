@@ -38,14 +38,12 @@ class DiceCoordinator: BaseCoordinator {
     
     private func presentGame() {
         self.setupNavigation()
-//        let scoreView = ScoreView()
         let user = User()
         let controller = GameViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
-        controller.modalPresentationStyle = .overFullScreen
-        self.present(controller, animated: true, completion: nil)
+        self.pushViewController(controller, animated: true)
     }
     
     private func handle(event: GameViewControllerEvents) {
@@ -56,14 +54,13 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func presentLeaderBoard() {
+        self.setupNavigation()
         let user = User()
         let controller = LeadeboardViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
-        }
-        controller.modalPresentationStyle = .overFullScreen
+        } 
         self.present(controller, animated: true, completion: nil)
-
     }
     
     private func handle(event: LeaderboardViewControllerEvents) {
@@ -75,6 +72,7 @@ class DiceCoordinator: BaseCoordinator {
     
     private func setupNavigation() {
         navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem?.tintColor = .white
         navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
         navigationBar.shadowImage = UIImage()
     }

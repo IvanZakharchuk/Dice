@@ -54,6 +54,6 @@ class LeadeboardViewController: UIViewController, RootViewGetable {
     // MARK: Pvivate
     
     private func configureLeaderboardView() {
-        
+        self.rootView?.setupView()
     }
 }

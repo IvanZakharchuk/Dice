@@ -26,10 +26,10 @@ class GameView: UIView {
     // MARK: -
     // MARK: IBOutlets
     
-    @IBOutlet weak var leaderboardButton: UIButton?
-    @IBOutlet weak var botImage: UIImageView?
-    @IBOutlet weak var userImage: UIImageView?
-    @IBOutlet weak var playGameButton: UIButton?
+    @IBOutlet private var leaderboardButton: UIButton?
+    @IBOutlet private var botImage: UIImageView?
+    @IBOutlet private var userImage: UIImageView?
+    @IBOutlet private var playGameButton: UIButton?
     
     // MARK: -
     // MARK: IBActions

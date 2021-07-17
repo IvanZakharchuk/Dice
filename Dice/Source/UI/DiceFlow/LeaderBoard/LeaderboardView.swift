@@ -23,5 +23,15 @@ class LeaderboardView: UIView {
     // MARK: -
     // MARK: IBOutlets
     
+    // table view conect
+    
+    // MARK: -
+    // MARK: Public
+    
+    public func setupView() {
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
+    }
+    // MARK: -
+    // MARK: Private
     
 }
