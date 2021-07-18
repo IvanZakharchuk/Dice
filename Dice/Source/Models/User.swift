@@ -7,10 +7,6 @@
 
 import Foundation
 
-struct Dice {
-    
-}
-
 class User {
     
     // MARK: -

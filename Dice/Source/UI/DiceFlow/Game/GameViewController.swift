@@ -23,6 +23,8 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private var user: User
     
+    private var dices: Dices
+    
     // MARK: -
     // MARK: Initialization
     
@@ -30,8 +32,9 @@ class GameViewController: UIViewController, RootViewGetable {
         print("deinit")
     }
     
-    public init(user: User) {
+    public init(user: User, dices: Dices) {
         self.user = user
+        self.dices = dices
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -71,6 +74,15 @@ class GameViewController: UIViewController, RootViewGetable {
         switch event {
         case .needDisplayLeaderBoard:
             self.presentLeaderboard()
+        case .updateDices:
+            self.setuoDiceImage()
         }
+    }
+    
+//    // MARK: -
+//    // MARK: GameLogic
+    
+    private func setuoDiceImage() {
+        self.rootView?.gameLogic(botImage: dices.randomDice(), userImage: dices.randomDice())
     }
 }

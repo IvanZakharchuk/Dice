@@ -11,6 +11,7 @@ import UIKit
 enum GameViewEvents {
     
     case needDisplayLeaderBoard
+    case updateDices
 }
 
 class GameView: UIView {
@@ -39,7 +40,7 @@ class GameView: UIView {
     }
     
     @IBAction func playGame(_ sender: UIButton) {
-        
+        self.eventHandler?(.updateDices)
     }
     
     // MARK: -
@@ -53,6 +54,10 @@ class GameView: UIView {
     
     public func scoreViewUpdate(user: String) {
         self.setupScoreView(user: user)
+    }
+    
+    public func gameLogic(botImage: String, userImage: String) {
+        self.gameImages(botImage: botImage, userImage: userImage)
     }
     
     // MARK: -
@@ -74,5 +79,13 @@ class GameView: UIView {
         self.playGameButton?.layer.cornerRadius = 25
         self.playGameButton?.layer.borderWidth = 1
         self.playGameButton?.layer.borderColor = UIColor.black.cgColor
+    }
+    
+    // MARK: -
+    // MARK: Game
+    
+    private func gameImages(botImage: String, userImage: String) {
+        self.botImage?.image = UIImage(named: botImage)
+        self.userImage?.image = UIImage(named: userImage)
     }
 }
