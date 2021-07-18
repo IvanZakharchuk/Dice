@@ -10,7 +10,7 @@ import UIKit
 
 struct Dices {
     
-    let dices = ["1",
+    let dicesString = ["1",
                  "2",
                  "3",
                  "4",
@@ -19,6 +19,6 @@ struct Dices {
     ]
     
     func randomDice() -> String {
-        self.dices.randomElement() ?? "0"
+        self.dicesString.randomElement() ?? "0"
     }
 }

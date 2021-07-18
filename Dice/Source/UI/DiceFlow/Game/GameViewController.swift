@@ -25,6 +25,7 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private var dices: Dices
     
+    
     // MARK: -
     // MARK: Initialization
     
@@ -84,5 +85,11 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private func setuoDiceImage() {
         self.rootView?.gameLogic(botImage: dices.randomDice(), userImage: dices.randomDice())
+    }
+    
+    private func compareDices() {
+        self.dices.dicesString.compactMap { Int($0)}
+        
+        
     }
 }
