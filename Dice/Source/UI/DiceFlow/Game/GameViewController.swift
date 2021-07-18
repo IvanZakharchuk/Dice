@@ -46,7 +46,6 @@ class GameViewController: UIViewController, RootViewGetable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureGameView()
-        self.configureScoreView()
     }
     
     // MARK: -
@@ -61,6 +60,8 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private func configureGameView() {
         self.rootView?.setupView()
+        self.rootView?.scoreViewUpdate(user: self.user.userName)
+        
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -71,9 +72,5 @@ class GameViewController: UIViewController, RootViewGetable {
         case .needDisplayLeaderBoard:
             self.presentLeaderboard()
         }
-    }
-    
-    private func configureScoreView() {
-        self.rootView?.scoreViewUpdate(user: self.user.userName)
     }
 }

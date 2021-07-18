@@ -32,8 +32,7 @@ class DiceCoordinator: BaseCoordinator {
     private func presentGame() {
         self.setupNavigation()
         let user = User()
-//        let scoreView = ScoreView()
-        let controller = GameViewController(user: user/*, scoreView: scoreView*/)
+        let controller = GameViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
