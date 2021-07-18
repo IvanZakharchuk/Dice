@@ -69,6 +69,7 @@ class LoginViewController: UIViewController, RootViewGetable {
         switch event {
         case let .shareUserName(user):
             self.user.userName = user
+            print(user) // model get name
         case .startGame:
             self.presentGame()
         }

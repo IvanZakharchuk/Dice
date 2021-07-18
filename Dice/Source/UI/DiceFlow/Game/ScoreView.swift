@@ -23,5 +23,14 @@ class ScoreView: UIView {
     
     public func setupScoreView(user: String) {
         self.userLabel?.text = user
+        
+        self.configureView()
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func configureView() {
+        self.userLabel?.textColor = .white
     }
 }

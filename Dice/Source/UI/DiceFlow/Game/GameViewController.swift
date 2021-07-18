@@ -22,7 +22,6 @@ class GameViewController: UIViewController, RootViewGetable {
     public var eventHandler: ((GameViewControllerEvents) -> ())?
     
     private var user: User
-//    public var scoreView: ScoreView
     
     // MARK: -
     // MARK: Initialization
@@ -47,6 +46,7 @@ class GameViewController: UIViewController, RootViewGetable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureGameView()
+        self.configureScoreView()
     }
     
     // MARK: -
@@ -68,16 +68,12 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private func handle(event: GameViewEvents) {
         switch event {
-        case let .scoreViewUserName(user):
-            self.rootView?.scoreViewUpdate(user: user)
         case .needDisplayLeaderBoard:
             self.presentLeaderboard()
         }
     }
     
-    private func updateScoreView(user: String) {
-//        self.scoreView.setupScoreView(user: self.user.userName)
-        self.rootView?.score.setupScoreView(user: self.user.userName)
+    private func configureScoreView() {
+        self.rootView?.scoreViewUpdate(user: self.user.userName)
     }
-    
 }

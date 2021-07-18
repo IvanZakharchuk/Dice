@@ -10,7 +10,6 @@ import UIKit
 
 enum GameViewEvents {
     
-    case scoreViewUserName(String)
     case needDisplayLeaderBoard
 }
 
@@ -20,8 +19,7 @@ class GameView: UIView {
     // MARK: Properties
     
     public var eventHandler: ((GameViewEvents) -> ())?
-        
-    public var score = ScoreView()
+    
     
     // MARK: -
     // MARK: IBOutlets
@@ -30,6 +28,8 @@ class GameView: UIView {
     @IBOutlet private var botImage: UIImageView?
     @IBOutlet private var userImage: UIImageView?
     @IBOutlet private var playGameButton: UIButton?
+    
+    @IBOutlet private var scoreView: ScoreView?
     
     // MARK: -
     // MARK: IBActions
@@ -52,12 +52,15 @@ class GameView: UIView {
     }
     
     public func scoreViewUpdate(user: String) {
-        self.score.setupScoreView(user: user)
-        self.eventHandler?(.scoreViewUserName(user))
+        self.setupScoreView(user: user)
     }
     
     // MARK: -
     // MARK: Private
+    
+    private func setupScoreView(user: String) {
+        self.scoreView?.setupScoreView(user: user)
+    }
     
     private func setupLeaderboardButton() {
         self.leaderboardButton?.layer.backgroundColor = UIColor.yellow.cgColor

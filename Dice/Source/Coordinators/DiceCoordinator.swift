@@ -11,13 +11,6 @@ import UIKit
 class DiceCoordinator: BaseCoordinator {
     
     // MARK: -
-    // MARK: LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
-    // MARK: -
     // MARK: Private
     
     private func presentLogin() {
@@ -39,7 +32,8 @@ class DiceCoordinator: BaseCoordinator {
     private func presentGame() {
         self.setupNavigation()
         let user = User()
-        let controller = GameViewController(user: user)
+//        let scoreView = ScoreView()
+        let controller = GameViewController(user: user/*, scoreView: scoreView*/)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
