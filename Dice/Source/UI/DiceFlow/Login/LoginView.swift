@@ -39,6 +39,7 @@ class LoginView: UIView, UITextFieldDelegate {
     
     // MARK: -
     // MARK: Public
+    
     public func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.setupTextField()
@@ -67,5 +68,4 @@ class LoginView: UIView, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         userNameTextField?.resignFirstResponder()
     }
-
 }

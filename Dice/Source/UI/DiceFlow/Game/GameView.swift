@@ -60,6 +60,13 @@ class GameView: UIView {
         self.gameImages(botImage: botImage, userImage: userImage)
     }
     
+    public func showAlert(title: String) {
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+        
+        alertController.addAction(confirmAction)
+    }
+    
     // MARK: -
     // MARK: Private
     

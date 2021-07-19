@@ -50,6 +50,7 @@ class GameViewController: UIViewController, RootViewGetable {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.configureGameView()
+        self.processGame()
     }
     
     // MARK: -
@@ -76,7 +77,8 @@ class GameViewController: UIViewController, RootViewGetable {
         case .needDisplayLeaderBoard:
             self.presentLeaderboard()
         case .updateDices:
-            self.setuoDiceImage()
+//            self.setuoDiceImage()
+            self.processGame()
         }
     }
     
@@ -91,5 +93,40 @@ class GameViewController: UIViewController, RootViewGetable {
         self.dices.dicesString.compactMap { Int($0)}
         
         
+    }
+    
+    private func setupWithDiceInt() {
+        let dice = self.dices.dice.randomElement()
+        
+//        let botDice = self.dices.dicesString
+//        let botInt = botDice.compactMap { Int($0)}
+        
+        
+        let a = self.dices.randomDice()
+        let b = Int(a)
+    }
+    
+    private func processGame() {
+        
+//        let botDice = Int(self.dices.randomDice()) ?? 0
+//        let userDice = Int(self.dices.randomDice()) ?? 0
+        
+        let botDice = self.dices.random()
+        let userDice = self.dices.random()
+        
+        if botDice > userDice {
+            print("BotWin")
+            self.rootView?.showAlert(title: "BotWin")
+            // TODO: alert to root view
+        } else if botDice < userDice {
+            print("UserWin")
+            self.rootView?.showAlert(title: "UserWin")
+            
+        } else if botDice == userDice {
+            print("Stand off")
+            self.rootView?.showAlert(title: "Stand off")
+        }
+        
+        self.rootView?.gameLogic(botImage: String(botDice), userImage: String(userDice))
     }
 }
