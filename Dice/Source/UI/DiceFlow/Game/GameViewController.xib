@@ -140,10 +140,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
-                    <rect key="frame" x="30" y="54" width="310" height="778"/>
+                    <rect key="frame" x="45" y="200" width="280" height="632"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
-                            <rect key="frame" x="30" y="698" width="200" height="50"/>
+                            <rect key="frame" x="30" y="552" width="200" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="3Y4-67-Kv4"/>
@@ -156,7 +156,7 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
-                            <rect key="frame" x="80" y="207.5" width="150" height="363.5"/>
+                            <rect key="frame" x="65" y="134.5" width="150" height="363.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="170.5"/>
@@ -219,15 +219,15 @@
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7MF-Td-efS" secondAttribute="trailing" constant="30" id="4bs-PF-nde"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7MF-Td-efS" secondAttribute="trailing" constant="45" id="4bs-PF-nde"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="leading" secondItem="lAR-6S-nih" secondAttribute="trailing" constant="20" id="5jN-SO-ntc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2VG-eh-0R1" secondAttribute="trailing" constant="10" id="Dms-1W-rNY"/>
-                <constraint firstItem="7MF-Td-efS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="Jcj-oV-dhI"/>
+                <constraint firstItem="7MF-Td-efS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="45" id="Jcj-oV-dhI"/>
                 <constraint firstItem="lAR-6S-nih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="aRC-Ku-eD4"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="c95-kx-GFU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7MF-Td-efS" secondAttribute="bottom" constant="30" id="dxW-po-vOY"/>
+                <constraint firstItem="7MF-Td-efS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="eWH-WQ-PFx"/>
                 <constraint firstItem="lAR-6S-nih" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hwX-Os-NqM"/>
-                <constraint firstItem="7MF-Td-efS" firstAttribute="top" secondItem="lAR-6S-nih" secondAttribute="top" id="qvW-h9-LHz"/>
             </constraints>
             <connections>
                 <outlet property="botImage" destination="BW6-T5-KsI" id="kht-3Z-D0f"/>

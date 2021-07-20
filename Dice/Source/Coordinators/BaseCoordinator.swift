@@ -17,6 +17,17 @@ open class BaseCoordinator: UINavigationController {
         super.viewDidLoad()
         
         self.prepare()
+        self.setupNavigation()
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func setupNavigation() {
+        navigationItem.hidesBackButton = true
+        navigationItem.backBarButtonItem?.tintColor = .white
+        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
+        navigationBar.shadowImage = UIImage()
     }
     
     // MARK: -

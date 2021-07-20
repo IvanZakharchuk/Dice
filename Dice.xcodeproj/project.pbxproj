@@ -29,6 +29,7 @@
 		786EF62A26A165A700D54F54 /* LeadeboardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786EF62826A165A700D54F54 /* LeadeboardViewController.swift */; };
 		786EF62B26A165A700D54F54 /* LeadeboardViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 786EF62926A165A700D54F54 /* LeadeboardViewController.xib */; };
 		786EF62D26A165BB00D54F54 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786EF62C26A165BB00D54F54 /* LeaderboardView.swift */; };
+		78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B3365D26A705BA0038AD13 /* BaseViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -77,6 +78,7 @@
 		786EF62826A165A700D54F54 /* LeadeboardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeadeboardViewController.swift; sourceTree = "<group>"; };
 		786EF62926A165A700D54F54 /* LeadeboardViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeadeboardViewController.xib; sourceTree = "<group>"; };
 		786EF62C26A165BB00D54F54 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
+		78B3365D26A705BA0038AD13 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -111,6 +113,7 @@
 				784E6878269DBE5E00C01B78 /* Game */,
 				784E6879269DBE6900C01B78 /* LeaderBoard */,
 				784E6887269DCB8500C01B78 /* RootViewGetable.swift */,
+				78B3365D26A705BA0038AD13 /* BaseViewController.swift */,
 			);
 			path = DiceFlow;
 			sourceTree = "<group>";
@@ -380,6 +383,7 @@
 				784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */,
 				784E687F269DC13900C01B78 /* User.swift in Sources */,
 				786EF62D26A165BB00D54F54 /* LeaderboardView.swift in Sources */,
+				78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */,
 				784E688E269ED51100C01B78 /* GameView.swift in Sources */,
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				784E6888269DCB8500C01B78 /* RootViewGetable.swift in Sources */,

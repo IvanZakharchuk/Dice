@@ -12,7 +12,7 @@ enum GameViewControllerEvents {
     case needDisplayLeaderboard
 }
 
-class GameViewController: UIViewController, RootViewGetable {
+class GameViewController: BaseViewController, RootViewGetable {
     
     typealias RootView = GameView
     
@@ -43,15 +43,6 @@ class GameViewController: UIViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureGameView()
-        self.loadSEmptyDices()
-    }
-    
-    // MARK: -
     // MARK: Public
     
     public func presentLeaderboard() {
@@ -60,13 +51,6 @@ class GameViewController: UIViewController, RootViewGetable {
     
     // MARK: -
     // MARK: Private
-    
-    private func configureGameView() {
-        self.rootView?.setupView()
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
-    }
     
     private func handle(event: GameViewEvents) {
         switch event {
@@ -106,5 +90,16 @@ class GameViewController: UIViewController, RootViewGetable {
         
         self.rootView?.scoreViewUpdate(botScore: String(botDice), userScore: String(userDice))
         self.rootView?.gameImages(botImage: String(botDice), userImage: String(userDice))
+    }
+    
+    // MARK: -
+    // MARK: Overrided
+    
+    internal override func configureView() {
+        self.rootView?.setupView()
+        self.loadSEmptyDices()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
     }
 }

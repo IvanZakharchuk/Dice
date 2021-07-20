@@ -12,7 +12,7 @@ enum LeaderboardViewControllerEvents {
     case back
 }
 
-class LeadeboardViewController: UIViewController, RootViewGetable {
+class LeadeboardViewController: BaseViewController, RootViewGetable {
     
     typealias RootView = LeaderboardView
     
@@ -40,20 +40,26 @@ class LeadeboardViewController: UIViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureLeaderboardView()
-    }
-    
-    // MARK: -
     // MARK: Public
     
     // MARK: -
     // MARK: Pvivate
     
-    private func configureLeaderboardView() {
+//    private func handle(event: LeadeboardViewEnvents) {
+//        switch event {
+//        case let .leaderBoardTableViewFill:
+//                
+//            print(user) // model get name
+//        }
+//    }
+//    
+    // MARK: -
+    // MARK: Overrided
+    
+    internal override func configureView() {
         self.rootView?.setupView()
+//        self.rootView?.eventHandler = { [weak self] event in
+//            self?.handle(event: event)
+//        }
     }
 }

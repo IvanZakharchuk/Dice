@@ -64,19 +64,10 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func setupNavigation() {
-        navigationItem.hidesBackButton = true
-        navigationItem.backBarButtonItem?.tintColor = .white
-        navigationBar.setBackgroundImage(UIImage(), for: UIBarMetrics.default)
-        navigationBar.shadowImage = UIImage()
-    }
-    
-    
     // MARK: -
     // MARK: Ovverided
     
     override func prepare() {
         self.presentLogin()
-        self.setupNavigation()
     }
 }
