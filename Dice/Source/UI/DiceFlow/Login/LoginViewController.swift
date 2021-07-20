@@ -9,7 +9,7 @@ import UIKit
 
 enum LoginViewControllerEvents {
     
-    case needDisplayGame
+    case needDisplayGame(User)
     // user name
 }
 
@@ -51,8 +51,8 @@ class LoginViewController: UIViewController, RootViewGetable {
     // MARK: -
     // MARK: Public
     
-    public func presentGame() {
-        self.eventHandler?(.needDisplayGame)
+    public func presentGame(user: User) {
+        self.eventHandler?(.needDisplayGame(user))
     }
     
     // MARK: -
@@ -69,9 +69,8 @@ class LoginViewController: UIViewController, RootViewGetable {
         switch event {
         case let .shareUserName(user):
             self.user.userName = user
+            self.presentGame(user: self.user)
             print(user) // model get name
-        case .startGame:
-            self.presentGame()
         }
     }
 }

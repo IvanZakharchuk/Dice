@@ -14,8 +14,9 @@ class DiceCoordinator: BaseCoordinator {
     // MARK: Private
     
     private func presentLogin() {
-        self.setupNavigation()
-        let controller = LoginViewController(user: User())
+        let dice = Dices()
+        let user = User(dice: dice)
+        let controller = LoginViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -24,16 +25,15 @@ class DiceCoordinator: BaseCoordinator {
     
     private func handle(event: LoginViewControllerEvents) {
         switch event {
-        case .needDisplayGame:
-            self.presentGame()
+        case let .needDisplayGame(user):
+            self.presentGame(user: user)
         }
     }
     
-    private func presentGame() {
-        self.setupNavigation()
-        let user = User()
-        let dices = Dices()
-        let controller = GameViewController(user: user, dices: dices)
+    private func presentGame(user: User) {
+        let dice = Dices()
+        let bot = Bot(dice: dice)
+        let controller = GameViewController(user: user, bot: bot)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -48,8 +48,8 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func presentLeaderBoard() {
-        self.setupNavigation()
-        let user = User()
+        let dice = Dices()
+        let user = User(dice: dice)
         let controller = LeadeboardViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
@@ -77,5 +77,6 @@ class DiceCoordinator: BaseCoordinator {
     
     override func prepare() {
         self.presentLogin()
+        self.setupNavigation()
     }
 }

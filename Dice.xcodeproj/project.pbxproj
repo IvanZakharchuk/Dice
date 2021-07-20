@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		780075BA26A5928D00E4734F /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780075B926A5928D00E4734F /* Bot.swift */; };
 		7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834C4BF26A4DC0B00A066E2 /* Dices.swift */; };
 		784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687A269DC0A000C01B78 /* BaseCoordinator.swift */; };
 		784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687C269DC0D800C01B78 /* DiceCoordinator.swift */; };
@@ -48,6 +49,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		780075B926A5928D00E4734F /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
 		7834C4BF26A4DC0B00A066E2 /* Dices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dices.swift; sourceTree = "<group>"; };
 		784E687A269DC0A000C01B78 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		784E687C269DC0D800C01B78 /* DiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceCoordinator.swift; sourceTree = "<group>"; };
@@ -235,6 +237,7 @@
 			children = (
 				784E687E269DC13900C01B78 /* User.swift */,
 				7834C4BF26A4DC0B00A066E2 /* Dices.swift */,
+				780075B926A5928D00E4734F /* Bot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				784E6888269DCB8500C01B78 /* RootViewGetable.swift in Sources */,
 				7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */,
+				780075BA26A5928D00E4734F /* Bot.swift in Sources */,
 				784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */,
 				784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */,
 				784E6890269EE04100C01B78 /* ScoreView.swift in Sources */,
