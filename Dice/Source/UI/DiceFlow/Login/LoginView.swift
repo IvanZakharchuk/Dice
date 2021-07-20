@@ -11,7 +11,6 @@ import UIKit
 enum LoginViewEvents {
     
     case shareUserName(String)
-    case startGame
 }
 
 class LoginView: UIView, UITextFieldDelegate {
@@ -34,7 +33,6 @@ class LoginView: UIView, UITextFieldDelegate {
         let userName = userNameTextField?.text
         
         self.eventHandler?(.shareUserName(userName ?? "user"))
-        self.eventHandler?(.startGame)
     }
     
     // MARK: -

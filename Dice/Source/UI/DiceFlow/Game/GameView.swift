@@ -53,11 +53,12 @@ class GameView: UIView {
     }
     
     public func scoreViewUpdate(user: String) {
-        self.setupScoreView(user: user)
+        self.scoreView?.setupScoreView(user: user)
     }
     
-    public func gameLogic(botImage: String, userImage: String) {
-        self.gameImages(botImage: botImage, userImage: userImage)
+    public func gameImages(botImage: String, userImage: String) {
+        self.botImage?.image = UIImage(named: botImage)
+        self.userImage?.image = UIImage(named: userImage)
     }
     
     public func showAlert(title: String) {
@@ -70,29 +71,13 @@ class GameView: UIView {
     // MARK: -
     // MARK: Private
     
-    private func setupScoreView(user: String) {
-        self.scoreView?.setupScoreView(user: user)
-    }
-    
     private func setupLeaderboardButton() {
-        self.leaderboardButton?.layer.backgroundColor = UIColor.yellow.cgColor
         self.leaderboardButton?.layer.cornerRadius = 10
-        self.leaderboardButton?.layer.borderWidth = 1
-        self.leaderboardButton?.layer.borderColor = UIColor.black.cgColor
+        self.leaderboardButton?.layer.borderWidth = 2
     }
     
     private func setupPlayButton() {
-        self.playGameButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
         self.playGameButton?.layer.cornerRadius = 25
-        self.playGameButton?.layer.borderWidth = 1
-        self.playGameButton?.layer.borderColor = UIColor.black.cgColor
-    }
-    
-    // MARK: -
-    // MARK: Game
-    
-    private func gameImages(botImage: String, userImage: String) {
-        self.botImage?.image = UIImage(named: botImage)
-        self.userImage?.image = UIImage(named: userImage)
+        self.playGameButton?.layer.borderWidth = 2
     }
 }
