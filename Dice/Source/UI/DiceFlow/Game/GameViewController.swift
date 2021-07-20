@@ -63,8 +63,6 @@ class GameViewController: UIViewController, RootViewGetable {
     
     private func configureGameView() {
         self.rootView?.setupView()
-        self.rootView?.scoreViewUpdate(user: self.user.userName)
-        
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -83,6 +81,7 @@ class GameViewController: UIViewController, RootViewGetable {
         let botDice = self.bot.currentPosition
         let userDice = self.user.emptyPosition
         
+        self.rootView?.configureScoreView(user: self.user.userName)
         self.rootView?.gameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
@@ -104,6 +103,8 @@ class GameViewController: UIViewController, RootViewGetable {
         print(botDice)
         print(userDice)
         
+        
+        self.rootView?.scoreViewUpdate(botScore: String(botDice), userScore: String(userDice))
         self.rootView?.gameImages(botImage: String(botDice), userImage: String(userDice))
     }
 }
