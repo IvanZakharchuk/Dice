@@ -19,10 +19,11 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     // MARK: Properties
     
     public var eventHandler: ((LeadeboardViewEnvents) -> ())?
+    
+    private var userName = ""
+    private var userScore = ""
+    private var botScore = ""
 
-    
-    let cell = LeaderboardTableViewCell()
-    
     // MARK: -
     // MARK: IBOutlets
     
@@ -36,6 +37,8 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
         
         let nib = UINib(nibName: "LeaderboardTableViewCell", bundle: nil)
         self.leaderboardTableView?.register(nib, forCellReuseIdentifier: "LeaderboardTableViewCell")
+        
+        self.eventHandler?(.leaderBoardTableViewFill)
     }
     
     // MARK: -
@@ -55,9 +58,12 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
+    
+        
+        cell.setupLeaderboardCell(userName: self.userName, userScore: self.userScore, botScore: self.botScore )
+       //  cell.setupLeaderboardCell(userName: "Ivan", userScore: "5", botScore: "10")
         
         self.eventHandler?(.leaderBoardTableViewFill)
-        
         return cell
     }
     
@@ -66,14 +72,21 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     // MARK: Public
     
     public func tableViewUpdate(userName: String, userScore: String, botScore: String) {
-        self.cell.setupLeaderboardCell(userName: userName, userScore: userScore, botScore: botScore)
+        self.userName = userName
+        self.userScore = userScore
+        self.botScore = botScore
     }
     
-    public func tableViewNunberOfSections(user: Int) {
-        
+    
+    public func tableViewNunberOfSections(user: Int) -> Int {
+        self.tableView(leaderboardTableView ?? UITableView(), numberOfRowsInSection: user)
     }
     
     // MARK: -
     // MARK: Private
+    
+    private func updateCell() {
+        
+    }
     
 }
