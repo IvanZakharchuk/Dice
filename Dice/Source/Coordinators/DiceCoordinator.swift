@@ -42,15 +42,13 @@ class DiceCoordinator: BaseCoordinator {
     
     private func handle(event: GameViewControllerEvents) {
         switch event {
-        case .needDisplayLeaderboard:
-            self.presentLeaderBoard()
+        case let .needDisplayLeaderboard(user, bot):
+            self.presentLeaderBoard(user: user, bot: bot)
         }
     }
     
-    private func presentLeaderBoard() {
-        let dice = Dices()
-        let user = User(dice: dice)
-        let controller = LeadeboardViewController(user: user)
+    private func presentLeaderBoard(user: User, bot: Bot) {
+        let controller = LeadeboardViewController(user: user, bot: bot)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         } 

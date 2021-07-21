@@ -28,7 +28,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
     // MARK: Initialization
     
     deinit {
-        print("deinit")
+        print("deinit LoginVC")
     }
     
     public init(user: User) {

@@ -21,17 +21,19 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     public var eventHandler: ((LeaderboardViewControllerEvents) -> ())?
     
     private var user: User
+    private var bot: Bot
     
     // MARK: -
     // MARK: Initialization
     
     deinit {
-        print("deinit")
+        print("deinit LeaderboardVC")
     }
     
-    public init(user: User) {
+    public init(user: User, bot: Bot) {
         self.user = user
-        
+        self.bot = bot
+      
         super.init(nibName: nil, bundle: nil)
     }
     

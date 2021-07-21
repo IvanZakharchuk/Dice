@@ -140,10 +140,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
-                    <rect key="frame" x="45" y="200" width="280" height="632"/>
+                    <rect key="frame" x="45" y="185" width="280" height="647"/>
                     <subviews>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
-                            <rect key="frame" x="30" y="552" width="200" height="50"/>
+                            <rect key="frame" x="30" y="567" width="200" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="3Y4-67-Kv4"/>
@@ -156,7 +156,7 @@
                             </connections>
                         </button>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
-                            <rect key="frame" x="65" y="134.5" width="150" height="363.5"/>
+                            <rect key="frame" x="65" y="142" width="150" height="363.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="170.5"/>
@@ -226,7 +226,7 @@
                 <constraint firstItem="lAR-6S-nih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="aRC-Ku-eD4"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="c95-kx-GFU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7MF-Td-efS" secondAttribute="bottom" constant="30" id="dxW-po-vOY"/>
-                <constraint firstItem="7MF-Td-efS" firstAttribute="top" secondItem="i5M-Pr-FkT" secondAttribute="top" constant="200" id="eWH-WQ-PFx"/>
+                <constraint firstItem="7MF-Td-efS" firstAttribute="top" secondItem="lAR-6S-nih" secondAttribute="bottom" constant="50" id="eWH-WQ-PFx"/>
                 <constraint firstItem="lAR-6S-nih" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="10" id="hwX-Os-NqM"/>
             </constraints>
             <connections>
