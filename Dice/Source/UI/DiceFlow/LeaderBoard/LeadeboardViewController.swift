@@ -18,6 +18,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     
     // MARK: -
     // MARK: Properties
+    
     public var eventHandler: ((LeaderboardViewControllerEvents) -> ())?
     
     private var user: User
@@ -47,21 +48,24 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Pvivate
     
-//    private func handle(event: LeadeboardViewEnvents) {
-//        switch event {
-//        case let .leaderBoardTableViewFill:
-//                
-//            print(user) // model get name
-//        }
-//    }
-//    
+    private func handle(event: LeadeboardViewEnvents) {
+        switch event {
+        case .leaderBoardTableViewFill:
+            self.rootView?.tableViewUpdate(
+                userName: self.user.userName,
+                userScore: String(self.user.currentDice()),
+                botScore: String(self.bot.currentDice())
+            )
+        }
+    }
+    
     // MARK: -
     // MARK: Overrided
     
     internal override func configureView() {
         self.rootView?.setupView()
-//        self.rootView?.eventHandler = { [weak self] event in
-//            self?.handle(event: event)
-//        }
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
     }
 }
