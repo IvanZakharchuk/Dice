@@ -52,11 +52,14 @@ class GameView: UIView {
         self.setupPlayButton()
     }
     
-    public func scoreViewUpdate(user: String) {
-        self.scoreView?.setupScoreView(user: user)
+    public func configureScoreView(user: String) {
+        self.scoreView?.configureScoreView(user: user)
+    }
+    public func scoreViewUpdate(botScore: String, userScore: String) {
+        self.scoreView?.setupScoreView(botScore: botScore, userScore: userScore )
     }
     
-    public func gameImages(botImage: String, userImage: String) {
+    public func setupGameameImages(botImage: String, userImage: String) {
         self.botImage?.image = UIImage(named: botImage)
         self.userImage?.image = UIImage(named: userImage)
     }

@@ -9,10 +9,10 @@ import UIKit
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard
+    case needDisplayLeaderboard(User, Bot)
 }
 
-class GameViewController: UIViewController, RootViewGetable {
+class GameViewController: BaseViewController, RootViewGetable {
     
     typealias RootView = GameView
     
@@ -28,7 +28,7 @@ class GameViewController: UIViewController, RootViewGetable {
     // MARK: Initialization
     
     deinit {
-        print("deinit")
+        print("deinit GameVC")
     }
     
     public init(user: User, bot: Bot) {
@@ -43,47 +43,30 @@ class GameViewController: UIViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureGameView()
-        self.loadSEmptyDices()
-    }
-    
-    // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard() {
-        self.eventHandler?(.needDisplayLeaderboard)
+    public func presentLeaderboard(user: User, bot: Bot) {
+        self.eventHandler?(.needDisplayLeaderboard(user, bot))
     }
     
     // MARK: -
     // MARK: Private
     
-    private func configureGameView() {
-        self.rootView?.setupView()
-        self.rootView?.scoreViewUpdate(user: self.user.userName)
-        
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
-    }
-    
     private func handle(event: GameViewEvents) {
         switch event {
         case .needDisplayLeaderBoard:
-            self.presentLeaderboard()
+            self.presentLeaderboard(user: self.user, bot: self.bot)
         case .updateDices:
             self.processGame()
         }
     }
     
-    private func loadSEmptyDices() {
+    private func loadEmptyDices() {
         let botDice = self.bot.currentPosition
         let userDice = self.user.emptyPosition
         
-        self.rootView?.gameImages(botImage: String(botDice), userImage: String(userDice))
+        self.rootView?.configureScoreView(user: self.user.userName)
+        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
     private func processGame() {
@@ -104,6 +87,19 @@ class GameViewController: UIViewController, RootViewGetable {
         print(botDice)
         print(userDice)
         
-        self.rootView?.gameImages(botImage: String(botDice), userImage: String(userDice))
+        
+        self.rootView?.scoreViewUpdate(botScore: String(botDice), userScore: String(userDice))
+        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+    }
+    
+    // MARK: -
+    // MARK: Overrided
+    
+    internal override func configureView() {
+        self.rootView?.setupView()
+        self.loadEmptyDices()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
     }
 }

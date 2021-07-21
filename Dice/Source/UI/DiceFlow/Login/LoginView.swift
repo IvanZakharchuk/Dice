@@ -40,24 +40,9 @@ class LoginView: UIView, UITextFieldDelegate {
     
     public func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
-        self.setupTextField()
-        self.setupEnterButton()
-    }
-    
-    public func setupTextField() {
-        self.userNameTextField?.delegate = self
         self.userNameTextField?.becomeFirstResponder()
-        self.userNameTextField?.borderStyle = .roundedRect
-    }
-    
-    // MARK: -
-    // MARK: Private
-    
-    private func setupEnterButton() {
-        self.enterButton?.layer.backgroundColor = UIColor.systemGreen.cgColor
         self.enterButton?.layer.cornerRadius = 25
         self.enterButton?.layer.borderWidth = 1
-        self.enterButton?.layer.borderColor = UIColor.black.cgColor
     }
     
     // MARK: -

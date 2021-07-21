@@ -21,16 +21,13 @@ class ScoreView: UIView {
     // MARK: -
     // MARK: Public
     
-    public func setupScoreView(user: String) {
-        self.userLabel?.text = user
-        
-        self.configureView()
+    public func setupScoreView(botScore: String, userScore: String) {
+        self.botScore?.text = botScore
+        self.userScore?.text = userScore
     }
     
-    // MARK: -
-    // MARK: Private
-    
-    private func configureView() {
-        self.userLabel?.textColor = .white
+    public func configureScoreView(user: String) {
+        self.userLabel?.text = user
+        self.layer.cornerRadius = 15
     }
 }

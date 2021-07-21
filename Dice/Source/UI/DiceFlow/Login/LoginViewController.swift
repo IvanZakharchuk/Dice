@@ -13,7 +13,7 @@ enum LoginViewControllerEvents {
     // user name
 }
 
-class LoginViewController: UIViewController, RootViewGetable {
+class LoginViewController: BaseViewController, RootViewGetable {
     
     typealias RootView = LoginView
 
@@ -28,7 +28,7 @@ class LoginViewController: UIViewController, RootViewGetable {
     // MARK: Initialization
     
     deinit {
-        print("deinit")
+        print("deinit LoginVC")
     }
     
     public init(user: User) {
@@ -41,14 +41,6 @@ class LoginViewController: UIViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: LifeCycle
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        self.configureLoginView()
-    }
-    
-    // MARK: -
     // MARK: Public
     
     public func presentGame(user: User) {
@@ -58,19 +50,22 @@ class LoginViewController: UIViewController, RootViewGetable {
     // MARK: -
     // MARK: Private
     
-    private func configureLoginView() {
-        self.rootView?.setupView()
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
-    }
-    
     private func handle(event: LoginViewEvents) {
         switch event {
         case let .shareUserName(user):
             self.user.userName = user
             self.presentGame(user: self.user)
             print(user) // model get name
+        }
+    }
+    
+    // MARK: -
+    // MARK: Overrided
+    
+    internal override func configureView() {
+        self.rootView?.setupView()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
         }
     }
 }
