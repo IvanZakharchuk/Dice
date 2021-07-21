@@ -23,6 +23,7 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     private var userName = ""
     private var userScore = ""
     private var botScore = ""
+    private var numberOfRows = 0
 
     // MARK: -
     // MARK: IBOutlets
@@ -52,18 +53,17 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     // MARK: TableViewDataSource
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        self.eventHandler?(.leaderBoardTableViewFill)
+        
+        return numberOfRows
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        self.eventHandler?(.leaderBoardTableViewFill)
         
         let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
-    
-        
         cell.setupLeaderboardCell(userName: self.userName, userScore: self.userScore, botScore: self.botScore )
-       //  cell.setupLeaderboardCell(userName: "Ivan", userScore: "5", botScore: "10")
-        
-        self.eventHandler?(.leaderBoardTableViewFill)
+       
         return cell
     }
     
@@ -78,8 +78,8 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     }
     
     
-    public func tableViewNunberOfSections(user: Int) -> Int {
-        self.tableView(leaderboardTableView ?? UITableView(), numberOfRowsInSection: user)
+    public func numberOfRows(numberOfRows: Int) {
+        self.numberOfRows = numberOfRows
     }
     
     // MARK: -

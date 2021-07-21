@@ -51,7 +51,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     private func handle(event: LeadeboardViewEnvents) {
         switch event {
         case .leaderBoardTableViewFill:
-//            self.rootView?.tableViewNunberOfSections(user:)
+            self.rootView?.numberOfRows(numberOfRows: 10)
             self.rootView?.tableViewUpdate(
                 userName: self.user.userName,
                 userScore: String(self.user.currentDice()),
