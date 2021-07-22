@@ -71,8 +71,13 @@ class GameViewController: BaseViewController, RootViewGetable {
     
     private func processGame() {
         
-        let botDice = self.bot.currentDice()
-        let userDice = self.user.currentDice()
+        self.bot.currentDice()
+        self.user.currentDice()
+        
+        let botDice = self.bot.currentPosition
+        let userDice = self.user.currentPosition
+//        let botDice = self.bot.currentDice()
+//        let userDice = self.user.currentDice()
         
         if botDice > userDice {
             print("BotWin")

@@ -14,20 +14,19 @@ protocol RootViewGetable {
     var rootView: RootView? { get }
 }
 
-extension RootViewGetable where Self: UIViewController, RootView: UIView {
+extension RootViewGetable where Self: BaseViewController, RootView: UIView {
     var rootView: RootView? {
         return self.view as? RootView
     }
 }
 
 class BaseViewController: UIViewController {
-    
+
     // MARK: -
     // MARK: ViewLifeCycle
 
     open override func viewDidLoad() {
         super.viewDidLoad()
-        
         
         self.configureView()
     }
@@ -38,5 +37,5 @@ class BaseViewController: UIViewController {
     func configureView() {
         
     }
-    
 }
+
