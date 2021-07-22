@@ -28,7 +28,7 @@ class User {
     // MARK: -
     // MARK: Private
     
-    public func currentDice() -> Int{
+    public func currentDice() -> Int {
         self.currentPosition = self.dice.random()
         return currentPosition
     }
