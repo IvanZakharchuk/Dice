@@ -76,14 +76,14 @@ class GameViewController: BaseViewController, RootViewGetable {
         
         let botDice = self.bot.currentPosition
         let userDice = self.user.currentPosition
-//        let botDice = self.bot.currentDice()
-//        let userDice = self.user.currentDice()
         
         if botDice > userDice {
             print("BotWin")
             // TODO: alert to root view
+            self.bot.score += 1
         } else if botDice < userDice {
             print("UserWin")
+            self.user.score += 1
             
         } else if botDice == userDice {
             print("Stand off")
@@ -92,8 +92,7 @@ class GameViewController: BaseViewController, RootViewGetable {
         print(botDice)
         print(userDice)
         
-        
-        self.rootView?.scoreViewUpdate(botScore: String(botDice), userScore: String(userDice))
+        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     

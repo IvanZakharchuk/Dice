@@ -54,8 +54,8 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
             self.rootView?.numberOfRows(numberOfRows: 10)
             self.rootView?.tableViewUpdate(
                 userName: self.user.userName,
-                userScore: String(self.user.currentDice()),/* пофіксити щоб було дефолтне*/
-                botScore: String(self.bot.currentDice())
+                userScore: String(self.user.score),
+                botScore: String(self.bot.score)
             )
         }
     }
