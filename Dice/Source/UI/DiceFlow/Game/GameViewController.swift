@@ -68,6 +68,7 @@ class GameViewController: BaseViewController, RootViewGetable {
         let userDice = self.user.emptyPosition
         
         self.rootView?.configureScoreView(user: self.user.userName)
+        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(userDice))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
