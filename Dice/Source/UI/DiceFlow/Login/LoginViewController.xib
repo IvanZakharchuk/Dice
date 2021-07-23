@@ -84,6 +84,7 @@
             <connections>
                 <outlet property="enterButton" destination="k6X-bg-49F" id="jff-kC-szJ"/>
                 <outlet property="userNameTextField" destination="DUl-jL-ycX" id="gF6-dB-D09"/>
+                <outlet property="welcomeLabel" destination="Ro8-av-9v2" id="yee-yT-Ogr"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="133.92857142857142"/>
         </view>

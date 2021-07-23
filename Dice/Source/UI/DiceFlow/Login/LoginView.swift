@@ -23,6 +23,7 @@ class LoginView: UIView, UITextFieldDelegate {
     // MARK: -
     // MARK: IBOutlets
     
+    @IBOutlet private var welcomeLabel: UILabel!
     @IBOutlet private var userNameTextField: UITextField?
     @IBOutlet private var enterButton: UIButton?
     
@@ -43,12 +44,32 @@ class LoginView: UIView, UITextFieldDelegate {
         self.userNameTextField?.becomeFirstResponder()
         self.enterButton?.layer.cornerRadius = 25
         self.enterButton?.layer.borderWidth = 1
+        
+        self.animatedElements()
     }
     
     // MARK: -
     // MARK: Overrided
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
-        userNameTextField?.resignFirstResponder()
+        self.userNameTextField?.resignFirstResponder()
+    }
+    
+    private func animatedElements() {
+        self.welcomeLabel?.center.x += self.bounds.width // right
+        self.userNameTextField?.center.x -= self.bounds.width // left 
+        self.enterButton?.center.x -= self.bounds.width
+        
+        UIView.animate(withDuration: 0.5) {
+            self.welcomeLabel?.center.x -= self.bounds.width
+        }
+        
+        UIView.animate(withDuration: 0.7, delay: 0.4, options: [], animations: {
+                        self.userNameTextField?.center.x += self.bounds.width },
+                       completion: nil)
+        
+        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: {
+                        self.enterButton?.center.x += self.bounds.width },
+                       completion: nil)
     }
 }
