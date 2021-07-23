@@ -46,7 +46,7 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     // MARK: TableViewDelegate
     
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        
+       // TODO: Maybe future reature
     }
     
     // MARK: -
@@ -81,12 +81,4 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     public func numberOfRows(numberOfRows: Int) {
         self.numberOfRows = numberOfRows
     }
-    
-    // MARK: -
-    // MARK: Private
-    
-    private func updateCell() {
-        
-    }
-    
 }
