@@ -14,6 +14,8 @@ class Bot {
     
     public var currentPosition = 0
     
+    public var score = 0
+    
     public var dice: Dices
     
     // MARK: -
@@ -26,8 +28,7 @@ class Bot {
     // MARK: -
     // MARK: Private
     
-    public func currentDice() -> Int {
+    public func currentDice() {
         self.currentPosition = self.dice.random()
-        return currentPosition
     }
 }

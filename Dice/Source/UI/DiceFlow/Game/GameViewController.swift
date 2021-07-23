@@ -58,6 +58,8 @@ class GameViewController: BaseViewController, RootViewGetable {
             self.presentLeaderboard(user: self.user, bot: self.bot)
         case .updateDices:
             self.processGame()
+        case let .showAlert(alertController):
+            self.alert(alertController: alertController)
         }
     }
     
@@ -76,25 +78,22 @@ class GameViewController: BaseViewController, RootViewGetable {
         
         let botDice = self.bot.currentPosition
         let userDice = self.user.currentPosition
-//        let botDice = self.bot.currentDice()
-//        let userDice = self.user.currentDice()
         
         if botDice > userDice {
-            print("BotWin")
-            // TODO: alert to root view
+            self.bot.score += 1
+            self.rootView?.showAlert(title: "Bot Win")
         } else if botDice < userDice {
-            print("UserWin")
-            
+            self.user.score += 1
+            self.rootView?.showAlert(title: self.user.userName + " Win")
         } else if botDice == userDice {
-            print("Stand off")
-        }
-        
-        print(botDice)
-        print(userDice)
-        
-        
-        self.rootView?.scoreViewUpdate(botScore: String(botDice), userScore: String(userDice))
+            self.rootView?.showAlert(title: "Stand off")
+        } 
+        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+    }
+    
+    private func alert(alertController: UIAlertController) {
+        self.present(alertController, animated: true, completion: nil)
     }
     
     // MARK: -

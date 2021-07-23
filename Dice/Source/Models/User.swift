@@ -13,8 +13,10 @@ class User {
     // MARK: Properties
     
     public var userName = ""
-    public var currentPosition = 0 
-    public let emptyPosition = 0 
+    public var currentPosition = 0
+    public let emptyPosition = 0
+    
+    public var score = 0
     
     public var dice: Dices
     
@@ -28,8 +30,7 @@ class User {
     // MARK: -
     // MARK: Private
     
-    public func currentDice() -> Int {
+    public func currentDice() {
         self.currentPosition = self.dice.random()
-        return currentPosition
     }
 }

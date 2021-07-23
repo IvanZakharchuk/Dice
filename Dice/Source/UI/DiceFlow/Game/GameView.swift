@@ -12,6 +12,7 @@ enum GameViewEvents {
     
     case needDisplayLeaderBoard
     case updateDices
+    case showAlert(UIAlertController)
 }
 
 class GameView: UIView {
@@ -70,10 +71,16 @@ class GameView: UIView {
         let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }
         
         alertController.addAction(confirmAction)
+        
+        self.eventHandler?(.showAlert(alertController))
     }
     
     // MARK: -
     // MARK: Private
+    
+    private func alertController() {
+        
+    }
     
     private func setupLeaderboardButton() {
         self.leaderboardButton?.layer.cornerRadius = 10
