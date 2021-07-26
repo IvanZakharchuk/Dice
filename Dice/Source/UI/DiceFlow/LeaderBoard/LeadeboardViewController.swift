@@ -22,7 +22,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     public var eventHandler: ((LeaderboardViewControllerEvents) -> ())?
     
     private var user: User
-    private var bot: Bot
+    private var bot: User
     
     // MARK: -
     // MARK: Initialization
@@ -32,7 +32,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
         print("deinit LeaderboardVC")
     }
     
-    public init(user: User, bot: Bot) {
+    public init(user: User, bot: User) {
         self.user = user
         self.bot = bot
       

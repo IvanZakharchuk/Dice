@@ -9,7 +9,7 @@ import UIKit
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(User, Bot)
+    case needDisplayLeaderboard(User, User)
 }
 
 class GameViewController: BaseViewController, RootViewGetable {
@@ -22,7 +22,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     public var eventHandler: ((GameViewControllerEvents) -> ())?
     
     private var user: User
-    private var bot: Bot
+    private var bot: User
     
     // MARK: -
     // MARK: Initialization
@@ -31,7 +31,7 @@ class GameViewController: BaseViewController, RootViewGetable {
         print("deinit GameVC")
     }
     
-    public init(user: User, bot: Bot) {
+    public init(user: User, bot: User) {
         self.user = user
         self.bot = bot
         
@@ -45,7 +45,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: User, bot: Bot) {
+    public func presentLeaderboard(user: User, bot: User) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot))
     }
     
@@ -75,7 +75,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     
     private func processGame() {
         self.bot.shuffleDice()
-        self.user.currentDice()
+        self.user.shuffleDice()
         
         let botDice = self.bot.currentPosition
         let userDice = self.user.currentPosition
