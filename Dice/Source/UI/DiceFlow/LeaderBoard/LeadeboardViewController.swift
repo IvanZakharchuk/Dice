@@ -27,6 +27,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Initialization
     
+    // вынести деініт тайп оф селл 
     deinit {
         print("deinit LeaderboardVC")
     }
@@ -53,7 +54,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
         case .leaderBoardTableViewFill:
             self.rootView?.numberOfRows(numberOfRows: 1)
             self.rootView?.tableViewUpdate(
-                userName: self.user.userName,
+                userName: self.user.name,
                 userScore: String(self.user.score),
                 botScore: String(self.bot.score)
             )

@@ -23,7 +23,7 @@ class LoginView: UIView, UITextFieldDelegate {
     // MARK: -
     // MARK: IBOutlets
     
-    @IBOutlet private var welcomeLabel: UILabel!
+    @IBOutlet private var welcomeLabel: UILabel?
     @IBOutlet private var userNameTextField: UITextField?
     @IBOutlet private var enterButton: UIButton?
     
@@ -42,6 +42,8 @@ class LoginView: UIView, UITextFieldDelegate {
     public func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.userNameTextField?.becomeFirstResponder()
+        
+        // екстеншини на ксиб что б сделать ето там 
         self.enterButton?.layer.cornerRadius = 25
         self.enterButton?.layer.borderWidth = 1
         

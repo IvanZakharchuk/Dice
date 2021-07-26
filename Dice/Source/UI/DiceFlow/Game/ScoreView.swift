@@ -31,3 +31,7 @@ class ScoreView: UIView {
         self.layer.cornerRadius = 15
     }
 }
+
+
+// реюзабл в'ю
+// ниб дизайнебл на луа 

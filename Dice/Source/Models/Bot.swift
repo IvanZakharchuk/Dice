@@ -28,7 +28,7 @@ class Bot {
     // MARK: -
     // MARK: Private
     
-    public func currentDice() {
+    public func shuffleDice() {
         self.currentPosition = self.dice.random()
     }
 }

@@ -26,5 +26,4 @@ class LeaderboardTableViewCell: UITableViewCell {
         
         self.layer.cornerRadius = 12
     }
-    
 }

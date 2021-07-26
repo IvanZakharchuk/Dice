@@ -29,6 +29,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureView()
+        // вынести сюда функци
     }
     
     // MARK: -

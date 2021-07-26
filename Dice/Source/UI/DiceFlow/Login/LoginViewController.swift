@@ -10,7 +10,6 @@ import UIKit
 enum LoginViewControllerEvents {
     
     case needDisplayGame(User)
-    // user name
 }
 
 class LoginViewController: BaseViewController, RootViewGetable {
@@ -50,12 +49,15 @@ class LoginViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Private
     
+    
+    // убрать в бейсонтрллер с дженерик типом где дженерик тип как ивент который
+    // потом оверайднуть
+    // дженерик тип как ивет откидывает хендлер
     private func handle(event: LoginViewEvents) {
         switch event {
-        case let .shareUserName(user):
-            self.user.userName = user
+        case let .shareUserName(name):
+            self.user.name = name
             self.presentGame(user: self.user)
-            print(user) // model get name
         }
     }
     
@@ -63,6 +65,8 @@ class LoginViewController: BaseViewController, RootViewGetable {
     // MARK: Overrided
     
     internal override func configureView() {
+        super.configureView()
+        // убрать в бейс контрлллер
         self.rootView?.setupView()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)

@@ -13,6 +13,8 @@ enum LeadeboardViewEnvents {
     case leaderBoardTableViewFill
 }
 
+// делегат и дата сорс в контрллере
+
 class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     
     // MARK: -
@@ -61,12 +63,12 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         self.eventHandler?(.leaderBoardTableViewFill)
         
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
+        // екстенш на ячейки таблицы глянуть в луа
+        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as? LeaderboardTableViewCell
         cell.setupLeaderboardCell(userName: self.userName, userScore: self.userScore, botScore: self.botScore )
        
         return cell
     }
-    
     
     // MARK: -
     // MARK: Public
@@ -76,7 +78,6 @@ class LeaderboardView: UIView, UITableViewDelegate, UITableViewDataSource {
         self.userScore = userScore
         self.botScore = botScore
     }
-    
     
     public func numberOfRows(numberOfRows: Int) {
         self.numberOfRows = numberOfRows

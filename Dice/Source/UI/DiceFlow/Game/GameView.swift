@@ -22,7 +22,6 @@ class GameView: UIView {
     
     public var eventHandler: ((GameViewEvents) -> ())?
     
-    
     // MARK: -
     // MARK: IBOutlets
     
@@ -66,6 +65,7 @@ class GameView: UIView {
         self.userImage?.image = UIImage(named: userImage)
     }
     
+    // винести алерт в контролллер
     public func showAlert(title: String) {
         let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
         let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }

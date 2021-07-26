@@ -68,14 +68,13 @@ class GameViewController: BaseViewController, RootViewGetable {
         let userDice = self.user.emptyPosition
         self.user.score = 0
         
-        self.rootView?.configureScoreView(user: self.user.userName)
+        self.rootView?.configureScoreView(user: self.user.name)
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
     private func processGame() {
-        
-        self.bot.currentDice()
+        self.bot.shuffleDice()
         self.user.currentDice()
         
         let botDice = self.bot.currentPosition
@@ -86,10 +85,11 @@ class GameViewController: BaseViewController, RootViewGetable {
             self.rootView?.showAlert(title: "Bot Win")
         } else if botDice < userDice {
             self.user.score += 1
-            self.rootView?.showAlert(title: self.user.userName + " Win")
+            self.rootView?.showAlert(title: self.user.name + " Win")
         } else if botDice == userDice {
             self.rootView?.showAlert(title: "Stand off")
-        } 
+        }
+        
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
