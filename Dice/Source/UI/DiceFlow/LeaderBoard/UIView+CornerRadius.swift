@@ -11,6 +11,10 @@ import UIKit
 extension UIView {
     
     func cornerRadius(radius: CGFloat) {
-        return self.layer.cornerRadius = radius
+        self.layer.cornerRadius = radius
+    }
+    
+    func borderWidth(borderWidth: CGFloat) {
+        self.layer.borderWidth = borderWidth
     }
 }
