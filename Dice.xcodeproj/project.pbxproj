@@ -7,11 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		780075BA26A5928D00E4734F /* Bot.swift in Sources */ = {isa = PBXBuildFile; fileRef = 780075B926A5928D00E4734F /* Bot.swift */; };
 		7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7834C4BF26A4DC0B00A066E2 /* Dices.swift */; };
 		784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687A269DC0A000C01B78 /* BaseCoordinator.swift */; };
 		784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687C269DC0D800C01B78 /* DiceCoordinator.swift */; };
-		784E687F269DC13900C01B78 /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687E269DC13900C01B78 /* User.swift */; };
+		784E687F269DC13900C01B78 /* Player.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E687E269DC13900C01B78 /* Player.swift */; };
 		784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6880269DC95C00C01B78 /* LoginViewController.swift */; };
 		784E6883269DC95C00C01B78 /* LoginViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784E6881269DC95C00C01B78 /* LoginViewController.xib */; };
 		784E6886269DCB2A00C01B78 /* LoginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6885269DCB2A00C01B78 /* LoginView.swift */; };
@@ -31,6 +30,7 @@
 		78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B3365D26A705BA0038AD13 /* BaseViewController.swift */; };
 		78FF413026A83ACA006FA13C /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */; };
 		78FF413126A83ACA006FA13C /* LeaderboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */; };
+		78FF413326AED18D006FA13C /* UITableViewCell+Xib.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF413226AED18D006FA13C /* UITableViewCell+Xib.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -51,11 +51,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		780075B926A5928D00E4734F /* Bot.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Bot.swift; sourceTree = "<group>"; };
 		7834C4BF26A4DC0B00A066E2 /* Dices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Dices.swift; sourceTree = "<group>"; };
 		784E687A269DC0A000C01B78 /* BaseCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseCoordinator.swift; sourceTree = "<group>"; };
 		784E687C269DC0D800C01B78 /* DiceCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceCoordinator.swift; sourceTree = "<group>"; };
-		784E687E269DC13900C01B78 /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		784E687E269DC13900C01B78 /* Player.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Player.swift; sourceTree = "<group>"; };
 		784E6880269DC95C00C01B78 /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		784E6881269DC95C00C01B78 /* LoginViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LoginViewController.xib; sourceTree = "<group>"; };
 		784E6885269DCB2A00C01B78 /* LoginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginView.swift; sourceTree = "<group>"; };
@@ -81,6 +80,7 @@
 		78B3365D26A705BA0038AD13 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardTableViewCell.xib; sourceTree = "<group>"; };
+		78FF413226AED18D006FA13C /* UITableViewCell+Xib.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UITableViewCell+Xib.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UITableViewCell+Xib.swift"; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -217,6 +217,7 @@
 		78681D34269D8D2D00975FA6 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				78FF413226AED18D006FA13C /* UITableViewCell+Xib.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -241,9 +242,8 @@
 		78681D37269D8D5000975FA6 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				784E687E269DC13900C01B78 /* User.swift */,
+				784E687E269DC13900C01B78 /* Player.swift */,
 				7834C4BF26A4DC0B00A066E2 /* Dices.swift */,
-				780075B926A5928D00E4734F /* Bot.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -386,14 +386,14 @@
 				78FF413026A83ACA006FA13C /* LeaderboardTableViewCell.swift in Sources */,
 				78681D03269C93B100975FA6 /* AppDelegate.swift in Sources */,
 				784E687D269DC0D800C01B78 /* DiceCoordinator.swift in Sources */,
-				784E687F269DC13900C01B78 /* User.swift in Sources */,
+				784E687F269DC13900C01B78 /* Player.swift in Sources */,
 				786EF62D26A165BB00D54F54 /* LeaderboardView.swift in Sources */,
 				78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */,
 				784E688E269ED51100C01B78 /* GameView.swift in Sources */,
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */,
-				780075BA26A5928D00E4734F /* Bot.swift in Sources */,
 				784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */,
+				78FF413326AED18D006FA13C /* UITableViewCell+Xib.swift in Sources */,
 				784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */,
 				784E6890269EE04100C01B78 /* ScoreView.swift in Sources */,
 				786EF62A26A165A700D54F54 /* LeadeboardViewController.swift in Sources */,

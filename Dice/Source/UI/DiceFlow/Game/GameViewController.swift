@@ -9,7 +9,7 @@ import UIKit
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(User, Bot)
+    case needDisplayLeaderboard(Player, Player)
 }
 
 class GameViewController: BaseViewController, RootViewGetable {
@@ -21,8 +21,8 @@ class GameViewController: BaseViewController, RootViewGetable {
     
     public var eventHandler: ((GameViewControllerEvents) -> ())?
     
-    private var user: User
-    private var bot: Bot
+    private var user: Player
+    private var bot: Player
     
     // MARK: -
     // MARK: Initialization
@@ -31,7 +31,7 @@ class GameViewController: BaseViewController, RootViewGetable {
         print("deinit GameVC")
     }
     
-    public init(user: User, bot: Bot) {
+    public init(user: Player, bot: Player) {
         self.user = user
         self.bot = bot
         
@@ -45,7 +45,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: User, bot: Bot) {
+    public func presentLeaderboard(user: Player, bot: Player) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot))
     }
     
@@ -58,13 +58,11 @@ class GameViewController: BaseViewController, RootViewGetable {
             self.presentLeaderboard(user: self.user, bot: self.bot)
         case .updateDices:
             self.processGame()
-        case let .showAlert(alertController):
-            self.alert(alertController: alertController)
         }
     }
     
     private func loadEmptyDices() {
-        let botDice = self.bot.currentPosition
+        let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
         self.user.score = 0
         
@@ -75,26 +73,30 @@ class GameViewController: BaseViewController, RootViewGetable {
     
     private func processGame() {
         self.bot.shuffleDice()
-        self.user.currentDice()
+        self.user.shuffleDice()
         
         let botDice = self.bot.currentPosition
         let userDice = self.user.currentPosition
         
         if botDice > userDice {
             self.bot.score += 1
-            self.rootView?.showAlert(title: "Bot Win")
+            self.showAlert(title: "Bot Win")
         } else if botDice < userDice {
             self.user.score += 1
-            self.rootView?.showAlert(title: self.user.name + " Win")
+            self.showAlert(title: self.user.name + " Win")
         } else if botDice == userDice {
-            self.rootView?.showAlert(title: "Stand off")
+            self.showAlert(title: "Stand off")
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
-    private func alert(alertController: UIAlertController) {
+    private func showAlert(title: String) {
+        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
+        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }
+        
+        alertController.addAction(confirmAction)
         self.present(alertController, animated: true, completion: nil)
     }
     

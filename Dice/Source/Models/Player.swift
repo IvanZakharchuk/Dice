@@ -1,18 +1,25 @@
 //
-//  Bot.swift
+//  Dice.swift
 //  Dice
 //
-//  Created by Іван Захарчук on 19.07.2021.
+//  Created by Іван Захарчук on 13.07.2021.
 //
 
 import Foundation
 
-class Bot {
+class Player {
     
     // MARK: -
     // MARK: Properties
     
+    // удалить модель бота
+    // сделать как бот
+    
+    // на логин вс создавать нового пользователя 
+    
+    public var name = ""
     public var currentPosition = 0
+    public let emptyPosition = 0
     
     public var score = 0
     

@@ -8,8 +8,8 @@
 import UIKit
 
 enum LoginViewControllerEvents {
-    
-    case needDisplayGame(User)
+
+    case needDisplayGame(Player)
 }
 
 class LoginViewController: BaseViewController, RootViewGetable {
@@ -21,7 +21,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
-    private var user: User
+    private var user: Player
     
     // MARK: -
     // MARK: Initialization
@@ -30,7 +30,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
         print("deinit LoginVC")
     }
     
-    public init(user: User) {
+    public init(user: Player) {
         self.user = user
         super.init(nibName: nil, bundle: nil)
     }
@@ -42,7 +42,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Public
     
-    public func presentGame(user: User) {
+    public func presentGame(user: Player) {
         self.eventHandler?(.needDisplayGame(user))
     }
     

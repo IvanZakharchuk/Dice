@@ -21,6 +21,13 @@ extension RootViewGetable where Self: BaseViewController, RootView: UIView {
 }
 
 class BaseViewController: UIViewController {
+    
+    // MARK: -
+    // MARK: Initialization
+    
+    deinit {
+        debugPrint("deinit: \(type(of: self))")
+    }
 
     // MARK: -
     // MARK: ViewLifeCycle
@@ -30,6 +37,7 @@ class BaseViewController: UIViewController {
         
         self.configureView()
         // вынести сюда функци
+        
     }
     
     // MARK: -
@@ -38,5 +46,24 @@ class BaseViewController: UIViewController {
     func configureView() {
         
     }
+    
+    
 }
 
+protocol Events {
+    associatedtype Events
+    
+    var event: Events? { get }
+}
+
+extension Events {
+    
+    var event: Events? {
+        return self.event
+    }
+}
+
+//class Base<Events: >: UIViewController {
+//    
+//    
+//}

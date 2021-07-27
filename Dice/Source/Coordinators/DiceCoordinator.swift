@@ -15,7 +15,7 @@ class DiceCoordinator: BaseCoordinator {
     
     private func presentLogin() {
         let dice = Dices()
-        let user = User(dice: dice)
+        let user = Player(dice: dice)
         let controller = LoginViewController(user: user)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
@@ -30,9 +30,9 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentGame(user: User) {
+    private func presentGame(user: Player) {
         let dice = Dices()
-        let bot = Bot(dice: dice)
+        let bot = Player(dice: dice)
         let controller = GameViewController(user: user, bot: bot)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
@@ -47,7 +47,7 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentLeaderBoard(user: User, bot: Bot) {
+    private func presentLeaderBoard(user: Player, bot: Player) {
         let controller = LeadeboardViewController(user: user, bot: bot)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)

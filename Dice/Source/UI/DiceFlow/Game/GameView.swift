@@ -12,7 +12,6 @@ enum GameViewEvents {
     
     case needDisplayLeaderBoard
     case updateDices
-    case showAlert(UIAlertController)
 }
 
 class GameView: UIView {
@@ -64,23 +63,10 @@ class GameView: UIView {
         self.botImage?.image = UIImage(named: botImage)
         self.userImage?.image = UIImage(named: userImage)
     }
-    
-    // винести алерт в контролллер
-    public func showAlert(title: String) {
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-        
-        alertController.addAction(confirmAction)
-        
-        self.eventHandler?(.showAlert(alertController))
-    }
+    // винести алерт в контролллер(Есть )
     
     // MARK: -
     // MARK: Private
-    
-    private func alertController() {
-        
-    }
     
     private func setupLeaderboardButton() {
         self.leaderboardButton?.layer.cornerRadius = 10

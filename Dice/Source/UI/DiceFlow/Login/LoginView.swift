@@ -43,7 +43,7 @@ class LoginView: UIView, UITextFieldDelegate {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.userNameTextField?.becomeFirstResponder()
         
-        // екстеншини на ксиб что б сделать ето там 
+        // екстеншини на ксиб что б сделать ето там
         self.enterButton?.layer.cornerRadius = 25
         self.enterButton?.layer.borderWidth = 1
         
@@ -56,6 +56,9 @@ class LoginView: UIView, UITextFieldDelegate {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.userNameTextField?.resignFirstResponder()
     }
+    
+    // MARK: -
+    // MARK: Private 
     
     private func animatedElements() {
         self.welcomeLabel?.center.x += self.bounds.width // right
