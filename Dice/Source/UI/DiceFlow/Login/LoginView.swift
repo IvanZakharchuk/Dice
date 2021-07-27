@@ -46,6 +46,7 @@ class LoginView: UIView, UITextFieldDelegate {
         // екстеншини на ксиб что б сделать ето там
         self.enterButton?.layer.cornerRadius = 25
         self.enterButton?.layer.borderWidth = 1
+        self.enterButton?.cornerRadius(radius: 25)
         
         self.animatedElements()
     }

@@ -28,7 +28,7 @@ class ScoreView: UIView {
     
     public func configureScoreView(user: String) {
         self.userLabel?.text = user
-        self.layer.cornerRadius = 15
+        self.cornerRadius(radius: 15)
     }
 }
 
