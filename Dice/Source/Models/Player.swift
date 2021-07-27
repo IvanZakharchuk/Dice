@@ -7,7 +7,7 @@
 
 import Foundation
 
-class User {
+class Player {
     
     // MARK: -
     // MARK: Properties

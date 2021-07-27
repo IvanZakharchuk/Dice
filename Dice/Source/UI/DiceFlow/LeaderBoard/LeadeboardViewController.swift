@@ -21,18 +21,13 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     
     public var eventHandler: ((LeaderboardViewControllerEvents) -> ())?
     
-    private var user: User
-    private var bot: User
+    private var user: Player
+    private var bot: Player
     
     // MARK: -
     // MARK: Initialization
     
-    // вынести деініт тайп оф селл 
-    deinit {
-        print("deinit LeaderboardVC")
-    }
-    
-    public init(user: User, bot: User) {
+    public init(user: Player, bot: Player) {
         self.user = user
         self.bot = bot
       
@@ -44,30 +39,35 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     }
     
     // MARK: -
-    // MARK: Public
-    
-    // MARK: -
-    // MARK: Pvivate
-    
-    private func handle(event: LeadeboardViewEnvents) {
-        switch event {
-        case .leaderBoardTableViewFill:
-            self.rootView?.numberOfRows(numberOfRows: 1)
-            self.rootView?.tableViewUpdate(
-                userName: self.user.name,
-                userScore: String(self.user.score),
-                botScore: String(self.bot.score)
-            )
-        }
-    }
-    
-    // MARK: -
     // MARK: Overrided
     
     internal override func configureView() {
         self.rootView?.setupView()
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
     }
+}
+
+extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
+    
+    func registeCell() {
+        self.leaderBoardTableView?.register(cell: "LeaderboardTableViewCell")
+        
+    }
+    
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        1
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        //        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
+        
+//        let cell = tableView.register(cell: "LeaderboardTableViewCell")
+        let cell = tableView.dequeueReusableCell(withCellClass: LeaderboardTableViewCell.self, for: indexPath) 
+        
+        
+        cell.setupLeaderboardCell(userName: self.user.name, userScore: String(self.user.score), botScore: String(self.bot.score) )
+        
+        return cell
+    }
+    
+    
 }
