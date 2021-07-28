@@ -25,11 +25,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
     
     // MARK: -
     // MARK: Initialization
-    
-    deinit {
-        print("deinit LoginVC")
-    }
-    
+
     public init(user: Player) {
         self.user = user
         super.init(nibName: nil, bundle: nil)
@@ -48,7 +44,6 @@ class LoginViewController: BaseViewController, RootViewGetable {
     
     // MARK: -
     // MARK: Private
-    
     
     // убрать в бейсонтрллер с дженерик типом где дженерик тип как ивент который
     // потом оверайднуть

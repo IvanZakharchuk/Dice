@@ -24,6 +24,6 @@ class LeaderboardTableViewCell: UITableViewCell {
         self.userScore?.text = userScore
         self.botScore?.text = botScore
         
-        self.layer.cornerRadius = 12
+        self.cornerRadius(radius: 12)
     }
 }

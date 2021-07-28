@@ -43,9 +43,9 @@ class LoginView: UIView, UITextFieldDelegate {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.userNameTextField?.becomeFirstResponder()
         
-        // екстеншини на ксиб что б сделать ето там
-        self.enterButton?.layer.cornerRadius = 25
-        self.enterButton?.layer.borderWidth = 1
+        // екстеншини на ксиб что б сделать ето там(есть)
+        self.enterButton?.borderWidth(borderWidth: 1)
+        self.enterButton?.cornerRadius(radius: 25)
         
         self.animatedElements()
     }

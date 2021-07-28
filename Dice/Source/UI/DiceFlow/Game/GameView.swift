@@ -69,12 +69,12 @@ class GameView: UIView {
     // MARK: Private
     
     private func setupLeaderboardButton() {
-        self.leaderboardButton?.layer.cornerRadius = 10
-        self.leaderboardButton?.layer.borderWidth = 2
+        self.leaderboardButton?.cornerRadius(radius: 10)
+        self.leaderboardButton?.borderWidth(borderWidth: 2)
     }
     
     private func setupPlayButton() {
-        self.playGameButton?.layer.cornerRadius = 25
-        self.playGameButton?.layer.borderWidth = 2
+        self.playGameButton?.cornerRadius(radius: 25)
+        self.playGameButton?.borderWidth(borderWidth: 2)
     }
 }

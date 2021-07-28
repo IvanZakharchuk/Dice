@@ -27,10 +27,6 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Initialization
     
-    deinit {
-        print("deinit GameVC")
-    }
-    
     public init(user: Player, bot: Player) {
         self.user = user
         self.bot = bot
