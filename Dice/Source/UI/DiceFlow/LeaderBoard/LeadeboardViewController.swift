@@ -48,10 +48,6 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
 
 extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
-    func registeCell() {
-        self.leaderBoardTableView?.register(cell: "LeaderboardTableViewCell")
-        
-    }
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         1
@@ -61,8 +57,11 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
         
 //        let cell = tableView.register(cell: "LeaderboardTableViewCell")
-        let cell = tableView.dequeueReusableCell(withCellClass: LeaderboardTableViewCell.self, for: indexPath) 
+//        let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
         
+        guard let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath) as? LeaderboardTableViewCell else {
+            fatalError("Cell not creating")
+        }
         
         cell.setupLeaderboardCell(userName: self.user.name, userScore: String(self.user.score), botScore: String(self.bot.score) )
         

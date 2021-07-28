@@ -9,7 +9,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LeadeboardViewController" customModule="Dice" customModuleProvider="target">
             <connections>
-                <outlet property="leaderBoardTableView" destination="8vc-fV-uPl" id="jE6-gy-DTY"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -29,6 +28,10 @@
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <color key="separatorColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <inset key="separatorInset" minX="12" minY="0.0" maxX="12" maxY="0.0"/>
+                    <connections>
+                        <outlet property="dataSource" destination="-1" id="hMZ-ul-Gde"/>
+                        <outlet property="delegate" destination="-1" id="ryi-AN-Q4E"/>
+                    </connections>
                 </tableView>
                 <stackView opaque="NO" contentMode="scaleToFill" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="uv3-PD-4Ip">
                     <rect key="frame" x="12" y="116" width="390" height="30"/>
@@ -83,6 +86,9 @@
                 <constraint firstItem="8vc-fV-uPl" firstAttribute="bottom" secondItem="fnl-2z-Ty3" secondAttribute="bottom" constant="12" id="tai-sD-70S"/>
                 <constraint firstItem="grk-Wv-anK" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="30" id="yfp-w4-5ma"/>
             </constraints>
+            <connections>
+                <outlet property="leaderboardTableView" destination="8vc-fV-uPl" id="pPB-ET-UJq"/>
+            </connections>
             <point key="canvasLocation" x="-20.289855072463769" y="128.57142857142856"/>
         </view>
     </objects>
