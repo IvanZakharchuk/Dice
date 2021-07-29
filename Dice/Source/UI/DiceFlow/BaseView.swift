@@ -10,12 +10,6 @@ import UIKit
 
 class BaseView: UIView {
     
-//    typealias RootView = UIView
-//
-//    var rootView: RootView? {
-//        return self as? RootView
-//    }
-
     func setupView() {
         
     }

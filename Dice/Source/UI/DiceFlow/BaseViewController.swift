@@ -43,7 +43,7 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureView()
-        // вынести сюда функци
+        // вынести сюда функци(часть есть)
     }
     
     // MARK: -

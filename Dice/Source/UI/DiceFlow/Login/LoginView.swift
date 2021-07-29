@@ -35,11 +35,11 @@ class LoginView: BaseView, UITextFieldDelegate {
         
         self.eventHandler?(.shareUserName(userName ?? "user"))
     }
-    
+
     // MARK: -
-    // MARK: Public
+    // MARK: Overrided
     
-    public override func setupView() {
+    override func setupView() {
         super.setupView()
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
@@ -51,9 +51,6 @@ class LoginView: BaseView, UITextFieldDelegate {
         
         self.animatedElements()
     }
-    
-    // MARK: -
-    // MARK: Overrided
     
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         self.userNameTextField?.resignFirstResponder()

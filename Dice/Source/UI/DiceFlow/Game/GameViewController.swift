@@ -100,7 +100,8 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: Overrided
     
     internal override func configureView() {
-//        self.rootView?.setupView()
+        super.configureView()
+        
         self.loadEmptyDices()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)

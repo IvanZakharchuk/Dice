@@ -45,12 +45,6 @@ class GameView: BaseView {
     // MARK: -
     // MARK: Public
     
-    public   override func setupView() {
-        self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
-        self.setupLeaderboardButton()
-        self.setupPlayButton()
-    }
-    
     public func configureScoreView(user: String) {
         self.scoreView?.configureScoreView(user: user)
     }
@@ -64,6 +58,17 @@ class GameView: BaseView {
         self.userImage?.image = UIImage(named: userImage)
     }
     // винести алерт в контролллер(Есть )
+    
+    // MARK: -
+    // MARK: Ovverided
+    
+    override func setupView() {
+        super.setupView()
+        
+        self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
+        self.setupLeaderboardButton()
+        self.setupPlayButton()
+    }
     
     // MARK: -
     // MARK: Private
