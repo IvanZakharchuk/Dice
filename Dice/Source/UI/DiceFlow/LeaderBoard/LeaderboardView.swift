@@ -10,7 +10,7 @@ import UIKit
 
 // делегат и дата сорс в контрллере(есть)
 
-class LeaderboardView: UIView {
+class LeaderboardView: BaseView {
     
     // MARK: -
     // MARK: IBOutlets
@@ -20,7 +20,7 @@ class LeaderboardView: UIView {
     // MARK: -
     // MARK: Public
     
-    public func setupView() {
+    public  override func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.leaderboardTableView?.register(cell: LeaderboardTableViewCell.self)
 

@@ -67,4 +67,8 @@ class LoginViewController: BaseViewController, RootViewGetable {
             self?.handle(event: event)
         }
     }
+    
+//    override func setupView() {
+//        super.setupView()
+//    }
 }

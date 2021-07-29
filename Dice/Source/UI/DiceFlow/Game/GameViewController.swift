@@ -76,12 +76,12 @@ class GameViewController: BaseViewController, RootViewGetable {
         
         if botDice > userDice {
             self.bot.score += 1
-            self.showAlert(title: "Bot Win")
+            self.showAlert(title: BaseTexts.botWin.rawValue)
         } else if botDice < userDice {
             self.user.score += 1
-            self.showAlert(title: self.user.name + " Win")
+            self.showAlert(title: self.user.name + BaseTexts.win.rawValue)
         } else if botDice == userDice {
-            self.showAlert(title: "Stand off")
+            self.showAlert(title: BaseTexts.standOff.rawValue)
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
@@ -100,7 +100,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: Overrided
     
     internal override func configureView() {
-        self.rootView?.setupView()
+//        self.rootView?.setupView()
         self.loadEmptyDices()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)

@@ -7,7 +7,6 @@
 
 import Foundation
 
-
 func toString(_ cls: AnyClass) -> String {
     return String(describing: cls)
 }

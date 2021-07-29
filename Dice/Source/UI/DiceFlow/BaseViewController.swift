@@ -23,6 +23,12 @@ extension RootViewGetable where Self: BaseViewController, RootView: UIView {
 class BaseViewController: UIViewController {
     
     // MARK: -
+    // MARK: Variables
+    
+    public var rootView: BaseView?
+
+    
+    // MARK: -
     // MARK: Initialization
     
     deinit {
@@ -37,17 +43,15 @@ class BaseViewController: UIViewController {
         
         self.configureView()
         // вынести сюда функци
-        
+//        self.rootView?.setupView()
     }
     
     // MARK: -
     // MARK: Overriding
     
     func configureView() {
-        
+//        self.rootView?.setupView()
     }
-    
-    
 }
 
 protocol Events {

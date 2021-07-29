@@ -42,7 +42,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     // MARK: Overrided
     
     internal override func configureView() {
-        self.rootView?.setupView()
+//        self.rootView?.setupView()
     }
 }
 
@@ -55,14 +55,11 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         //        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
-        
-//        let cell = tableView.register(cell: "LeaderboardTableViewCell")
-//        let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
+        //        let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
         
         guard let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath) as? LeaderboardTableViewCell else {
             fatalError("Cell not creating")
         }
-        
         cell.setupLeaderboardCell(userName: self.user.name, userScore: String(self.user.score), botScore: String(self.bot.score) )
         
         return cell
