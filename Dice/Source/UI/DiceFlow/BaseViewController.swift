@@ -25,9 +25,10 @@ class BaseViewController: UIViewController {
     // MARK: -
     // MARK: Variables
     
-    public var rootView: BaseView?
+    public var rootView: BaseView? {
+        return self.view as? BaseView
+    }
 
-    
     // MARK: -
     // MARK: Initialization
     
@@ -42,15 +43,14 @@ class BaseViewController: UIViewController {
         super.viewDidLoad()
         
         self.configureView()
-        // вынести сюда функци
-//        self.rootView?.setupView()
+        // вынести сюда функци(часть есть)
     }
     
     // MARK: -
     // MARK: Overriding
     
     func configureView() {
-//        self.rootView?.setupView()
+        self.rootView?.setupView()
     }
 }
 
@@ -66,8 +66,3 @@ extension Events {
         return self.event
     }
 }
-
-//class Base<Events: >: UIViewController {
-//    
-//    
-//}

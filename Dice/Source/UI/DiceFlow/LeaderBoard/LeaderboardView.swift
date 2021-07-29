@@ -20,16 +20,7 @@ class LeaderboardView: BaseView {
     // MARK: -
     // MARK: Public
     
-    public  override func setupView() {
+    public override func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
-        self.leaderboardTableView?.register(cell: LeaderboardTableViewCell.self)
-
-    }
-    
-    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        
-        // екстенш на ячейки таблицы глянуть в луа
-        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
-        return cell
     }
 }
