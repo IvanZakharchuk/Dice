@@ -62,7 +62,7 @@ class LoginViewController: BaseViewController, RootViewGetable {
     internal override func configureView() {
         super.configureView()
         // убрать в бейс контрлллер
-        self.rootView?.setupView()
+//        self.rootView?.setupView()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }

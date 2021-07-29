@@ -39,7 +39,7 @@ class LoginView: BaseView, UITextFieldDelegate {
     // MARK: -
     // MARK: Public
     
-    internal override func setupView() {
+    public override func setupView() {
         super.setupView()
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
