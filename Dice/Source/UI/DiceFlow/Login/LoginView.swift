@@ -13,7 +13,7 @@ enum LoginViewEvents {
     case shareUserName(String)
 }
 
-class LoginView: UIView, UITextFieldDelegate {
+class LoginView: BaseView, UITextFieldDelegate {
     
     // MARK: -
     // MARK: Properties
@@ -39,7 +39,9 @@ class LoginView: UIView, UITextFieldDelegate {
     // MARK: -
     // MARK: Public
     
-    public func setupView() {
+    internal override func setupView() {
+        super.setupView()
+        
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.userNameTextField?.becomeFirstResponder()
         

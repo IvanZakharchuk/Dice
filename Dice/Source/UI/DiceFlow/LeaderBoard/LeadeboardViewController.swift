@@ -42,7 +42,7 @@ class LeadeboardViewController: BaseViewController, RootViewGetable {
     // MARK: Overrided
     
     internal override func configureView() {
-        self.rootView?.setupView()
+//        self.rootView?.setupView()
     }
 }
 

@@ -14,7 +14,7 @@ enum GameViewEvents {
     case updateDices
 }
 
-class GameView: UIView {
+class GameView: BaseView {
     
     // MARK: -
     // MARK: Properties
@@ -45,7 +45,7 @@ class GameView: UIView {
     // MARK: -
     // MARK: Public
     
-    public func setupView() {
+    public   override func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
