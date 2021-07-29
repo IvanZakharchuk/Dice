@@ -32,6 +32,7 @@
 		787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */; };
 		787E6BAD26B0164F00A7AC94 /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */; };
 		787E6BAF26B016CA00A7AC94 /* BaseTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */; };
+		789DBB1726B2944B007EDC1D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DBB1626B2944B007EDC1D /* BaseView.swift */; };
 		78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B3365D26A705BA0038AD13 /* BaseViewController.swift */; };
 		78FF413026A83ACA006FA13C /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */; };
 		78FF413126A83ACA006FA13C /* LeaderboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */; };
@@ -87,6 +88,7 @@
 		787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Alert.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Presentation.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Presentation.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTexts.swift; path = Dice/Source/UI/DiceFlow/LeaderBoard/BaseTexts.swift; sourceTree = SOURCE_ROOT; };
+		789DBB1626B2944B007EDC1D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		78B3365D26A705BA0038AD13 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardTableViewCell.xib; sourceTree = "<group>"; };
@@ -125,6 +127,7 @@
 				784E6878269DBE5E00C01B78 /* Game */,
 				784E6879269DBE6900C01B78 /* LeaderBoard */,
 				78B3365D26A705BA0038AD13 /* BaseViewController.swift */,
+				789DBB1626B2944B007EDC1D /* BaseView.swift */,
 			);
 			path = DiceFlow;
 			sourceTree = "<group>";
@@ -415,6 +418,7 @@
 				78FF413326AED18D006FA13C /* UITableViewCell+Xib.swift in Sources */,
 				784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */,
 				784E6890269EE04100C01B78 /* ScoreView.swift in Sources */,
+				789DBB1726B2944B007EDC1D /* BaseView.swift in Sources */,
 				786EF62A26A165A700D54F54 /* LeadeboardViewController.swift in Sources */,
 				787E6BAD26B0164F00A7AC94 /* UIViewController+Presentation.swift in Sources */,
 			);
