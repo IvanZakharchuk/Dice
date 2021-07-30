@@ -52,6 +52,10 @@ class BaseViewController: UIViewController {
     func configureView() {
         self.rootView?.setupView()
     }
+    
+    func handle() {
+        
+    }
 }
 
 protocol Events {

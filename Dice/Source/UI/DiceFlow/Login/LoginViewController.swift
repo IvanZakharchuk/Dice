@@ -12,7 +12,9 @@ enum LoginViewControllerEvents {
     case needDisplayGame(Player)
 }
 
-class LoginViewController: BaseViewController, RootViewGetable {
+class LoginViewController: BaseViewController, RootViewGetable, Events {
+    
+    typealias Events = LoginViewEvents
     
     typealias RootView = LoginView
 
@@ -48,7 +50,12 @@ class LoginViewController: BaseViewController, RootViewGetable {
     // убрать в бейсонтрллер с дженерик типом где дженерик тип как ивент который
     // потом оверайднуть
     // дженерик тип как ивет откидывает хендлер
-    private func handle(event: LoginViewEvents) {
+    
+//    override func handle(event: Events) {
+//        <#code#>
+//    }
+    
+    private func handle(event: Events) {
         switch event {
         case let .shareUserName(name):
             self.user.name = name
