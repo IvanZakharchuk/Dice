@@ -20,6 +20,19 @@ extension RootViewGetable where Self: BaseViewController, RootView: UIView {
     }
 }
 
+protocol Events {
+    associatedtype Events
+    
+    var event: Events? { get }
+}
+
+extension Events {
+    
+    var event: Events? {
+        return self.event
+    }
+}
+
 class BaseViewController: UIViewController {
     
     // MARK: -
@@ -58,15 +71,4 @@ class BaseViewController: UIViewController {
     }
 }
 
-protocol Events {
-    associatedtype Events
-    
-    var event: Events? { get }
-}
 
-extension Events {
-    
-    var event: Events? {
-        return self.event
-    }
-}
