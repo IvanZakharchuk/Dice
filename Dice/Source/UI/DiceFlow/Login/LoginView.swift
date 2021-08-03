@@ -20,6 +20,8 @@ class LoginView: BaseView, UITextFieldDelegate {
     
     public var eventHandler: ((LoginViewEvents) -> ())?
     
+//    public var eventHandler: EventHandler<LoginViewEvents>?
+    
     // MARK: -
     // MARK: IBOutlets
     

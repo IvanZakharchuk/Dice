@@ -12,9 +12,10 @@ enum LoginViewControllerEvents {
     case needDisplayGame(Player)
 }
 
-class LoginViewController: BaseViewController, RootViewGetable, Events {
+class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable {
     
-    typealias Events = LoginViewEvents
+    
+//    typealias Events = LoginViewEvents
     
     typealias RootView = LoginView
 
@@ -22,6 +23,11 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
     // MARK: Properties
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
+    
+//    private var events: EventHandler<LoginViewEvents>
+    func eve() {
+        self.events
+    }
     
     private var user: Player
     
@@ -55,13 +61,13 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
 //        <#code#>
 //    }
     
-    private func handle(event: Events) {
-        switch event {
-        case let .shareUserName(name):
-            self.user.name = name
-            self.presentGame(user: self.user)
-        }
-    }
+//    private func handle(event: Events) {
+//        switch event {
+//        case let .shareUserName(name):
+//            self.user.name = name
+//            self.presentGame(user: self.user)
+//        }
+//    }
     
     // MARK: -
     // MARK: Overrided
@@ -74,4 +80,25 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
             self?.handle(event: event)
         }
     }
+    
+    
+    override func handle(event: LoginViewEvents) {
+        switch event {
+        case let .shareUserName(name):
+            self.user.name = name
+            self.presentGame(user: self.user)
+        }
+    }
+    
+    
+//    override func handle() {
+//        super.handle(event: Events.self)
+//        switch event {
+//        case let .shareUserName(name):
+//            self.user.name = name
+//            self.presentGame(user: self.user)
+//        case .none:
+//            debugPrint("EVENt")
+//        }
+//    }
 }

@@ -14,7 +14,7 @@ protocol RootViewGetable {
     var rootView: RootView? { get }
 }
 
-extension RootViewGetable where Self: BaseViewController, RootView: UIView {
+extension RootViewGetable where Self: UIViewController, RootView: UIView {
     var rootView: RootView? {
         return self.view as? RootView
     }
@@ -23,6 +23,7 @@ extension RootViewGetable where Self: BaseViewController, RootView: UIView {
 protocol Events {
     associatedtype Events
     
+<<<<<<< HEAD
     var event: Events? { get }
 }
 
@@ -34,9 +35,24 @@ extension Events {
 }
 
 class BaseViewController: UIViewController {
+=======
+//    var event: Events? { get }
+}
+
+extension Events {
+>>>>>>> feature/30.07
     
+    var event: Events? {
+        return self.event
+    }
+}
+
+class BaseViewController<ViewEvent>: UIViewController {
+        
     // MARK: -
     // MARK: Variables
+    
+    public let events: EventHandler<ViewEvent>? = nil
     
     public var rootView: BaseView? {
         return self.view as? BaseView
@@ -48,7 +64,16 @@ class BaseViewController: UIViewController {
     deinit {
         debugPrint("deinit: \(type(of: self))")
     }
-
+    
+//    init(events: @escaping EventHandler<Event>) {
+//        super.init()
+//        self.events = events
+//    }
+//
+//    required init?(coder: NSCoder) {
+//        fatalError("init(coder:) has not been implemented")
+//    }
+    
     // MARK: -
     // MARK: ViewLifeCycle
 
@@ -66,9 +91,16 @@ class BaseViewController: UIViewController {
         self.rootView?.setupView()
     }
     
+<<<<<<< HEAD
     func handle() {
         
     }
 }
 
 
+=======
+    func handle(event: ViewEvent) {
+
+    }
+}
+>>>>>>> feature/30.07
