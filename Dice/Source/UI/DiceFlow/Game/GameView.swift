@@ -57,7 +57,6 @@ class GameView: BaseView {
         self.botImage?.image = UIImage(named: botImage)
         self.userImage?.image = UIImage(named: userImage)
     }
-    // винести алерт в контролллер(Есть )
     
     // MARK: -
     // MARK: Ovverided

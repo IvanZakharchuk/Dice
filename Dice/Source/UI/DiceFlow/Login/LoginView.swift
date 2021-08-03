@@ -19,9 +19,7 @@ class LoginView: BaseView, UITextFieldDelegate {
     // MARK: Properties
     
     public var eventHandler: ((LoginViewEvents) -> ())?
-    
-//    public var eventHandler: EventHandler<LoginViewEvents>?
-    
+
     // MARK: -
     // MARK: IBOutlets
     
@@ -46,8 +44,6 @@ class LoginView: BaseView, UITextFieldDelegate {
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
         self.userNameTextField?.becomeFirstResponder()
-        
-        // екстеншини на ксиб что б сделать ето там(есть)
         self.enterButton?.borderWidth(borderWidth: 1)
         self.enterButton?.cornerRadius(radius: 25)
         

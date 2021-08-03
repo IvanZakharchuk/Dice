@@ -48,15 +48,6 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
     // MARK: -
     // MARK: Private
     
-    override func handle(event: GameViewEvents) {
-        switch event {
-        case .needDisplayLeaderBoard:
-            self.presentLeaderboard(user: self.user, bot: self.bot)
-        case .updateDices:
-            self.processGame()
-        }
-    }
-    
     private func loadEmptyDices() {
         let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
@@ -88,14 +79,6 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
-    private func showAlert(title: String) {
-        let alertController = UIAlertController(title: title, message: nil, preferredStyle: .alert)
-        let confirmAction = UIAlertAction(title: "OK", style: .default) { (action) in }
-        
-        alertController.addAction(confirmAction)
-        self.present(alertController, animated: true, completion: nil)
-    }
-    
     // MARK: -
     // MARK: Overrided
     
@@ -105,6 +88,15 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         self.loadEmptyDices()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
+        }
+    }
+    
+    internal override func handle(event: GameViewEvents) {
+        switch event {
+        case .needDisplayLeaderBoard:
+            self.presentLeaderboard(user: self.user, bot: self.bot)
+        case .updateDices:
+            self.processGame()
         }
     }
 }

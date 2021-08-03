@@ -38,15 +38,6 @@ class BaseViewController<ViewEvent>: UIViewController {
         debugPrint("deinit: \(type(of: self))")
     }
     
-//    init(events: @escaping EventHandler<Event>) {
-//        super.init()
-//        self.events = events
-//    }
-//
-//    required init?(coder: NSCoder) {
-//        fatalError("init(coder:) has not been implemented")
-//    }
-    
     // MARK: -
     // MARK: ViewLifeCycle
 
@@ -54,7 +45,7 @@ class BaseViewController<ViewEvent>: UIViewController {
         super.viewDidLoad()
         
         self.configureView()
-        // вынести сюда функци(часть есть)
+
     }
     
     // MARK: -

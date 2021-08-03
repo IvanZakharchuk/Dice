@@ -53,15 +53,10 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        //        let cell = tableView.dequeueReusableCell(withIdentifier: "LeaderboardTableViewCell", for: indexPath) as! LeaderboardTableViewCell
-        //        let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
         tableView.register(cell: LeaderboardTableViewCell.self)
         
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath) as? LeaderboardTableViewCell
         
-//        guard let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath) as? LeaderboardTableViewCell else {
-//            fatalError("Cell not creating")
-//        }
         cell?.setupLeaderboardCell(userName: self.user.name, userScore: String(self.user.score), botScore: String(self.bot.score) )
         
         return cell ?? UITableViewCell()

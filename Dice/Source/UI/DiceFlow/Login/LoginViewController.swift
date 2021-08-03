@@ -14,20 +14,12 @@ enum LoginViewControllerEvents {
 
 class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable {
     
-    
-//    typealias Events = LoginViewEvents
-    
     typealias RootView = LoginView
 
     // MARK: -
     // MARK: Properties
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
-    
-//    private var events: EventHandler<LoginViewEvents>
-//    func eve() {
-//        self.events
-//    }
     
     private var user: Player
     
@@ -51,55 +43,20 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     }
     
     // MARK: -
-    // MARK: Private
-    
-    // убрать в бейсонтрллер с дженерик типом где дженерик тип как ивент который
-    // потом оверайднуть
-    // дженерик тип как ивет откидывает хендлер
-    
-//    override func handle(event: Events) {
-//        <#code#>
-//    }
-    
-//    private func handle(event: Events) {
-//        switch event {
-//        case let .shareUserName(name):
-//            self.user.name = name
-//            self.presentGame(user: self.user)
-//        }
-//    }
-    
-    // MARK: -
     // MARK: Overrided
     
     internal override func configureView() {
         super.configureView()
-        // убрать в бейс контрлллер(часть есть)
-//        self.rootView?.setupView()
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
     }
     
-    
-    override func handle(event: LoginViewEvents) {
-        
+    internal override func handle(event: LoginViewEvents) {
         switch event {
         case let .shareUserName(name):
             self.user.name = name
             self.presentGame(user: self.user)
         }
     }
-    
-    
-//    override func handle() {
-//        super.handle(event: Events.self)
-//        switch event {
-//        case let .shareUserName(name):
-//            self.user.name = name
-//            self.presentGame(user: self.user)
-//        case .none:
-//            debugPrint("EVENt")
-//        }
-//    }
 }
