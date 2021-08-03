@@ -20,6 +20,7 @@ extension RootViewGetable where Self: UIViewController, RootView: UIView {
     }
 }
 
+<<<<<<< HEAD
 protocol Events {
     associatedtype Events
     
@@ -36,9 +37,15 @@ extension Events {
 
 class BaseViewController: UIViewController {
 =======
-//    var event: Events? { get }
-}
+=======
+//protocol Events {
+//    associatedtype Events
 
+>>>>>>> feature/30.07
+//    var event: Events? { get }
+//}
+
+<<<<<<< HEAD
 extension Events {
 >>>>>>> feature/30.07
     
@@ -46,6 +53,14 @@ extension Events {
         return self.event
     }
 }
+=======
+//extension Events {
+//
+//    var event: Events? {
+//        return self.event
+//    }
+//}
+>>>>>>> feature/30.07
 
 class BaseViewController<ViewEvent>: UIViewController {
         
