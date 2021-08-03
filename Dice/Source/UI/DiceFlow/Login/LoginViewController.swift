@@ -25,9 +25,9 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
 //    private var events: EventHandler<LoginViewEvents>
-    func eve() {
-        self.events
-    }
+//    func eve() {
+//        self.events
+//    }
     
     private var user: Player
     

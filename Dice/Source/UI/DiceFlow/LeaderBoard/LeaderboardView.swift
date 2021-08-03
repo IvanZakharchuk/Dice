@@ -8,6 +8,10 @@
 import Foundation
 import UIKit
 
+enum LeaderboardViewEvents {
+    case back
+}
+
 // делегат и дата сорс в контрллере(есть)
 
 class LeaderboardView: BaseView {
