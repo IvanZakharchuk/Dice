@@ -7,6 +7,8 @@
 
 import Foundation
 
+public typealias EventHandler<Event> = (Event) -> ()
+
 func toString(_ cls: AnyClass) -> String {
     return String(describing: cls)
 }

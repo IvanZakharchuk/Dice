@@ -13,4 +13,8 @@ class BaseView: UIView {
     func setupView() {
         
     }
+    
+//    func handle(event: Any) {
+//
+//    }
 }

@@ -23,6 +23,8 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
+    private var events: EventHandler<LoginViewEvents>?
+    
     private var user: Player
     
     // MARK: -
@@ -55,13 +57,13 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
 //        <#code#>
 //    }
     
-    private func handle(event: Events) {
-        switch event {
-        case let .shareUserName(name):
-            self.user.name = name
-            self.presentGame(user: self.user)
-        }
-    }
+//    private func handle(event: Events) {
+//        switch event {
+//        case let .shareUserName(name):
+//            self.user.name = name
+//            self.presentGame(user: self.user)
+//        }
+//    }
     
     // MARK: -
     // MARK: Overrided
@@ -74,4 +76,25 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
             self?.handle(event: event)
         }
     }
+    
+    
+    override func handle(event: LoginViewEvents) {
+        switch event {
+        case let .shareUserName(name):
+            self.user.name = name
+            self.presentGame(user: self.user)
+        }
+    }
+    
+    
+//    override func handle() {
+//        super.handle(event: Events.self)
+//        switch event {
+//        case let .shareUserName(name):
+//            self.user.name = name
+//            self.presentGame(user: self.user)
+//        case .none:
+//            debugPrint("EVENt")
+//        }
+//    }
 }
