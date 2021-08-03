@@ -12,9 +12,10 @@ enum LoginViewControllerEvents {
     case needDisplayGame(Player)
 }
 
-class LoginViewController: BaseViewController, RootViewGetable, Events {
+class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable {
     
-    typealias Events = LoginViewEvents
+    
+//    typealias Events = LoginViewEvents
     
     typealias RootView = LoginView
 
@@ -23,7 +24,10 @@ class LoginViewController: BaseViewController, RootViewGetable, Events {
     
     public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
-    private var events: EventHandler<LoginViewEvents>?
+//    private var events: EventHandler<LoginViewEvents>
+    func eve() {
+        self.events
+    }
     
     private var user: Player
     
