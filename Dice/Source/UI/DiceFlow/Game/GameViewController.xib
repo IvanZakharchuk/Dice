@@ -15,18 +15,18 @@
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" ambiguous="YES" id="i5M-Pr-FkT" customClass="GameView" customModule="Dice" customModuleProvider="target">
+        <view clearsContextBeforeDrawing="NO" contentMode="scaleToFill" id="i5M-Pr-FkT" customClass="GameView" customModule="Dice" customModuleProvider="target">
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
                     <rect key="frame" x="10" y="54" width="287" height="95.5"/>
-                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lAR-6S-nih" secondAttribute="height" multiplier="3:1" id="rgh-13-qZs"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-eh-0R1">
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-eh-0R1">
                     <rect key="frame" x="317" y="54" width="87" height="30"/>
                     <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
@@ -36,10 +36,10 @@
                         <action selector="leaderBoardButton:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="EmU-dU-240"/>
                     </connections>
                 </button>
-                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
                     <rect key="frame" x="45" y="199.5" width="324" height="632.5"/>
                     <subviews>
-                        <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
                             <rect key="frame" x="30" y="552.5" width="200" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
@@ -52,7 +52,7 @@
                                 <action selector="playGame:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="d31-6p-qmz"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" ambiguous="YES" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
                             <rect key="frame" x="87" y="134.5" width="150" height="363.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
@@ -130,7 +130,7 @@
                 <outlet property="botImage" destination="BW6-T5-KsI" id="kht-3Z-D0f"/>
                 <outlet property="leaderboardButton" destination="2VG-eh-0R1" id="69n-NF-7he"/>
                 <outlet property="playGameButton" destination="tMf-Nv-rba" id="lPB-bc-xp6"/>
-                <outlet property="scoreView" destination="lAR-6S-nih" id="bML-iP-hCC"/>
+                <outlet property="scoreView" destination="lAR-6S-nih" id="xmo-8g-ylv"/>
                 <outlet property="userImage" destination="Y81-4e-vOW" id="Iqr-J8-tSK"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="109.82142857142857"/>

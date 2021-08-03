@@ -67,6 +67,7 @@ class GameView: BaseView {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
+        self.scoreView?.updateConstraints()
     }
     
     // MARK: -

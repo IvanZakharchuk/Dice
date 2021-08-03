@@ -8,7 +8,7 @@
 import Foundation
 import UIKit
 
-class ScoreView: UIView {
+class ScoreView: NibDesignable {
     
     // MARK: -
     // MARK: Outlets
