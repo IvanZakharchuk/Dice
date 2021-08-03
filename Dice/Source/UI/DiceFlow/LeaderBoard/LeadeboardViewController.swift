@@ -12,7 +12,7 @@ enum LeaderboardViewControllerEvents {
     case back
 }
 
-class LeadeboardViewController: BaseViewController, RootViewGetable {
+class LeadeboardViewController: BaseViewController<Events>, RootViewGetable {
     
     typealias RootView = LeaderboardView
     

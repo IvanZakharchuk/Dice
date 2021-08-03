@@ -12,7 +12,7 @@ enum GameViewControllerEvents {
     case needDisplayLeaderboard(Player, Player)
 }
 
-class GameViewController: BaseViewController, RootViewGetable {
+class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
     
     typealias RootView = GameView
     
@@ -48,7 +48,7 @@ class GameViewController: BaseViewController, RootViewGetable {
     // MARK: -
     // MARK: Private
     
-    private func handle(event: GameViewEvents) {
+    override func handle(event: GameViewEvents) {
         switch event {
         case .needDisplayLeaderBoard:
             self.presentLeaderboard(user: self.user, bot: self.bot)
