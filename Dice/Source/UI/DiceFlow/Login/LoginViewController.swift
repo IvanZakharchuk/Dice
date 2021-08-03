@@ -83,6 +83,7 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     
     
     override func handle(event: LoginViewEvents) {
+        
         switch event {
         case let .shareUserName(name):
             self.user.name = name

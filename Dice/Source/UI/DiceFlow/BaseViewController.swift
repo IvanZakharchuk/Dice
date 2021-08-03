@@ -20,48 +20,6 @@ extension RootViewGetable where Self: UIViewController, RootView: UIView {
     }
 }
 
-<<<<<<< HEAD
-protocol Events {
-    associatedtype Events
-    
-<<<<<<< HEAD
-    var event: Events? { get }
-}
-
-extension Events {
-    
-    var event: Events? {
-        return self.event
-    }
-}
-
-class BaseViewController: UIViewController {
-=======
-=======
-//protocol Events {
-//    associatedtype Events
-
->>>>>>> feature/30.07
-//    var event: Events? { get }
-//}
-
-<<<<<<< HEAD
-extension Events {
->>>>>>> feature/30.07
-    
-    var event: Events? {
-        return self.event
-    }
-}
-=======
-//extension Events {
-//
-//    var event: Events? {
-//        return self.event
-//    }
-//}
->>>>>>> feature/30.07
-
 class BaseViewController<ViewEvent>: UIViewController {
         
     // MARK: -
@@ -106,16 +64,7 @@ class BaseViewController<ViewEvent>: UIViewController {
         self.rootView?.setupView()
     }
     
-<<<<<<< HEAD
-    func handle() {
+    func handle(event: ViewEvent) {
         
     }
 }
-
-
-=======
-    func handle(event: ViewEvent) {
-
-    }
-}
->>>>>>> feature/30.07
