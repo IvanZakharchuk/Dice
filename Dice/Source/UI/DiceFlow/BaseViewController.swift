@@ -25,9 +25,9 @@ class BaseViewController<ViewEvent>: UIViewController {
     // MARK: -
     // MARK: Variables
     
-    public let events: EventHandler<ViewEvent>? = nil
+//    public let events: EventHandler<ViewEvent>? = nil
     
-    public var rootView: BaseView? {
+    public var rootView: BaseView<ViewEvent>? {
         return self.view as? BaseView
     }
 

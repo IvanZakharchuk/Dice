@@ -14,12 +14,12 @@ enum GameViewEvents {
     case updateDices
 }
 
-class GameView: BaseView {
+class GameView: BaseView<GameViewEvents> {
     
     // MARK: -
     // MARK: Properties
     
-    public var eventHandler: ((GameViewEvents) -> ())?
+//    public var eventHandler: ((GameViewEvents) -> ())?
     
     // MARK: -
     // MARK: IBOutlets
