@@ -29,7 +29,7 @@ class GameView: BaseView {
     @IBOutlet private var userImage: UIImageView?
     @IBOutlet private var playGameButton: UIButton?
     
-    @IBOutlet private var scoreView: ScoreView?
+    @IBOutlet private var scoreView: ScoreViewController?
     
     // MARK: -
     // MARK: IBActions

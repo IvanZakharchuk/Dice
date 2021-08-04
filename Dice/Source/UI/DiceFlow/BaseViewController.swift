@@ -53,6 +53,9 @@ class BaseViewController<ViewEvent>: UIViewController {
     
     func configureView() {
         self.rootView?.setupView()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
     }
     
     func handle(event: ViewEvent) {

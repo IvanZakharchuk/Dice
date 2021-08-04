@@ -17,7 +17,6 @@
 		784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E6889269ED4F000C01B78 /* GameViewController.swift */; };
 		784E688C269ED4F000C01B78 /* GameViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 784E688A269ED4F000C01B78 /* GameViewController.xib */; };
 		784E688E269ED51100C01B78 /* GameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E688D269ED51100C01B78 /* GameView.swift */; };
-		784E6890269EE04100C01B78 /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 784E688F269EE04100C01B78 /* ScoreView.swift */; };
 		78681D03269C93B100975FA6 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78681D02269C93B100975FA6 /* AppDelegate.swift */; };
 		78681D0A269C93B100975FA6 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 78681D08269C93B100975FA6 /* Main.storyboard */; };
 		78681D0C269C93B400975FA6 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 78681D0B269C93B400975FA6 /* Assets.xcassets */; };
@@ -32,9 +31,10 @@
 		787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */; };
 		787E6BAD26B0164F00A7AC94 /* UIViewController+Presentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */; };
 		787E6BAF26B016CA00A7AC94 /* BaseTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */; };
+		7899C94E26BA8740002385EF /* ScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7899C94C26BA8740002385EF /* ScoreViewController.swift */; };
+		7899C94F26BA8740002385EF /* ScoreViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7899C94D26BA8740002385EF /* ScoreViewController.xib */; };
 		789DBB1726B2944B007EDC1D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DBB1626B2944B007EDC1D /* BaseView.swift */; };
 		78ACB29926B9AE6E005B143E /* NibDesignable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78ACB29826B9AE6E005B143E /* NibDesignable.swift */; };
-		78ACB29B26B9B2C4005B143E /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78ACB29A26B9B2C4005B143E /* ScoreView.xib */; };
 		78B3365E26A705BA0038AD13 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78B3365D26A705BA0038AD13 /* BaseViewController.swift */; };
 		78FF413026A83ACA006FA13C /* LeaderboardTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */; };
 		78FF413126A83ACA006FA13C /* LeaderboardTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */; };
@@ -69,7 +69,6 @@
 		784E6889269ED4F000C01B78 /* GameViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameViewController.swift; sourceTree = "<group>"; };
 		784E688A269ED4F000C01B78 /* GameViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = GameViewController.xib; sourceTree = "<group>"; };
 		784E688D269ED51100C01B78 /* GameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GameView.swift; sourceTree = "<group>"; };
-		784E688F269EE04100C01B78 /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		78681CFF269C93B100975FA6 /* Dice.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Dice.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		78681D02269C93B100975FA6 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		78681D09269C93B100975FA6 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -90,9 +89,10 @@
 		787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Alert.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Presentation.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Presentation.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTexts.swift; path = Dice/Source/UI/DiceFlow/LeaderBoard/BaseTexts.swift; sourceTree = SOURCE_ROOT; };
+		7899C94C26BA8740002385EF /* ScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreViewController.swift; sourceTree = "<group>"; };
+		7899C94D26BA8740002385EF /* ScoreViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreViewController.xib; sourceTree = "<group>"; };
 		789DBB1626B2944B007EDC1D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
 		78ACB29826B9AE6E005B143E /* NibDesignable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = NibDesignable.swift; path = Dice/Source/UI/DiceFlow/NibDesignable.swift; sourceTree = SOURCE_ROOT; };
-		78ACB29A26B9B2C4005B143E /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
 		78B3365D26A705BA0038AD13 /* BaseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseViewController.swift; sourceTree = "<group>"; };
 		78FF412E26A83ACA006FA13C /* LeaderboardTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardTableViewCell.swift; sourceTree = "<group>"; };
 		78FF412F26A83ACA006FA13C /* LeaderboardTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = LeaderboardTableViewCell.xib; sourceTree = "<group>"; };
@@ -151,9 +151,9 @@
 			children = (
 				784E6889269ED4F000C01B78 /* GameViewController.swift */,
 				784E688A269ED4F000C01B78 /* GameViewController.xib */,
-				78ACB29A26B9B2C4005B143E /* ScoreView.xib */,
+				7899C94C26BA8740002385EF /* ScoreViewController.swift */,
+				7899C94D26BA8740002385EF /* ScoreViewController.xib */,
 				784E688D269ED51100C01B78 /* GameView.swift */,
-				784E688F269EE04100C01B78 /* ScoreView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";
@@ -376,11 +376,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				78FF413126A83ACA006FA13C /* LeaderboardTableViewCell.xib in Resources */,
+				7899C94F26BA8740002385EF /* ScoreViewController.xib in Resources */,
 				784E6883269DC95C00C01B78 /* LoginViewController.xib in Resources */,
 				78681D0F269C93B400975FA6 /* LaunchScreen.storyboard in Resources */,
 				78681D0C269C93B400975FA6 /* Assets.xcassets in Resources */,
 				786EF62B26A165A700D54F54 /* LeadeboardViewController.xib in Resources */,
-				78ACB29B26B9B2C4005B143E /* ScoreView.xib in Resources */,
 				78681D0A269C93B100975FA6 /* Main.storyboard in Resources */,
 				784E688C269ED4F000C01B78 /* GameViewController.xib in Resources */,
 			);
@@ -417,6 +417,7 @@
 				784E688E269ED51100C01B78 /* GameView.swift in Sources */,
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */,
+				7899C94E26BA8740002385EF /* ScoreViewController.swift in Sources */,
 				787E6BA526AFF1C800A7AC94 /* UIView+CornerRadius.swift in Sources */,
 				7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */,
 				787E6BA926B008C900A7AC94 /* Functions.swift in Sources */,
@@ -424,7 +425,6 @@
 				784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */,
 				78FF413326AED18D006FA13C /* UITableViewCell+Xib.swift in Sources */,
 				784E687B269DC0A000C01B78 /* BaseCoordinator.swift in Sources */,
-				784E6890269EE04100C01B78 /* ScoreView.swift in Sources */,
 				789DBB1726B2944B007EDC1D /* BaseView.swift in Sources */,
 				78ACB29926B9AE6E005B143E /* NibDesignable.swift in Sources */,
 				786EF62A26A165A700D54F54 /* LeadeboardViewController.swift in Sources */,

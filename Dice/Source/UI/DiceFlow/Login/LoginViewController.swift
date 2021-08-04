@@ -45,14 +45,20 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     // MARK: -
     // MARK: Overrided
     
-    internal override func configureView() {
+    override func configureView() {
         super.configureView()
+        
         self.rootView?.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
     }
     
-    internal override func handle(event: LoginViewEvents) {
+    // сделать протол на евент хендлер
+    
+    
+    override func handle(event: LoginViewEvents) {
+        super.handle(event: event)
+        
         switch event {
         case let .shareUserName(name):
             self.user.name = name
