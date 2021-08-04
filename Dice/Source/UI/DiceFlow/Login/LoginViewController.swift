@@ -47,15 +47,8 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     
     override func configureView() {
         super.configureView()
-        
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
     }
-    
-    // сделать протол на евент хендлер
-    
-    
+
     override func handle(event: LoginViewEvents) {
         super.handle(event: event)
         

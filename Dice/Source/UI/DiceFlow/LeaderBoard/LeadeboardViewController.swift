@@ -61,6 +61,4 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         return cell ?? UITableViewCell()
     }
-    
-    
 }

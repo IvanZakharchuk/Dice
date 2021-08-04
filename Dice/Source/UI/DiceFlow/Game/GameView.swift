@@ -17,11 +17,6 @@ enum GameViewEvents {
 class GameView: BaseView<GameViewEvents> {
     
     // MARK: -
-    // MARK: Properties
-    
-//    public var eventHandler: ((GameViewEvents) -> ())?
-    
-    // MARK: -
     // MARK: IBOutlets
     
     @IBOutlet private var leaderboardButton: UIButton?
@@ -47,7 +42,6 @@ class GameView: BaseView<GameViewEvents> {
     
     public func configureScoreView(user: String) {
         self.scoreView?.configureScoreView(user: user)
-
     }
     
     public func scoreViewUpdate(botScore: String, userScore: String) {
@@ -68,7 +62,9 @@ class GameView: BaseView<GameViewEvents> {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
-        self.scoreView?.updateConstraints()
+//        self.scoreView?.updateConstraints()
+        self.scoreView?.layoutSubviews()
+//        self.scoreView?.cornerRadius(radius: 15)
     }
     
     // MARK: -

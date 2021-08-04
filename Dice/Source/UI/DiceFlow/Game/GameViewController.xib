@@ -21,6 +21,7 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
                     <rect key="frame" x="10" y="54" width="287" height="95.5"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lAR-6S-nih" secondAttribute="height" multiplier="3:1" id="rgh-13-qZs"/>
                     </constraints>

@@ -14,11 +14,6 @@ enum LoginViewEvents {
 }
 
 class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
-    
-    // MARK: -
-    // MARK: Properties
-    
-//    public var eventHandler: ((LoginViewEvents) -> ())?
 
     // MARK: -
     // MARK: IBOutlets
