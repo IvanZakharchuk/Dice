@@ -151,9 +151,9 @@
 			children = (
 				784E6889269ED4F000C01B78 /* GameViewController.swift */,
 				784E688A269ED4F000C01B78 /* GameViewController.xib */,
+				784E688D269ED51100C01B78 /* GameView.swift */,
 				7899C95026BB0AFE002385EF /* ScoreView.swift */,
 				7899C95126BB0AFE002385EF /* ScoreView.xib */,
-				784E688D269ED51100C01B78 /* GameView.swift */,
 			);
 			path = Game;
 			sourceTree = "<group>";

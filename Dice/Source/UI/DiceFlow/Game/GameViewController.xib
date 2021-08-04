@@ -129,7 +129,7 @@
                 <outlet property="botImage" destination="BW6-T5-KsI" id="kht-3Z-D0f"/>
                 <outlet property="leaderboardButton" destination="2VG-eh-0R1" id="69n-NF-7he"/>
                 <outlet property="playGameButton" destination="tMf-Nv-rba" id="lPB-bc-xp6"/>
-                <outlet property="scoreView" destination="lAR-6S-nih" id="xmo-8g-ylv"/>
+                <outlet property="scoreView" destination="lAR-6S-nih" id="syW-ug-iLa"/>
                 <outlet property="userImage" destination="Y81-4e-vOW" id="Iqr-J8-tSK"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="109.82142857142857"/>
