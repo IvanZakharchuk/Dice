@@ -29,7 +29,7 @@ class GameView: BaseView<GameViewEvents> {
     @IBOutlet private var userImage: UIImageView?
     @IBOutlet private var playGameButton: UIButton?
     
-    @IBOutlet private var scoreView: ScoreViewController?
+    @IBOutlet private var scoreView: ScoreView?
     
     // MARK: -
     // MARK: IBActions
@@ -47,6 +47,7 @@ class GameView: BaseView<GameViewEvents> {
     
     public func configureScoreView(user: String) {
         self.scoreView?.configureScoreView(user: user)
+
     }
     
     public func scoreViewUpdate(botScore: String, userScore: String) {

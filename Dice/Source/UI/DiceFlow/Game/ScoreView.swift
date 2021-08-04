@@ -1,5 +1,5 @@
 //
-//  ScoreViewController.swift
+//  ScoreView.swift
 //  Dice
 //
 //  Created by Іван Захарчук on 04.08.2021.
@@ -7,8 +7,8 @@
 
 import UIKit
 
-class ScoreViewController: NibDesignable {
-    
+class ScoreView: NibDesignable {
+
     // MARK: -
     // MARK: Outlets
     
@@ -27,6 +27,6 @@ class ScoreViewController: NibDesignable {
     
     public func configureScoreView(user: String) {
         self.userLabel?.text = user
-        self.cornerRadius(radius: 15)
+        self.cornerRadius(radius: 150)
     }
 }
