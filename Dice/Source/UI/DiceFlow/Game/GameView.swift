@@ -62,8 +62,9 @@ class GameView: BaseView<GameViewEvents> {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
+//        self.scoreView?.cornerRadius(radius: 15)
 //        self.scoreView?.updateConstraints()
-        self.scoreView?.layoutSubviews()
+//        self.scoreView?.layoutSubviews()
 //        self.scoreView?.cornerRadius(radius: 15)
     }
     

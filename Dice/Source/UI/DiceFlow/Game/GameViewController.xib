@@ -19,9 +19,9 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
+                <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
                     <rect key="frame" x="10" y="54" width="287" height="95.5"/>
-                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lAR-6S-nih" secondAttribute="height" multiplier="3:1" id="rgh-13-qZs"/>
                     </constraints>
@@ -39,8 +39,51 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
                     <rect key="frame" x="45" y="199.5" width="324" height="632.5"/>
                     <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
+                            <rect key="frame" x="87" y="139" width="150" height="354.5"/>
+                            <subviews>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
+                                    <rect key="frame" x="0.0" y="0.0" width="150" height="166"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bot Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-RS-Ogf">
+                                            <rect key="frame" x="43" y="0.0" width="64.5" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="BW6-T5-KsI" userLabel="Image View(Bot)">
+                                            <rect key="frame" x="0.0" y="16" width="150" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="7jx-J6-mI5"/>
+                                                <constraint firstAttribute="width" secondItem="BW6-T5-KsI" secondAttribute="height" multiplier="1:1" id="S4C-hq-hWC" userLabel="aspect = 1:1"/>
+                                                <constraint firstAttribute="height" constant="150" id="u9J-aN-pBn"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RLB-Qh-y7a" userLabel="Stack View(User)">
+                                    <rect key="frame" x="0.0" y="176" width="150" height="178.5"/>
+                                    <subviews>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0m-wL-y5m">
+                                            <rect key="frame" x="38.5" y="0.0" width="73" height="20.5"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y81-4e-vOW" userLabel="Image View(User)">
+                                            <rect key="frame" x="0.0" y="28.5" width="150" height="150"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="J7t-Qf-uyz"/>
+                                                <constraint firstAttribute="height" constant="150" id="ejR-e7-Jfu"/>
+                                                <constraint firstAttribute="width" secondItem="Y81-4e-vOW" secondAttribute="height" multiplier="1:1" id="yMN-bP-PRv" userLabel="aspect = 1:1"/>
+                                            </constraints>
+                                        </imageView>
+                                    </subviews>
+                                </stackView>
+                            </subviews>
+                        </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
-                            <rect key="frame" x="30" y="552.5" width="200" height="50"/>
+                            <rect key="frame" x="62" y="552.5" width="200" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="3Y4-67-Kv4"/>
@@ -52,63 +95,21 @@
                                 <action selector="playGame:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="d31-6p-qmz"/>
                             </connections>
                         </button>
-                        <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
-                            <rect key="frame" x="87" y="134.5" width="150" height="363.5"/>
-                            <subviews>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
-                                    <rect key="frame" x="0.0" y="0.0" width="150" height="170.5"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Bot Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxA-RS-Ogf">
-                                            <rect key="frame" x="43" y="0.0" width="64.5" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="I4i-OU-24h"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="1" translatesAutoresizingMaskIntoConstraints="NO" id="BW6-T5-KsI" userLabel="Image View(Bot)">
-                                            <rect key="frame" x="0.0" y="20.5" width="150" height="150"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="7jx-J6-mI5"/>
-                                                <constraint firstAttribute="width" secondItem="BW6-T5-KsI" secondAttribute="height" multiplier="1:1" id="S4C-hq-hWC" userLabel="aspect = 1:1"/>
-                                                <constraint firstAttribute="height" constant="150" id="u9J-aN-pBn"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                </stackView>
-                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="RLB-Qh-y7a" userLabel="Stack View(User)">
-                                    <rect key="frame" x="0.0" y="180.5" width="150" height="183"/>
-                                    <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Your Dice" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="O0m-wL-y5m">
-                                            <rect key="frame" x="38.5" y="0.0" width="73" height="25"/>
-                                            <constraints>
-                                                <constraint firstAttribute="height" constant="25" id="QV7-C9-GKj"/>
-                                            </constraints>
-                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="2" translatesAutoresizingMaskIntoConstraints="NO" id="Y81-4e-vOW" userLabel="Image View(User)">
-                                            <rect key="frame" x="0.0" y="33" width="150" height="150"/>
-                                            <constraints>
-                                                <constraint firstAttribute="width" constant="150" id="J7t-Qf-uyz"/>
-                                                <constraint firstAttribute="height" constant="150" id="ejR-e7-Jfu"/>
-                                                <constraint firstAttribute="width" secondItem="Y81-4e-vOW" secondAttribute="height" multiplier="1:1" id="yMN-bP-PRv" userLabel="aspect = 1:1"/>
-                                            </constraints>
-                                        </imageView>
-                                    </subviews>
-                                </stackView>
-                            </subviews>
-                        </stackView>
                     </subviews>
                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstItem="jiI-3g-z7V" firstAttribute="centerY" secondItem="7MF-Td-efS" secondAttribute="centerY" id="LL6-Xe-TQ4"/>
                         <constraint firstAttribute="bottom" secondItem="tMf-Nv-rba" secondAttribute="bottom" constant="30" id="Rhh-H3-iO4"/>
-                        <constraint firstItem="tMf-Nv-rba" firstAttribute="leading" secondItem="7MF-Td-efS" secondAttribute="leading" constant="30" id="gpz-E1-oBf"/>
-                        <constraint firstAttribute="trailing" secondItem="tMf-Nv-rba" secondAttribute="trailing" constant="30" id="iMo-UF-AD2"/>
+                        <constraint firstItem="tMf-Nv-rba" firstAttribute="centerX" secondItem="7MF-Td-efS" secondAttribute="centerX" id="ein-aR-BBH"/>
                         <constraint firstItem="jiI-3g-z7V" firstAttribute="centerX" secondItem="7MF-Td-efS" secondAttribute="centerX" id="mAG-uL-uDt"/>
+                    </constraints>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYE-91-2JY" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
+                    <rect key="frame" x="57" y="353" width="300" height="200"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="200" id="i90-je-skp"/>
+                        <constraint firstAttribute="width" constant="300" id="pfQ-xJ-Zv3"/>
                     </constraints>
                 </view>
             </subviews>
@@ -119,7 +120,9 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7MF-Td-efS" secondAttribute="trailing" constant="45" id="4bs-PF-nde"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="leading" secondItem="lAR-6S-nih" secondAttribute="trailing" constant="20" id="5jN-SO-ntc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2VG-eh-0R1" secondAttribute="trailing" constant="10" id="Dms-1W-rNY"/>
+                <constraint firstItem="dYE-91-2JY" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="FKk-W8-X6i"/>
                 <constraint firstItem="7MF-Td-efS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="45" id="Jcj-oV-dhI"/>
+                <constraint firstItem="dYE-91-2JY" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="NIF-gE-MXa"/>
                 <constraint firstItem="lAR-6S-nih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="aRC-Ku-eD4"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="c95-kx-GFU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7MF-Td-efS" secondAttribute="bottom" constant="30" id="dxW-po-vOY"/>
@@ -130,7 +133,7 @@
                 <outlet property="botImage" destination="BW6-T5-KsI" id="kht-3Z-D0f"/>
                 <outlet property="leaderboardButton" destination="2VG-eh-0R1" id="69n-NF-7he"/>
                 <outlet property="playGameButton" destination="tMf-Nv-rba" id="lPB-bc-xp6"/>
-                <outlet property="scoreView" destination="lAR-6S-nih" id="syW-ug-iLa"/>
+                <outlet property="scoreView" destination="dYE-91-2JY" id="C7a-m4-qQ2"/>
                 <outlet property="userImage" destination="Y81-4e-vOW" id="Iqr-J8-tSK"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="109.82142857142857"/>

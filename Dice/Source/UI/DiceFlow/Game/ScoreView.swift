@@ -17,16 +17,6 @@ class ScoreView: NibDesignable {
     @IBOutlet private var botScore: UILabel?
     @IBOutlet private var userScore: UILabel?
     
-    
-//    // MARK: -
-//    // MARK: Life cycle
-//
-//    override func layoutSubviews() {
-//        super.layoutSubviews()
-//
-//        self.cornerRadius(radius: 15)
-//    }
-    
     // MARK: -
     // MARK: Public
     
