@@ -20,15 +20,18 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
-                    <rect key="frame" x="10" y="54" width="287" height="95.5"/>
+                    <rect key="frame" x="10" y="54" width="274" height="91.5"/>
                     <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lAR-6S-nih" secondAttribute="height" multiplier="3:1" id="rgh-13-qZs"/>
                     </constraints>
                 </view>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2VG-eh-0R1">
-                    <rect key="frame" x="317" y="54" width="87" height="30"/>
+                    <rect key="frame" x="304" y="54" width="100" height="30"/>
                     <color key="backgroundColor" red="0.99942404029999998" green="0.98555368190000003" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="100" id="8Hx-cX-nnu"/>
+                    </constraints>
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="tintColor" name="AccentColor"/>
                     <state key="normal" title="Leaderboard"/>
@@ -37,10 +40,10 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7MF-Td-efS" userLabel="ContainerView">
-                    <rect key="frame" x="45" y="199.5" width="324" height="632.5"/>
+                    <rect key="frame" x="45" y="195.5" width="324" height="636.5"/>
                     <subviews>
                         <stackView opaque="NO" contentMode="scaleToFill" horizontalCompressionResistancePriority="746" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="jiI-3g-z7V">
-                            <rect key="frame" x="87" y="139" width="150" height="354.5"/>
+                            <rect key="frame" x="87" y="141" width="150" height="354.5"/>
                             <subviews>
                                 <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" baselineRelativeArrangement="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ypw-Wv-PKA" userLabel="Stack View(Bot)">
                                     <rect key="frame" x="0.0" y="0.0" width="150" height="166"/>
@@ -83,7 +86,7 @@
                             </subviews>
                         </stackView>
                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tMf-Nv-rba">
-                            <rect key="frame" x="62" y="552.5" width="200" height="50"/>
+                            <rect key="frame" x="62" y="556.5" width="200" height="50"/>
                             <color key="backgroundColor" systemColor="systemGreenColor"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="200" id="3Y4-67-Kv4"/>
@@ -104,14 +107,6 @@
                         <constraint firstItem="jiI-3g-z7V" firstAttribute="centerX" secondItem="7MF-Td-efS" secondAttribute="centerX" id="mAG-uL-uDt"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="dYE-91-2JY" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
-                    <rect key="frame" x="57" y="353" width="300" height="200"/>
-                    <color key="backgroundColor" systemColor="systemYellowColor"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="200" id="i90-je-skp"/>
-                        <constraint firstAttribute="width" constant="300" id="pfQ-xJ-Zv3"/>
-                    </constraints>
-                </view>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -120,9 +115,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="7MF-Td-efS" secondAttribute="trailing" constant="45" id="4bs-PF-nde"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="leading" secondItem="lAR-6S-nih" secondAttribute="trailing" constant="20" id="5jN-SO-ntc"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="2VG-eh-0R1" secondAttribute="trailing" constant="10" id="Dms-1W-rNY"/>
-                <constraint firstItem="dYE-91-2JY" firstAttribute="centerX" secondItem="fnl-2z-Ty3" secondAttribute="centerX" id="FKk-W8-X6i"/>
                 <constraint firstItem="7MF-Td-efS" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="45" id="Jcj-oV-dhI"/>
-                <constraint firstItem="dYE-91-2JY" firstAttribute="centerY" secondItem="fnl-2z-Ty3" secondAttribute="centerY" id="NIF-gE-MXa"/>
                 <constraint firstItem="lAR-6S-nih" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="aRC-Ku-eD4"/>
                 <constraint firstItem="2VG-eh-0R1" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="10" id="c95-kx-GFU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="7MF-Td-efS" secondAttribute="bottom" constant="30" id="dxW-po-vOY"/>
@@ -133,7 +126,6 @@
                 <outlet property="botImage" destination="BW6-T5-KsI" id="kht-3Z-D0f"/>
                 <outlet property="leaderboardButton" destination="2VG-eh-0R1" id="69n-NF-7he"/>
                 <outlet property="playGameButton" destination="tMf-Nv-rba" id="lPB-bc-xp6"/>
-                <outlet property="scoreView" destination="dYE-91-2JY" id="C7a-m4-qQ2"/>
                 <outlet property="userImage" destination="Y81-4e-vOW" id="Iqr-J8-tSK"/>
             </connections>
             <point key="canvasLocation" x="-23.188405797101453" y="109.82142857142857"/>
@@ -150,9 +142,6 @@
         </systemColor>
         <systemColor name="systemGreenColor">
             <color red="0.20392156862745098" green="0.7803921568627451" blue="0.34901960784313724" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemYellowColor">
-            <color red="1" green="0.80000000000000004" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>
