@@ -40,6 +40,7 @@
                                             <constraints>
                                                 <constraint firstAttribute="width" constant="250" id="6Te-YW-5lP"/>
                                             </constraints>
+                                            <color key="textColor" red="0.0074242246340000002" green="0.38826352359999999" blue="0.54894787069999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="25"/>
                                             <textInputTraits key="textInputTraits"/>
                                             <connections>

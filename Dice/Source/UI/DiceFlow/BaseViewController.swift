@@ -25,9 +25,7 @@ class BaseViewController<ViewEvent>: UIViewController {
     // MARK: -
     // MARK: Variables
     
-    public let events: EventHandler<ViewEvent>? = nil
-    
-    public var rootView: BaseView? {
+    public var rootView: BaseView<ViewEvent>? {
         return self.view as? BaseView
     }
 
@@ -45,7 +43,6 @@ class BaseViewController<ViewEvent>: UIViewController {
         super.viewDidLoad()
         
         self.configureView()
-
     }
     
     // MARK: -
@@ -53,6 +50,9 @@ class BaseViewController<ViewEvent>: UIViewController {
     
     func configureView() {
         self.rootView?.setupView()
+        self.rootView?.eventHandler = { [weak self] event in
+            self?.handle(event: event)
+        }
     }
     
     func handle(event: ViewEvent) {

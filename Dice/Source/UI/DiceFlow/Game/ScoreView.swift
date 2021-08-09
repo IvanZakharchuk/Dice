@@ -2,14 +2,13 @@
 //  ScoreView.swift
 //  Dice
 //
-//  Created by Іван Захарчук on 14.07.2021.
+//  Created by Іван Захарчук on 04.08.2021.
 //
 
-import Foundation
 import UIKit
 
-class ScoreView: UIView {
-    
+class ScoreView: NibDesignable {
+
     // MARK: -
     // MARK: Outlets
     
@@ -31,6 +30,3 @@ class ScoreView: UIView {
         self.cornerRadius(radius: 15)
     }
 }
-
-// реюзабл в'ю
-// ниб дизайнебл на луа 

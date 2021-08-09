@@ -14,12 +14,7 @@ enum GameViewEvents {
     case updateDices
 }
 
-class GameView: BaseView {
-    
-    // MARK: -
-    // MARK: Properties
-    
-    public var eventHandler: ((GameViewEvents) -> ())?
+class GameView: BaseView<GameViewEvents> {
     
     // MARK: -
     // MARK: IBOutlets
@@ -67,6 +62,10 @@ class GameView: BaseView {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
+//        self.scoreView?.cornerRadius(radius: 15)
+//        self.scoreView?.updateConstraints()
+//        self.scoreView?.layoutSubviews()
+//        self.scoreView?.cornerRadius(radius: 15)
     }
     
     // MARK: -

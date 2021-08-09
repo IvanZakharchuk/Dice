@@ -8,7 +8,9 @@
 import Foundation
 import UIKit
 
-class BaseView: UIView {
+class BaseView<ViewEvents>: UIView {
+    
+    public var eventHandler: EventHandler<ViewEvents>? = nil
     
     func setupView() {
         

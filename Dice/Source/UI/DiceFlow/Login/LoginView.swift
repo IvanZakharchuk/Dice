@@ -13,12 +13,7 @@ enum LoginViewEvents {
     case shareUserName(String)
 }
 
-class LoginView: BaseView, UITextFieldDelegate {
-    
-    // MARK: -
-    // MARK: Properties
-    
-    public var eventHandler: ((LoginViewEvents) -> ())?
+class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
 
     // MARK: -
     // MARK: IBOutlets

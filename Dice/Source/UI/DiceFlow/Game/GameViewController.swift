@@ -86,9 +86,6 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         super.configureView()
         
         self.loadEmptyDices()
-        self.rootView?.eventHandler = { [weak self] event in
-            self?.handle(event: event)
-        }
     }
     
     internal override func handle(event: GameViewEvents) {
