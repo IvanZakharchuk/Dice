@@ -24,6 +24,8 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
     private var user: Player
     private var bot: Player
     
+    private weak var timer: Timer?
+    
     // MARK: -
     // MARK: Initialization
     
@@ -67,16 +69,33 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         
         if botDice > userDice {
             self.bot.score += 1
-            self.showAlert(title: BaseTexts.botWin.rawValue)
+            self.alertWithTimer(title: BaseTexts.botWin.rawValue)
         } else if botDice < userDice {
             self.user.score += 1
-            self.showAlert(title: self.user.name + BaseTexts.win.rawValue)
+            self.alertWithTimer(title: self.user.name + BaseTexts.win.rawValue)
         } else if botDice == userDice {
-            self.showAlert(title: BaseTexts.standOff.rawValue)
+            self.alertWithTimer(title: BaseTexts.standOff.rawValue)
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+    }
+    
+    private func alertWithTimer(title: String) {
+        self.timer = Timer.scheduledTimer(
+            timeInterval: 1.1,
+            target: self,
+            selector: #selector(timerInvalidate),
+            userInfo: nil,
+            repeats: false)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
+            self.showAlert(title: title)
+        })
+    }
+    
+    @objc private func timerInvalidate() {
+        self.timer?.invalidate()
     }
     
     // MARK: -

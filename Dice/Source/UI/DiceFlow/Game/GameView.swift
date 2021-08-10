@@ -35,6 +35,8 @@ class GameView: BaseView<GameViewEvents> {
     
     @IBAction func playGame(_ sender: UIButton) {
         self.eventHandler?(.updateDices)
+        self.animateCubes()
+        self.animateScoreView()
     }
     
     // MARK: -
@@ -62,10 +64,8 @@ class GameView: BaseView<GameViewEvents> {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
         self.setupLeaderboardButton()
         self.setupPlayButton()
-//        self.scoreView?.cornerRadius(radius: 15)
-//        self.scoreView?.updateConstraints()
-//        self.scoreView?.layoutSubviews()
-//        self.scoreView?.cornerRadius(radius: 15)
+        self.animateScoreView()
+        self.animateLeaderBoardButton()
     }
     
     // MARK: -
@@ -79,5 +79,39 @@ class GameView: BaseView<GameViewEvents> {
     private func setupPlayButton() {
         self.playGameButton?.cornerRadius(radius: 25)
         self.playGameButton?.borderWidth(borderWidth: 2)
+    }
+    
+    private func animateCubes() {
+        UIView.animate(withDuration: 0.8,
+                       delay: 0,
+                       usingSpringWithDamping: 5,
+                       initialSpringVelocity: 0.3,
+                       options: [],
+                       animations: {
+                        self.botImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
+                        self.botImage?.transform = CGAffineTransform(rotationAngle: .pi)
+                        self.botImage?.transform = .identity
+                        
+                        self.userImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
+                        self.userImage?.transform = CGAffineTransform(rotationAngle: .pi)
+                        self.userImage?.transform = .identity
+                       }, completion: nil)
+    }
+    
+    private func animateScoreView() {
+        UIView.transition(with: self.scoreView ?? UIView(),
+                          duration: 0.5, options: .transitionFlipFromTop,
+                          animations: {
+                            self.scoreView?.transform = CGAffineTransform(scaleX: 4, y: 4)
+                            self.scoreView?.transform = .identity
+                          }, completion: nil)
+    }
+    
+    private func animateLeaderBoardButton() {
+        self.leaderboardButton?.center.x -= self.bounds.width
+        
+        UIView.animate(withDuration: 0.5) {
+            self.leaderboardButton?.center.x += self.bounds.height
+        }
     }
 }
