@@ -14,8 +14,7 @@ extension UITableView {
         self.register(nib, forCellReuseIdentifier: toString(cell))
     }
     
-    @discardableResult
-    public func dequeueReusableCell<Result>(cellClass: AnyClass, for indexPath: IndexPath) -> Result
+    public func dequeueReusableCell<Result>(cellClass: Result.Type, for indexPath: IndexPath) -> Result
         where Result: UITableViewCell
     {
         let cell = self.dequeueReusableCell(withIdentifier: toString(cellClass), for: indexPath)
@@ -23,6 +22,20 @@ extension UITableView {
         guard let value = cell as? Result else {
             fatalError("Dont find identifire")
         }
+        
+        return value
+    }
+    
+    public func dequeueReusableCell<Result>(cellClass: Result.Type, for indexPath: IndexPath, configurator: (Result) -> ()) -> Result
+        where Result: UITableViewCell
+    {
+        let cell = self.dequeueReusableCell(withIdentifier: toString(cellClass), for: indexPath)
+        
+        guard let value = cell as? Result else {
+            fatalError("Dont find identifire")
+        }
+        
+        configurator(value)
         
         return value
     }

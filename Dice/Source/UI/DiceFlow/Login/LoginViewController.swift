@@ -19,7 +19,7 @@ class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable 
     // MARK: -
     // MARK: Properties
     
-    public var eventHandler: ((LoginViewControllerEvents) -> ())?
+//    public var eventHandler: ((LoginViewControllerEvents) -> ())?
     
     private var user: Player
     

@@ -55,10 +55,10 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         let userDice = self.user.emptyPosition
         self.user.score = 0
         
-        self.rootView?.configureScoreView(user: self.user.name)
-        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
-    }
+//        self.rootView?.configureScoreView(user: self.user.name)
+//        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
+//        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+//    }
     
     private func processGame() {
         self.bot.shuffleDice()
@@ -81,16 +81,18 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
-    private func alertWithTimer(title: String) {
-        self.timer = Timer.scheduledTimer(
-            timeInterval: 1.1,
-            target: self,
-            selector: #selector(timerInvalidate),
-            userInfo: nil,
-            repeats: false)
+//    private func alertWithTimer(title: String) {
+//        self.timer = Timer.scheduledTimer(
+//            timeInterval: 1.1,
+//            target: self,
+//            selector: #selector(timerInvalidate),
+//            userInfo: nil,
+//            repeats: false
+//        )
         
         DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
             self.showAlert(title: title)
+            
         })
     }
     

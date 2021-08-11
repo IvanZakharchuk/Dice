@@ -88,7 +88,7 @@
 		787E6BA826B008C900A7AC94 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = Dice/Source/UI/DiceFlow/LeaderBoard/Functions.swift; sourceTree = SOURCE_ROOT; };
 		787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Alert.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Presentation.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Presentation.swift"; sourceTree = SOURCE_ROOT; };
-		787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTexts.swift; path = Dice/Source/UI/DiceFlow/LeaderBoard/BaseTexts.swift; sourceTree = SOURCE_ROOT; };
+		787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTexts.swift; path = Dice/Source/Constants/BaseTexts.swift; sourceTree = SOURCE_ROOT; };
 		7899C95026BB0AFE002385EF /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		7899C95126BB0AFE002385EF /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
 		789DBB1626B2944B007EDC1D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -224,6 +224,7 @@
 		78681D33269D8AA100975FA6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				7884FA9D26C3CEF800EF0779 /* Constants */,
 				78681D34269D8D2D00975FA6 /* Extensions */,
 				78681D35269D8D3700975FA6 /* UI */,
 				78681D36269D8D4000975FA6 /* Coordinators */,
@@ -240,7 +241,6 @@
 				78FF413226AED18D006FA13C /* UITableViewCell+Xib.swift */,
 				787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */,
 				787E6BAC26B0164F00A7AC94 /* UIViewController+Presentation.swift */,
-				787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */,
 				78ACB29826B9AE6E005B143E /* NibDesignable.swift */,
 			);
 			path = Extensions;
@@ -270,6 +270,14 @@
 				7834C4BF26A4DC0B00A066E2 /* Dices.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		7884FA9D26C3CEF800EF0779 /* Constants */ = {
+			isa = PBXGroup;
+			children = (
+				787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */,
+			);
+			path = Constants;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */

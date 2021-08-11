@@ -80,22 +80,24 @@ class GameView: BaseView<GameViewEvents> {
         self.playGameButton?.cornerRadius(radius: 25)
         self.playGameButton?.borderWidth(borderWidth: 2)
     }
-    
-    private func animateCubes() {
-        UIView.animate(withDuration: 0.8,
-                       delay: 0,
-                       usingSpringWithDamping: 5,
-                       initialSpringVelocity: 0.3,
-                       options: [],
-                       animations: {
-                        self.botImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
-                        self.botImage?.transform = CGAffineTransform(rotationAngle: .pi)
-                        self.botImage?.transform = .identity
-                        
-                        self.userImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
-                        self.userImage?.transform = CGAffineTransform(rotationAngle: .pi)
-                        self.userImage?.transform = .identity
-                       }, completion: nil)
+//
+//    private func animateCubes() {
+//        UIView.animate(
+//            withDuration: 0.8,
+//            delay: 0,
+//            usingSpringWithDamping: 5,
+//            initialSpringVelocity: 0.3,
+//            animations: {
+//                self.botImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
+//                self.botImage?.transform = CGAffineTransform(rotationAngle: .pi)
+//                self.botImage?.transform = .identity
+//
+//                self.userImage?.transform = CGAffineTransform(scaleX: 5, y: 5)
+//                self.userImage?.transform = CGAffineTransform(rotationAngle: .pi)
+//                self.userImage?.transform = .identity
+//            },
+//            completion: nil
+//        )
     }
     
     private func animateScoreView() {

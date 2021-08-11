@@ -19,16 +19,16 @@ extension UIView {
         self.layer.borderWidth = borderWidth
     }
     
-//    @IBInspectable
-//    var cornerRadius: CGFloat {
-//        set(radius) {
-//            self.layer.cornerRadius = radius
-//            self.layer.masksToBounds = true
-//        }
-//
-//        get {
-//            return self.layer.cornerRadius
-//        }
-//    }
+    @IBInspectable
+    var cornerRadius: CGFloat {
+        set(radius) {
+            self.layer.cornerRadius = radius
+            self.layer.masksToBounds = true
+        }
+
+        get {
+            return self.layer.cornerRadius
+        }
+    }
 }
 

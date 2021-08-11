@@ -7,15 +7,3 @@
 
 import Foundation
 import UIKit
-
-extension UIViewController {
-    
-    func presentViewController(_ viewController: UIViewController, animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.present(viewController, animated: animated, completion: completion)
-    }
-    
-    func dismissViewController(animated: Bool = true, completion: (() -> Void)? = nil) {
-        self.dismiss(animated: animated, completion: completion)
-    }
-}
-

@@ -19,7 +19,9 @@ extension UIViewController {
         let alertController = UIAlertController(
             title: title,
             message: message,
-            preferredStyle: preferredStyle)
+            preferredStyle: preferredStyle
+        )
+        
         actions?.forEach { alertController.addAction($0) }
         self.present(alertController, animated: true, completion: nil)
     }
