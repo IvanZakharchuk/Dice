@@ -12,15 +12,13 @@ enum LeaderboardViewControllerEvents {
     case back
 }
 
-class LeadeboardViewController: BaseViewController<LeaderboardViewEvents>, RootViewGetable {
+class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
     
     typealias RootView = LeaderboardView
     
     // MARK: -
     // MARK: Properties
-    
-    public var eventHandler: ((LeaderboardViewControllerEvents) -> ())?
-    
+        
     private var user: Player
     private var bot: Player
     
@@ -53,7 +51,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-//        tableView.register(cell: LeaderboardTableViewCell.self)
+        tableView.register(cell: LeaderboardTableViewCell.self)
 //        
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
         

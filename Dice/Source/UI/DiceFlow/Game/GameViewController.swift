@@ -12,20 +12,20 @@ enum GameViewControllerEvents {
     case needDisplayLeaderboard(Player, Player)
 }
 
-class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
+class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable {
     
     typealias RootView = GameView
     
     // MARK: -
     // MARK: Properties
     
-    public var eventHandler: ((GameViewControllerEvents) -> ())?
+//    public var eventHandler: ((GameViewControllerEvents) -> ())?
     
     private var user: Player
     private var bot: Player
     
     private weak var timer: Timer?
-    
+        
     // MARK: -
     // MARK: Initialization
     
@@ -53,12 +53,15 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
     private func loadEmptyDices() {
         let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
+//        let rootView = self.rootView?.
         self.user.score = 0
+        //
         
-//        self.rootView?.configureScoreView(user: self.user.name)
-//        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-//        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
-//    }
+//        var gameView = self.rootView
+        self.rootView?.configureScoreView(user: self.user.name)
+        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
+        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+    }
     
     private func processGame() {
         self.bot.shuffleDice()
@@ -81,23 +84,10 @@ class GameViewController: BaseViewController<GameViewEvents>, RootViewGetable {
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
-//    private func alertWithTimer(title: String) {
-//        self.timer = Timer.scheduledTimer(
-//            timeInterval: 1.1,
-//            target: self,
-//            selector: #selector(timerInvalidate),
-//            userInfo: nil,
-//            repeats: false
-//        )
-        
+    private func alertWithTimer(title: String) {
         DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
             self.showAlert(title: title)
-            
         })
-    }
-    
-    @objc private func timerInvalidate() {
-        self.timer?.invalidate()
     }
     
     // MARK: -

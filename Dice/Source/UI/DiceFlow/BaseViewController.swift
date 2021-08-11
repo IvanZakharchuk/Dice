@@ -7,23 +7,13 @@
 
 import Foundation
 import UIKit
-//
-//protocol RootViewGetable {
-//
-//    associatedtype RootView
-//    var rootView: RootView? { get }
-//}
-//
-//extension RootViewGetable where Self: UIViewController, RootView: UIView {
-//    var rootView: RootView? {
-//        return self.view as? RootView
-//    }
-//}
 
-class BaseViewController<ViewEvent>: UIViewController {
+class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
         
     // MARK: -
     // MARK: Variables
+    
+    public var eventHandler: ((ControllerEvents) -> ())?
     
     public var rootView: BaseView<ViewEvent>? {
         return self.view as? BaseView

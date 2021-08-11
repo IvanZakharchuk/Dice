@@ -12,15 +12,13 @@ enum LoginViewControllerEvents {
     case needDisplayGame(Player)
 }
 
-class LoginViewController: BaseViewController<LoginViewEvents>, RootViewGetable {
+class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
     
     typealias RootView = LoginView
 
     // MARK: -
     // MARK: Properties
-    
-//    public var eventHandler: ((LoginViewControllerEvents) -> ())?
-    
+        
     private var user: Player
     
     // MARK: -

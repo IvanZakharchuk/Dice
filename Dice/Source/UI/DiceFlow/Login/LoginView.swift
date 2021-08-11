@@ -23,14 +23,26 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
     @IBOutlet private var enterButton: UIButton?
     
     // MARK: -
-    // MARK: IBActions
+    // MARK: Private 
     
-    @IBAction func enterButtonPressed(_ sender: UIButton) {
-        let userName = userNameTextField?.text
+    private func animatedElements() {
+        self.welcomeLabel?.center.x += self.bounds.width // right
+        self.userNameTextField?.center.x -= self.bounds.width // left 
+        self.enterButton?.center.x -= self.bounds.width
         
-        self.eventHandler?(.shareUserName(userName ?? "user"))
+        UIView.animate(withDuration: 0.5) { [weak self] in
+            self?.welcomeLabel?.center.x -= self?.bounds.width ?? CGFloat()
+        }
+        
+        UIView.animate(withDuration: 0.7, delay: 0.4, options: [], animations: { [weak self] in
+                        self?.userNameTextField?.center.x += self?.bounds.width ?? CGFloat() },
+                       completion: nil)
+        
+        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: { [weak self] in
+                        self?.enterButton?.center.x += self?.bounds.width ?? CGFloat() },
+                       completion: nil)
     }
-
+    
     // MARK: -
     // MARK: Overrided
     
@@ -50,23 +62,11 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
     }
     
     // MARK: -
-    // MARK: Private 
+    // MARK: IBActions
     
-    private func animatedElements() {
-        self.welcomeLabel?.center.x += self.bounds.width // right
-        self.userNameTextField?.center.x -= self.bounds.width // left 
-        self.enterButton?.center.x -= self.bounds.width
+    @IBAction func enterButtonPressed(_ sender: UIButton) {
+        let userName = userNameTextField?.text
         
-        UIView.animate(withDuration: 0.5) {
-            self.welcomeLabel?.center.x -= self.bounds.width
-        }
-        
-        UIView.animate(withDuration: 0.7, delay: 0.4, options: [], animations: {
-                        self.userNameTextField?.center.x += self.bounds.width },
-                       completion: nil)
-        
-        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: {
-                        self.enterButton?.center.x += self.bounds.width },
-                       completion: nil)
+        self.eventHandler?(.shareUserName(userName ?? "user"))
     }
 }
