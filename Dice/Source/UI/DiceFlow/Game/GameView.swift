@@ -44,16 +44,6 @@ class GameView: BaseView<GameViewEvents> {
     
     // MARK: -
     // MARK: Private
-    
-    private func setupLeaderboardButton() {
-        self.leaderboardButton?.cornerRadius(radius: 10)
-        self.leaderboardButton?.borderWidth(borderWidth: 2)
-    }
-    
-    private func setupPlayButton() {
-        self.playGameButton?.cornerRadius(radius: 25)
-        self.playGameButton?.borderWidth(borderWidth: 2)
-    }
 
     private func animateCubes() {
         UIView.animate(
@@ -98,8 +88,6 @@ class GameView: BaseView<GameViewEvents> {
         super.setupView()
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
-        self.setupLeaderboardButton()
-        self.setupPlayButton()
         self.animateScoreView()
         self.animateLeaderBoardButton()
     }

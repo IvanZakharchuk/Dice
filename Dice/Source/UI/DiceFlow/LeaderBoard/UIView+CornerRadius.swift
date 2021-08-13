@@ -17,6 +17,7 @@ extension UIView {
 
     func borderWidth(borderWidth: CGFloat) {
         self.layer.borderWidth = borderWidth
+        self.layer.masksToBounds = true
     }
     
     @IBInspectable
@@ -28,6 +29,18 @@ extension UIView {
 
         get {
             return self.layer.cornerRadius
+        }
+    }
+    
+    @IBInspectable
+    var borderWidth: CGFloat {
+        set(borderWidth) {
+            self.layer.borderWidth = borderWidth
+            self.layer.masksToBounds = true
+        }
+        
+        get {
+            return self.layer.borderWidth
         }
     }
 }

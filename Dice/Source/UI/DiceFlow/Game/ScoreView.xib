@@ -151,6 +151,11 @@
                 <constraint firstItem="Yzc-0f-6J6" firstAttribute="leading" secondItem="QAs-Dn-f5g" secondAttribute="leading" id="wfe-eu-Fha"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                    <real key="value" value="15"/>
+                </userDefinedRuntimeAttribute>
+            </userDefinedRuntimeAttributes>
             <point key="canvasLocation" x="-733.33333333333337" y="61.607142857142854"/>
         </view>
     </objects>

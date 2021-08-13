@@ -21,7 +21,7 @@
             <subviews>
                 <view contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" horizontalCompressionResistancePriority="751" verticalCompressionResistancePriority="751" translatesAutoresizingMaskIntoConstraints="NO" id="lAR-6S-nih" customClass="ScoreView" customModule="Dice" customModuleProvider="target">
                     <rect key="frame" x="10" y="54" width="274" height="91.5"/>
-                    <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="lAR-6S-nih" secondAttribute="height" multiplier="3:1" id="rgh-13-qZs"/>
                     </constraints>
@@ -35,6 +35,14 @@
                     <fontDescription key="fontDescription" type="system" pointSize="15"/>
                     <color key="tintColor" name="AccentColor"/>
                     <state key="normal" title="Leaderboard"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="10"/>
+                        </userDefinedRuntimeAttribute>
+                        <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                            <real key="value" value="2"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                     <connections>
                         <action selector="leaderBoardButton:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="EmU-dU-240"/>
                     </connections>
@@ -94,6 +102,14 @@
                             </constraints>
                             <fontDescription key="fontDescription" type="system" weight="semibold" pointSize="20"/>
                             <state key="normal" title="Play Dice"/>
+                            <userDefinedRuntimeAttributes>
+                                <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                    <real key="value" value="25"/>
+                                </userDefinedRuntimeAttribute>
+                                <userDefinedRuntimeAttribute type="number" keyPath="borderWidth">
+                                    <real key="value" value="2"/>
+                                </userDefinedRuntimeAttribute>
+                            </userDefinedRuntimeAttributes>
                             <connections>
                                 <action selector="playGame:" destination="i5M-Pr-FkT" eventType="touchUpInside" id="d31-6p-qmz"/>
                             </connections>

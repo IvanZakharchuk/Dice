@@ -27,6 +27,5 @@ class ScoreView: NibDesignable {
     
     public func configureScoreView(user: String) {
         self.userLabel?.text = user
-        self.cornerRadius(radius: 15)
     }
 }

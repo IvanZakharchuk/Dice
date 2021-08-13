@@ -50,10 +50,7 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
         super.setupView()
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
-        self.userNameTextField?.becomeFirstResponder()
-        self.enterButton?.borderWidth(borderWidth: 1)
-        self.enterButton?.cornerRadius(radius: 25)
-        
+        self.userNameTextField?.becomeFirstResponder()        
         self.animatedElements()
     }
     
