@@ -19,8 +19,6 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Properties
     
-//    public var eventHandler: ((GameViewControllerEvents) -> ())?
-    
     private var user: Player
     private var bot: Player
     
