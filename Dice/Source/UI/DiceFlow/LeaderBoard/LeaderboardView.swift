@@ -24,5 +24,6 @@ class LeaderboardView: BaseView<LeaderboardViewEvents> {
     
     public override func setupView() {
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background") ?? UIImage())
+        self.leaderboardTableView?.register(cell: LeaderboardTableViewCell.self)
     }
 }

@@ -20,6 +20,8 @@ class Player {
     
     public var dice: Dices
     
+    public var userStorage: [DiceStorage] = []
+    
     // MARK: -
     // MARK: Initialization
     

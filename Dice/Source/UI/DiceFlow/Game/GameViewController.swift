@@ -21,9 +21,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-    
-    private weak var timer: Timer?
-        
+            
     // MARK: -
     // MARK: Initialization
     
@@ -51,11 +49,14 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     private func loadEmptyDices() {
         let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
-//        let rootView = self.rootView?.
-        self.user.score = 0
-        //
-        
-//        var gameView = self.rootView
+//        let root = self.rootView.self
+//
+////        let rootView = self.rootView?.
+//        self.user.score = 0
+//        //
+//
+////        var gameView = self.rootView
+//        root.configureScoreView
         self.rootView?.configureScoreView(user: self.user.name)
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))

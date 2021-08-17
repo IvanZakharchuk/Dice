@@ -31,6 +31,9 @@
 		787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */; };
 		787E6BAF26B016CA00A7AC94 /* BaseTexts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */; };
 		7884FA9F26C3E05F00EF0779 /* RootViewGetable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7884FA9E26C3E05F00EF0779 /* RootViewGetable.swift */; };
+		78965C0426CAA98900F3E39F /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 78965C0226CAA98900F3E39F /* CoreData.xcdatamodeld */; };
+		78965C0726CAAC5000F3E39F /* DiceStorage+CoreDataClass.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965C0526CAAC5000F3E39F /* DiceStorage+CoreDataClass.swift */; };
+		78965C0826CAAC5000F3E39F /* DiceStorage+CoreDataProperties.swift in Sources */ = {isa = PBXBuildFile; fileRef = 78965C0626CAAC5000F3E39F /* DiceStorage+CoreDataProperties.swift */; };
 		7899C95226BB0AFE002385EF /* ScoreView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7899C95026BB0AFE002385EF /* ScoreView.swift */; };
 		7899C95326BB0AFE002385EF /* ScoreView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7899C95126BB0AFE002385EF /* ScoreView.xib */; };
 		789DBB1726B2944B007EDC1D /* BaseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 789DBB1626B2944B007EDC1D /* BaseView.swift */; };
@@ -89,6 +92,9 @@
 		787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Alert.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = BaseTexts.swift; path = Dice/Source/Constants/BaseTexts.swift; sourceTree = SOURCE_ROOT; };
 		7884FA9E26C3E05F00EF0779 /* RootViewGetable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RootViewGetable.swift; sourceTree = "<group>"; };
+		78965C0326CAA98900F3E39F /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
+		78965C0526CAAC5000F3E39F /* DiceStorage+CoreDataClass.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceStorage+CoreDataClass.swift"; sourceTree = "<group>"; };
+		78965C0626CAAC5000F3E39F /* DiceStorage+CoreDataProperties.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DiceStorage+CoreDataProperties.swift"; sourceTree = "<group>"; };
 		7899C95026BB0AFE002385EF /* ScoreView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScoreView.swift; sourceTree = "<group>"; };
 		7899C95126BB0AFE002385EF /* ScoreView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ScoreView.xib; sourceTree = "<group>"; };
 		789DBB1626B2944B007EDC1D /* BaseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseView.swift; sourceTree = "<group>"; };
@@ -225,6 +231,7 @@
 		78681D33269D8AA100975FA6 /* Source */ = {
 			isa = PBXGroup;
 			children = (
+				78965C0126CAA97300F3E39F /* CoreData */,
 				7884FA9D26C3CEF800EF0779 /* Constants */,
 				78681D34269D8D2D00975FA6 /* Extensions */,
 				78681D35269D8D3700975FA6 /* UI */,
@@ -278,6 +285,16 @@
 				787E6BAE26B016CA00A7AC94 /* BaseTexts.swift */,
 			);
 			path = Constants;
+			sourceTree = "<group>";
+		};
+		78965C0126CAA97300F3E39F /* CoreData */ = {
+			isa = PBXGroup;
+			children = (
+				78965C0526CAAC5000F3E39F /* DiceStorage+CoreDataClass.swift */,
+				78965C0626CAAC5000F3E39F /* DiceStorage+CoreDataProperties.swift */,
+				78965C0226CAA98900F3E39F /* CoreData.xcdatamodeld */,
+			);
+			path = CoreData;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -430,6 +447,9 @@
 				787E6BA526AFF1C800A7AC94 /* UIView+CornerRadius.swift in Sources */,
 				7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */,
 				787E6BA926B008C900A7AC94 /* Functions.swift in Sources */,
+				78965C0426CAA98900F3E39F /* CoreData.xcdatamodeld in Sources */,
+				78965C0826CAAC5000F3E39F /* DiceStorage+CoreDataProperties.swift in Sources */,
+				78965C0726CAAC5000F3E39F /* DiceStorage+CoreDataClass.swift in Sources */,
 				787E6BAF26B016CA00A7AC94 /* BaseTexts.swift in Sources */,
 				784E6882269DC95C00C01B78 /* LoginViewController.swift in Sources */,
 				78FF413326AED18D006FA13C /* UITableViewCell+Xib.swift in Sources */,
@@ -769,6 +789,19 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCVersionGroup section */
+		78965C0226CAA98900F3E39F /* CoreData.xcdatamodeld */ = {
+			isa = XCVersionGroup;
+			children = (
+				78965C0326CAA98900F3E39F /* CoreData.xcdatamodel */,
+			);
+			currentVersion = 78965C0326CAA98900F3E39F /* CoreData.xcdatamodel */;
+			path = CoreData.xcdatamodeld;
+			sourceTree = "<group>";
+			versionGroupType = wrapper.xcdatamodel;
+		};
+/* End XCVersionGroup section */
 	};
 	rootObject = 78681CF7269C93B100975FA6 /* Project object */;
 }
