@@ -17,8 +17,9 @@ extension DiceStorage {
     }
 
     @NSManaged public var name: String?
-    @NSManaged public var score: Int16
-
+    @NSManaged public var scoreUser: Int16
+    @NSManaged public var scoreBot: Int16
+    
 }
 
 extension DiceStorage : Identifiable {

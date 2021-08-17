@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum GameViewControllerEvents {
     
@@ -80,6 +81,8 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
+        self.saveToCoreData(scoreUser: self.user.score, scoreBot: self.bot.score)
+        
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
@@ -87,6 +90,23 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
             self.showAlert(title: title)
         })
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
+        let newPlayer = DiceStorage(context: self.context!)
+        newPlayer.scoreUser = Int16(scoreUser)
+        newPlayer.scoreBot = Int16(scoreBot)
+        print("Bot(\(newPlayer.scoreBot) + \(newPlayer.scoreUser))" )
+        print(coreData?[0])
+        do {
+            try self.context?.save()
+        }
+        catch {
+            
+        }
     }
     
     // MARK: -

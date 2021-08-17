@@ -18,7 +18,11 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
     public var rootView: BaseView<ViewEvent>? {
         return self.view as? BaseView
     }
-
+    
+    public var coreData: [DiceStorage]?
+    
+    public let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    
     // MARK: -
     // MARK: Initialization
     

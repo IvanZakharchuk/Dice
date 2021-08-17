@@ -2,9 +2,10 @@
 <model type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="18154" systemVersion="20F71" minimumToolsVersion="Automatic" sourceLanguage="Swift" userDefinedModelVersionIdentifier="">
     <entity name="DiceStorage" representedClassName="DiceStorage" syncable="YES">
         <attribute name="name" optional="YES" attributeType="String"/>
-        <attribute name="score" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="scoreBot" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
+        <attribute name="scoreUser" optional="YES" attributeType="Integer 16" defaultValueString="0" usesScalarValueType="YES"/>
     </entity>
     <elements>
-        <element name="DiceStorage" positionX="-63" positionY="-18" width="128" height="59"/>
+        <element name="DiceStorage" positionX="-63" positionY="-18" width="128" height="74"/>
     </elements>
 </model>

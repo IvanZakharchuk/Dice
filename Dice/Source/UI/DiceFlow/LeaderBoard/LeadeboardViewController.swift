@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import CoreData
 
 enum LeaderboardViewControllerEvents {
     
@@ -41,20 +42,37 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     
     internal override func configureView() {
         super.configureView()
+        
+        self.fetchData()
     }
 }
 
 extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        1
+        self.coreData?.count ?? 1
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
+//        self.fetchData()
+        let player = self.coreData?[indexPath.row].name
+        let scoreUser = self.coreData?[indexPath.row].scoreUser ?? 0
+        let scoreBot = self.coreData?[indexPath.row].scoreBot ?? 0
+        print(player)
         
-        cell.setupLeaderboardCell(userName: self.user.name, userScore: String(self.user.score), botScore: String(self.bot.score) )
+        cell.setupLeaderboardCell(userName: player ?? "ivan", userScore: String(scoreUser), botScore: String(scoreBot) )
         
         return cell 
+    }
+    
+    func fetchData() {
+        do {
+            self.coreData = try self.context?.fetch(DiceStorage.fetchRequest())
+            let a = self.coreData?[0].name
+        }
+        catch {
+            
+        }
     }
 }
