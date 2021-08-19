@@ -22,7 +22,11 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-            
+    
+//    override var rootView: BaseView<GameViewEvents>? {
+//        return self.view as? BaseView
+//    }
+//
     // MARK: -
     // MARK: Initialization
     
@@ -58,9 +62,13 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //
 ////        var gameView = self.rootView
 //        root.configureScoreView
+        
+        
+        let rootView = self.rootView
+        
         self.rootView?.configureScoreView(user: self.user.name)
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+        self.rootView?.setupGameameImages(botImage: botDice.description, userImage: userDice.description)
     }
     
     private func processGame() {
@@ -91,10 +99,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
             self.showAlert(title: title)
         })
     }
-    
-    // MARK: -
-    // MARK: Private
-    
+
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
         let newPlayer = DiceStorage(context: self.context!)
         newPlayer.scoreUser = Int16(scoreUser)

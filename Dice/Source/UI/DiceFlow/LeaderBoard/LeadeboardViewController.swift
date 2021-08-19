@@ -22,6 +22,7 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         
     private var user: Player
     private var bot: Player
+    private var fetchResultController: NSFetchedResultsController<DiceStorage>?
     
     // MARK: -
     // MARK: Initialization
@@ -56,20 +57,39 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
 //        self.fetchData()
+        
+        self.user.name = self.coreData?[indexPath.row].name ?? ""
         let player = self.coreData?[indexPath.row].name
         let scoreUser = self.coreData?[indexPath.row].scoreUser ?? 0
         let scoreBot = self.coreData?[indexPath.row].scoreBot ?? 0
         print(player)
         
-        cell.setupLeaderboardCell(userName: player ?? "ivan", userScore: String(scoreUser), botScore: String(scoreBot) )
+        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(scoreUser), botScore: String(scoreBot) )
         
         return cell 
+    }
+    
+    func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
+        
+        let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+//            let userToDelete = self.fetchResultController?.object(at: indexPath)
+            let userToDelete = self.coreData?[indexPath.row]
+//            self.context?.delete(userToDelete ?? DiceStorage())
+            self.context?.delete(userToDelete ?? DiceStorage())
+            completionHandler(true)
+            self.fetchData()
+            tableView.reloadData()
+        }
+        
+        let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
+            
+        return swipeConfiguration
     }
     
     func fetchData() {
         do {
             self.coreData = try self.context?.fetch(DiceStorage.fetchRequest())
-            let a = self.coreData?[0].name
+//            let a = self.coreData?[0].name
         }
         catch {
             

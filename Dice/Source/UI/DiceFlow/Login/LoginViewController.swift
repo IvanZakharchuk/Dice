@@ -45,8 +45,9 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Private
     
     private func saveToCoreData(name: String) {
-        let player = self.coreData?[]
+//        let player = self.coreData?[IndexPath]
         let newPlayer = DiceStorage(context: self.context!)
+        
         newPlayer.name = name
         print(newPlayer.name)
         do {
@@ -69,7 +70,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         
         switch event {
         case let .shareUserName(name):
-//            self.user.name = name
+            self.user.name = name
             self.saveToCoreData(name: name)
             self.presentGame(user: self.user)
         }
