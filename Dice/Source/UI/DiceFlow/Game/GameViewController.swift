@@ -101,7 +101,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
 
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-        let newPlayer = DiceStorage(context: self.context!)
+        let newPlayer = Player(context: self.context!)
         newPlayer.scoreUser = Int16(scoreUser)
         newPlayer.scoreBot = Int16(scoreBot)
         print("Bot(\(newPlayer.scoreBot) + \(newPlayer.scoreUser))" )

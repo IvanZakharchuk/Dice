@@ -22,7 +22,7 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         
     private var user: Player
     private var bot: Player
-    private var fetchResultController: NSFetchedResultsController<DiceStorage>?
+    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization
@@ -59,12 +59,12 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 //        self.fetchData()
         
         self.user.name = self.coreData?[indexPath.row].name ?? ""
-        let player = self.coreData?[indexPath.row].name
+        let player = self.coreData?[indexPath.row].name ?? "user"
         let scoreUser = self.coreData?[indexPath.row].scoreUser ?? 0
         let scoreBot = self.coreData?[indexPath.row].scoreBot ?? 0
         print(player)
         
-        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(scoreUser), botScore: String(scoreBot) )
+        cell.setupLeaderboardCell(userName: player, userScore: String(scoreUser), botScore: String(scoreBot) )
         
         return cell 
     }
@@ -75,7 +75,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 //            let userToDelete = self.fetchResultController?.object(at: indexPath)
             let userToDelete = self.coreData?[indexPath.row]
 //            self.context?.delete(userToDelete ?? DiceStorage())
-            self.context?.delete(userToDelete ?? DiceStorage())
+            self.context?.delete(userToDelete ?? Player())
             completionHandler(true)
             self.fetchData()
             tableView.reloadData()
@@ -88,7 +88,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func fetchData() {
         do {
-            self.coreData = try self.context?.fetch(DiceStorage.fetchRequest())
+            self.coreData = try self.context?.fetch(Player.fetchRequest())
 //            let a = self.coreData?[0].name
         }
         catch {

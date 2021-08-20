@@ -10,6 +10,6 @@ import Foundation
 import CoreData
 
 @objc(DiceStorage)
-public class DiceStorage: NSManagedObject {
+public class Player: NSManagedObject {
 
 }

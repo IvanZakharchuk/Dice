@@ -34,7 +34,12 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
             self?.welcomeLabel?.center.x -= self?.bounds.width ?? CGFloat()
         }
         
-        UIView.animate(withDuration: 0.7, delay: 0.4, options: [], animations: { [weak self] in
+        UIView.animate(
+            withDuration: 0.7,
+            delay: 0.4,
+            options: [],
+            animations:
+                { [weak self] in
                         self?.userNameTextField?.center.x += self?.bounds.width ?? CGFloat() },
                        completion: nil)
         
