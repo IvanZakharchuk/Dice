@@ -39,12 +39,24 @@ class CoreDataService {
 
 //
 
+struct PlayerModel {
+    
+    public let player: CoreDataPlayer
+    public var id: NSManagedObjectID {
+        return player.objectID
+    }
+    
+    public var name: String {
+        return player.name ?? ""
+    }
+}
+
 class CoreDataManager {
     
     // MARK: -
     // MARK: Properties
     
-    private let persistentContainer: NSPersistentContainer
+    public let persistentContainer: NSPersistentContainer
     static let shared = CoreDataManager()
 
     public var viewContext: NSManagedObjectContext {
@@ -54,8 +66,22 @@ class CoreDataManager {
     // MARK: -
     // MARK: Public
     
-    public func getPlayer(player: NSManagedObjectID) -> CoreDataPlayer? {
-        try? self.viewContext.existingObject(with: player) as? CoreDataPlayer
+    public func getPlayer() -> [CoreDataPlayer] {
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
+        do {
+            return try self.viewContext.fetch(request)
+        } catch  {
+            return []
+        }
+    }
+    
+    
+    func getPlayerkById(id: NSManagedObjectID) -> CoreDataPlayer? {
+        do {
+            return try viewContext.existingObject(with: id) as? CoreDataPlayer
+        } catch {
+            return nil
+        }
     }
     
     public func deletePlayer(player: CoreDataPlayer) {
@@ -71,7 +97,7 @@ class CoreDataManager {
     // MARK: Initialization
 
     private init() {
-        persistentContainer = NSPersistentContainer(name: "TestAppModel")
+        persistentContainer = NSPersistentContainer(name: "CoreData")
         persistentContainer.loadPersistentStores { (description, error) in
             if let error = error {
                 fatalError("Unable to initialize Core Data \(error)")

@@ -28,7 +28,6 @@
 		786EF62D26A165BB00D54F54 /* LeaderboardView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 786EF62C26A165BB00D54F54 /* LeaderboardView.swift */; };
 		787485E926D64F780011B762 /* CoreData.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 787485E726D64F780011B762 /* CoreData.xcdatamodeld */; };
 		787485EB26D662D00011B762 /* CoreDataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787485EA26D662D00011B762 /* CoreDataService.swift */; };
-		787485ED26D6687D0011B762 /* CoreDataStorable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787485EC26D6687D0011B762 /* CoreDataStorable.swift */; };
 		787E6BA526AFF1C800A7AC94 /* UIView+CornerRadius.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BA426AFF1C800A7AC94 /* UIView+CornerRadius.swift */; };
 		787E6BA926B008C900A7AC94 /* Functions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BA826B008C900A7AC94 /* Functions.swift */; };
 		787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = 787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */; };
@@ -89,7 +88,6 @@
 		786EF62C26A165BB00D54F54 /* LeaderboardView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LeaderboardView.swift; sourceTree = "<group>"; };
 		787485E826D64F780011B762 /* CoreData.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = CoreData.xcdatamodel; sourceTree = "<group>"; };
 		787485EA26D662D00011B762 /* CoreDataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataService.swift; sourceTree = "<group>"; };
-		787485EC26D6687D0011B762 /* CoreDataStorable.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStorable.swift; sourceTree = "<group>"; };
 		787E6BA426AFF1C800A7AC94 /* UIView+CornerRadius.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIView+CornerRadius.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIView+CornerRadius.swift"; sourceTree = SOURCE_ROOT; };
 		787E6BA826B008C900A7AC94 /* Functions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Functions.swift; path = Dice/Source/UI/DiceFlow/LeaderBoard/Functions.swift; sourceTree = SOURCE_ROOT; };
 		787E6BAA26B0163400A7AC94 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = "UIViewController+Alert.swift"; path = "Dice/Source/UI/DiceFlow/LeaderBoard/UIViewController+Alert.swift"; sourceTree = SOURCE_ROOT; };
@@ -292,7 +290,6 @@
 			children = (
 				787485E726D64F780011B762 /* CoreData.xcdatamodeld */,
 				787485EA26D662D00011B762 /* CoreDataService.swift */,
-				787485EC26D6687D0011B762 /* CoreDataStorable.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -446,7 +443,6 @@
 				784E688B269ED4F000C01B78 /* GameViewController.swift in Sources */,
 				787E6BAB26B0163400A7AC94 /* UIViewController+Alert.swift in Sources */,
 				787E6BA526AFF1C800A7AC94 /* UIView+CornerRadius.swift in Sources */,
-				787485ED26D6687D0011B762 /* CoreDataStorable.swift in Sources */,
 				7834C4C026A4DC0B00A066E2 /* Dices.swift in Sources */,
 				787E6BA926B008C900A7AC94 /* Functions.swift in Sources */,
 				787485E926D64F780011B762 /* CoreData.xcdatamodeld in Sources */,

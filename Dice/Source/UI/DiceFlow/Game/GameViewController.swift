@@ -22,6 +22,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
+//    private var playerStorage: [CoreDataPlayer]?
     
 //    override var rootView: BaseView<GameViewEvents>? {
 //        return self.view as? BaseView
@@ -64,7 +65,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //        root.configureScoreView
         
         
-        let rootView = self.rootView
+//        let rootView = self.rootView
         
         self.rootView?.configureScoreView(user: self.user.name)
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
@@ -101,17 +102,28 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
 
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-        let newPlayer = Player(context: self.context!)
-        newPlayer.scoreUser = Int16(scoreUser)
-        newPlayer.scoreBot = Int16(scoreBot)
-        print("Bot(\(newPlayer.scoreBot) + \(newPlayer.scoreUser))" )
-        print(coreData?[0])
-        do {
-            try self.context?.save()
-        }
-        catch {
-            
-        }
+        //        let newPlayer = CoreDataPlayer(context: self.context ?? NSManagedObjectContext())
+        
+        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+        newPlayer.score = Int16(scoreUser)
+        newPlayer.score = Int16(scoreBot)
+        
+        print(newPlayer.score)
+        
+        CoreDataManager.shared.savePlayer()
+        
+        
+//        let newPlayer = self.context.map(CoreDataPlayer.init)
+//        newPlayer?.score = Int16(scoreUser)
+//        newPlayer?.score = Int16(scoreBot)
+//        print("Bot(\(String(describing: newPlayer?.score)) + \(String(describing: newPlayer?.score)))" )
+//        print(playerStorage?[0])
+//        do {
+//            try self.context?.save()
+//        }
+//        catch {
+//
+//        }
     }
     
     // MARK: -

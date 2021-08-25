@@ -22,6 +22,7 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         
     private var user: Player
     private var bot: Player
+    private var playerStorage: [PlayerModel] = []
 //    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
@@ -51,48 +52,75 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
 extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.coreData?.count ?? 1
+        self.playerStorage.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
-//        self.fetchData()
+        self.fetchData()
         
-        self.user.name = self.coreData?[indexPath.row].name ?? ""
-        let player = self.coreData?[indexPath.row].name ?? "user"
-        let scoreUser = self.coreData?[indexPath.row].scoreUser ?? 0
-        let scoreBot = self.coreData?[indexPath.row].scoreBot ?? 0
-        print(player)
+       
         
-        cell.setupLeaderboardCell(userName: player, userScore: String(scoreUser), botScore: String(scoreBot) )
+        let player = self.playerStorage[indexPath.row].name
         
+        let playerScore = self.playerStorage[indexPath.row].player.score
+        let botScore = self.playerStorage[indexPath.row].player.score
+        
+        
+//        self.user.name = self.playerStorage?[indexPath.row].name ?? ""
+//        let player = self.playerStorage?[indexPath.row].name ?? "user"
+//        let scoreUser = self.playerStorage?[indexPath.row].score ?? 0
+//        let scoreBot = self.playerStorage?[indexPath.row].score ?? 0
+//        print(player)
+//
+        cell.setupLeaderboardCell(userName: player, userScore: String(playerScore), botScore: String(botScore) )
+//
         return cell 
     }
     
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
-//            let userToDelete = self.fetchResultController?.object(at: indexPath)
-            let userToDelete = self.coreData?[indexPath.row]
-//            self.context?.delete(userToDelete ?? DiceStorage())
-            self.context?.delete(userToDelete ?? Player())
-            completionHandler(true)
+            
+//            func delete(_ playerToDelete: PlayerModel) {
+//                let existingPlayer = CoreDataManager.shared.getPlayerkById(id: playerToDelete.id)
+//                if let existingPlayer = existingPlayer {
+//                    CoreDataManager.shared.deletePlayer(player: existingPlayer)
+//                }
+//            }
+            
+            let playerToDelete = self.playerStorage[indexPath.row].player
+            CoreDataManager.shared.deletePlayer(player: playerToDelete)
+            
             self.fetchData()
             tableView.reloadData()
+            
+            
+//            let userToDelete = self.fetchResultController?.object(at: indexPath)
+//            let userToDelete = self.playerStorage?[indexPath.row]
+////            self.context?.delete(userToDelete ?? DiceStorage())
+//            self.context?.delete(userToDelete ?? CoreDataPlayer())
+            completionHandler(true)
+            
         }
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
             
+        
         return swipeConfiguration
+        
     }
     
     func fetchData() {
-        do {
-            self.coreData = try self.context?.fetch(Player.fetchRequest())
-//            let a = self.coreData?[0].name
-        }
-        catch {
-            
-        }
+    
+    self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
+//        do {
+//            self.playerStorage = try self.context?.fetch(CoreDataPlayer.fetchRequest())
+////            let a = self.coreData?[0].name
+//        }
+//        catch {
+//
+//        }
     }
+
 }

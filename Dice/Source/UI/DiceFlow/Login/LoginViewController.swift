@@ -8,52 +8,52 @@
 import UIKit
 import CoreData
 
-protocol Storable {
-    
-    func save()
-    func load()
-}
-
-class Controller {
-    
-    let storage: Storable
-    
-    init(storage: Storable) {
-        self.storage = storage
-    }
-    
-    func viewDidApear() {
-        self.storage.save()
-    }
-}
-
-class DataCoreStorablee: Storable {
-    
-    func save() {
-//        SharedInstance.save()
-    }
-}
-// дата кор не нада
-
-class CoreDataStorable: Storable {
-    
-    let context: NSManagedObjectContext
-    
-    init(context: NSManagedObjectContext) {
-        self.context = context
-    }
-    
-    func save() {
-        try? self.context.save()
-    }
-}
-
-class Coordinator {
-    
-    func viewDidApear() {
-        let controller = Controller(storage: CoreDataStorable(context: NSManagedObjectContext.init()))
-    }
-}
+//protocol Storable {
+//
+//    func save()
+//    func load()
+//}
+//
+//class Controller {
+//
+//    let storage: Storable
+//
+//    init(storage: Storable) {
+//        self.storage = storage
+//    }
+//
+//    func viewDidApear() {
+//        self.storage.save()
+//    }
+//}
+//
+//class DataCoreStorablee: Storable {
+//
+//    func save() {
+////        SharedInstance.save()
+//    }
+//}
+//// дата кор не нада
+//
+//class CoreDataStorable: Storable {
+//
+//    let context: NSManagedObjectContext
+//
+//    init(context: NSManagedObjectContext) {
+//        self.context = context
+//    }
+//
+//    func save() {
+//        try? self.context.save()
+//    }
+//}
+//
+//class Coordinator {
+//
+//    func viewDidApear() {
+//        let controller = Controller(storage: CoreDataStorable(context: NSManagedObjectContext.init()))
+//    }
+//}
 
 enum LoginViewControllerEvents {
 
@@ -68,6 +68,9 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Properties
         
     private var user: Player
+//    private var playerStorage: [CoreDataPlayer]?
+    
+//    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
     
     // MARK: -
     // MARK: Initialization
@@ -93,16 +96,20 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     
     private func saveToCoreData(name: String) {
 //        let player = self.coreData?[IndexPath]
-        let newPlayer = self.context.map(Player.init)
+//        let newPlayer = self.context.map(CoreDataPlayer.init)
         
-        newPlayer?.name = name
-        print(newPlayer?.name)
-        do {
-            try self.context?.save()
-        }
-        catch {
-            
-        }
+        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+        newPlayer.name = name
+        print(newPlayer.name)
+        
+        CoreDataManager.shared.savePlayer()
+        
+//        do {
+//            try self.context?.save()
+//        }
+//        catch {
+//
+//        }
     }
     
     // MARK: -

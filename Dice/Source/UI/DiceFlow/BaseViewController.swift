@@ -18,15 +18,14 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
     public var rootView: BaseView<ViewEvent>? {
         return self.view as? BaseView
     }
-    //дженерик тип добавит
+    
+    //дженерик тип добавить
     // на луа посмотреть контрлер берет вю дженерик типом и сетит вю
     
-    public var coreData: [Player]?
+//    public var coreData: [Player]?
     
-    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
-    
-    
-    
+//    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
+
     // MARK: -
     // MARK: Initialization
     
