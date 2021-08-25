@@ -65,12 +65,16 @@ class GameView: BaseView<GameViewEvents> {
     }
     
     private func animateScoreView() {
-        UIView.transition(with: self.scoreView ?? UIView(),
-                          duration: 0.5, options: .transitionFlipFromTop,
-                          animations: { [weak self] in
-                            self?.scoreView?.transform = CGAffineTransform(scaleX: 4, y: 4)
-                            self?.scoreView?.transform = .identity
-                          }, completion: nil)
+        UIView.transition(
+            with: self.scoreView ?? UIView(),
+            duration: 0.5,
+            options: .transitionFlipFromTop,
+            animations:
+                { [weak self] in
+                    self?.scoreView?.transform = CGAffineTransform(scaleX: 4, y: 4)
+                    self?.scoreView?.transform = .identity
+                },
+            completion: nil)
     }
     
     private func animateLeaderBoardButton() {

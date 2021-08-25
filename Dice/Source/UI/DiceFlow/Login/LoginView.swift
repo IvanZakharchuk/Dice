@@ -40,12 +40,17 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
             options: [],
             animations:
                 { [weak self] in
-                        self?.userNameTextField?.center.x += self?.bounds.width ?? CGFloat() },
-                       completion: nil)
+                    self?.userNameTextField?.center.x += self?.bounds.width ?? CGFloat() },
+            completion: nil)
         
-        UIView.animate(withDuration: 0.7, delay: 0.5, options: [], animations: { [weak self] in
-                        self?.enterButton?.center.x += self?.bounds.width ?? CGFloat() },
-                       completion: nil)
+        UIView.animate(
+            withDuration: 0.7,
+            delay: 0.5,
+            options: [],
+            animations:
+                { [weak self] in
+                    self?.enterButton?.center.x += self?.bounds.width ?? CGFloat() },
+            completion: nil)
     }
     
     // MARK: -
