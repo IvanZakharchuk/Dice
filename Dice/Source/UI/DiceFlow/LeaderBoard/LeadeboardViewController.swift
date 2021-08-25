@@ -22,7 +22,7 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         
     private var user: Player
     private var bot: Player
-    private var fetchResultController: NSFetchedResultsController<Player>?
+//    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization

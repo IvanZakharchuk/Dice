@@ -23,7 +23,9 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
     
     public var coreData: [Player]?
     
-    public let context = (UIApplication.shared.delegate as? AppDelegate)?.persistentContainer.viewContext
+    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
+    
+    
     
     // MARK: -
     // MARK: Initialization
