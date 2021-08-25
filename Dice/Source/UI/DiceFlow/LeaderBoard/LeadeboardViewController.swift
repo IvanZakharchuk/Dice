@@ -59,8 +59,6 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
         self.fetchData()
         
-       
-        
         let player = self.playerStorage[indexPath.row].name
         
         let playerScore = self.playerStorage[indexPath.row].player.score
