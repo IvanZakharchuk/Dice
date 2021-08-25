@@ -52,6 +52,14 @@ struct PlayerModel {
     public var name: String {
         return player.name ?? ""
     }
+    
+    public var botScore: Int {
+        return Int(player.score)
+    }
+    
+    public var playerScore: Int {
+        return Int(player.score)
+    }
 }
 
 class CoreDataManager {
@@ -79,7 +87,7 @@ class CoreDataManager {
     }
     
     
-    func getPlayerkById(id: NSManagedObjectID) -> CoreDataPlayer? {
+    public func getPlayerkById(id: NSManagedObjectID) -> CoreDataPlayer? {
         do {
             return try viewContext.existingObject(with: id) as? CoreDataPlayer
         } catch {
@@ -99,9 +107,9 @@ class CoreDataManager {
     // MARK: -
     // MARK: Initialization
 
-    private init() {
-        persistentContainer = NSPersistentContainer(name: "CoreData")
-        persistentContainer.loadPersistentStores { (description, error) in
+    public init() {
+        self.persistentContainer = NSPersistentContainer(name: "CoreData")
+        self.persistentContainer.loadPersistentStores { (description, error) in
             if let error = error {
                 fatalError("Unable to initialize Core Data \(error)")
             }
@@ -118,7 +126,7 @@ protocol Storable {
     func saveContext()
 }
 
-protocol FetchData {
+protocol Fetchable {
 
     func fetch()
     func delete()
@@ -126,9 +134,9 @@ protocol FetchData {
 
 class FetchDataClass {
 
-    let storage: FetchData
+    let storage: Fetchable
 
-    init(storage: FetchData) {
+    init(storage: Fetchable) {
         self.storage = storage
     }
     
@@ -150,7 +158,7 @@ class StorableClass {
     }
 }
 
-class TestVC: FetchData {
+class TestVC: Fetchable {
     func fetch() {
         
     }

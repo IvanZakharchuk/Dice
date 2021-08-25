@@ -10,7 +10,7 @@ import CoreData
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(Player, Player, CoreDataService)
+    case needDisplayLeaderboard(Player, Player, CoreDataManager)
 }
 
 class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable, Storable {
@@ -22,7 +22,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-    private let context: CoreDataService
+    private let context: CoreDataManager
 //    private var playerStorage: [CoreDataPlayer]?
     
 //    override var rootView: BaseView<GameViewEvents>? {
@@ -32,7 +32,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: CoreDataService) {
+    public init(user: Player, bot: Player, context: CoreDataManager) {
         self.user = user
         self.bot = bot
         self.context = context
@@ -47,7 +47,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: Player, bot: Player, context: CoreDataService) {
+    public func presentLeaderboard(user: Player, bot: Player, context: CoreDataManager) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
     }
     
@@ -107,10 +107,14 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         //        let newPlayer = CoreDataPlayer(context: self.context ?? NSManagedObjectContext())
         
         let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+        
+//        let newPlayer = CoreDataPlayer(context: CoreDataService.init())
+        
         newPlayer.score = Int16(scoreUser)
         newPlayer.score = Int16(scoreBot)
         
         print(newPlayer.score)
+        self.saveContext()
         
 //        CoreDataManager.shared.savePlayer()
         
@@ -129,7 +133,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
     
     func saveContext() {
-        self.context.saveContext()
+        self.context.savePlayer()
     }
     
     // MARK: -

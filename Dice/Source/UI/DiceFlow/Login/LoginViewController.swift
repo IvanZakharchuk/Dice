@@ -57,7 +57,7 @@ import CoreData
 //
 enum LoginViewControllerEvents {
 
-    case needDisplayGame(Player, CoreDataService)
+    case needDisplayGame(Player, CoreDataManager)
 }
 
 class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable, Storable {
@@ -74,12 +74,12 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     
 //    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
     
-    private let context: CoreDataService
+    private let context: CoreDataManager
     
     // MARK: -
     // MARK: Initialization
 
-    public init(user: Player, context: CoreDataService) {
+    public init(user: Player, context: CoreDataManager) {
         self.user = user
         self.context = context
         
@@ -105,8 +105,12 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
 //        let newPlayer = self.context.map(CoreDataPlayer.init)
         
         let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+        
+//        let newPlayer = self.context.persistentContainer.viewContext
+        
         newPlayer.name = name
         print(newPlayer.name)
+        self.saveContext()
         
 //        CoreDataManager.shared.savePlayer()
         
@@ -119,7 +123,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     }
     
     func saveContext() {
-        self.context.saveContext()
+        self.context.savePlayer()
     }
     
     // MARK: -

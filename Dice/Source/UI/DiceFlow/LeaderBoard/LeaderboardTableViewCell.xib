@@ -45,8 +45,8 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
-                <outlet property="botScore" destination="mca-b6-Tck" id="4Uh-Fj-GKM"/>
                 <outlet property="userName" destination="A0x-cE-Uxt" id="Pnr-rH-Jfc"/>
+                <outlet property="userScore" destination="mca-b6-Tck" id="4DU-7G-T8m"/>
             </connections>
             <point key="canvasLocation" x="295.6521739130435" y="278.90625"/>
         </tableViewCell>

@@ -13,7 +13,9 @@ enum LeaderboardViewControllerEvents {
     case back
 }
 
-class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
+class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable, Fetchable {
+    
+    
     
     typealias RootView = LeaderboardView
     
@@ -23,13 +25,13 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     private var user: Player
     private var bot: Player
     private var playerStorage: [PlayerModel] = []
-    private let context: CoreDataService
+    private let context: CoreDataManager
 //    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: CoreDataService) {
+    public init(user: Player, bot: Player, context: CoreDataManager) {
         self.user = user
         self.bot = bot
         self.context = context
@@ -47,7 +49,7 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     internal override func configureView() {
         super.configureView()
         
-        self.fetchData()
+        self.fetch()
     }
 }
 
@@ -55,25 +57,37 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.playerStorage.count
+//        self.context.getPlayer().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
-        self.fetchData()
         
-        let player = self.playerStorage[indexPath.row].name
+//        let player = self.context.persistentContainer.viewContext.name
         
-        let playerScore = self.playerStorage[indexPath.row].player.score
-        let botScore = self.playerStorage[indexPath.row].player.score
+
+        let playerModel = self.playerStorage.first
+        let player = playerModel?.name
+        let playerScore = playerModel?.playerScore ?? 77
+        let botScore = playerModel?.botScore ?? 77
         
         
+//        let player = self.playerStorage.compactMap { $0.player.name?.description }[indexPath.row]
+//        let playerScore = self.playerStorage.map { $0.playerScore } [indexPath.row]
+//        let botScore = self.playerStorage.map { $0.botScore} [indexPath.row]
+        
+//        let player = self.playerStorage[indexPath.row].name
+//        let playerScore = self.playerStorage[indexPath.row].player.score
+//        let botScore = self.playerStorage[indexPath.row].player.score
+
+//
 //        self.user.name = self.playerStorage?[indexPath.row].name ?? ""
 //        let player = self.playerStorage?[indexPath.row].name ?? "user"
 //        let scoreUser = self.playerStorage?[indexPath.row].score ?? 0
 //        let scoreBot = self.playerStorage?[indexPath.row].score ?? 0
 //        print(player)
 //
-        cell.setupLeaderboardCell(userName: player, userScore: String(playerScore), botScore: String(botScore) )
+        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(playerScore), botScore: String(botScore) )
 //
         return cell 
     }
@@ -92,7 +106,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
             let playerToDelete = self.playerStorage[indexPath.row].player
             CoreDataManager.shared.deletePlayer(player: playerToDelete)
             
-            self.fetchData()
+            self.fetch()
             tableView.reloadData()
             
             
@@ -106,14 +120,23 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
             
-        
         return swipeConfiguration
         
     }
     
-    func fetchData() {
+    func fetch() {
+        self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
+    }
     
-    self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
+    func delete() {
+        
+    }
+    
+//    func fetchData() {
+        
+//        self.context.persistentContainer.
+    
+    
 //        do {
 //            self.playerStorage = try self.context?.fetch(CoreDataPlayer.fetchRequest())
 ////            let a = self.coreData?[0].name
@@ -121,6 +144,6 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 //        catch {
 //
 //        }
-    }
+//    }
 
 }
