@@ -24,7 +24,7 @@ class CoreDataService {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -36,8 +36,11 @@ class CoreDataService {
         }
     }
 }
+//////////////
+//////
+/////
 
-//
+// My Variant
 
 struct PlayerModel {
     
@@ -106,6 +109,59 @@ class CoreDataManager {
         }
     }
 }
+
+
+// Second Variant
+
+protocol Storable {
+
+    func saveContext()
+}
+
+protocol FetchData {
+
+    func fetch()
+    func delete()
+}
+
+class FetchDataClass {
+
+    let storage: FetchData
+
+    init(storage: FetchData) {
+        self.storage = storage
+    }
+    
+    func delete() {
+        self.storage.delete()
+    }
+
+    func fetchData() {
+        self.storage.fetch()
+    }
+}
+
+class StorableClass {
+    
+    let storage: Storable
+    
+    init(storage: Storable) {
+        self.storage = storage
+    }
+}
+
+class TestVC: FetchData {
+    func fetch() {
+        
+    }
+    
+    func delete() {
+        
+    }
+    
+    
+}
+
 
 
 

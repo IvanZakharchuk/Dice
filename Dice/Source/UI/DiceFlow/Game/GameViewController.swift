@@ -10,10 +10,10 @@ import CoreData
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(Player, Player)
+    case needDisplayLeaderboard(Player, Player, CoreDataService)
 }
 
-class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable {
+class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable, Storable {
     
     typealias RootView = GameView
     
@@ -22,6 +22,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
+    private let context: CoreDataService
 //    private var playerStorage: [CoreDataPlayer]?
     
 //    override var rootView: BaseView<GameViewEvents>? {
@@ -31,9 +32,10 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player) {
+    public init(user: Player, bot: Player, context: CoreDataService) {
         self.user = user
         self.bot = bot
+        self.context = context
         
         super.init(nibName: nil, bundle: nil)
     }
@@ -45,8 +47,8 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: Player, bot: Player) {
-        self.eventHandler?(.needDisplayLeaderboard(user, bot))
+    public func presentLeaderboard(user: Player, bot: Player, context: CoreDataService) {
+        self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
     }
     
     // MARK: -
@@ -110,7 +112,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         
         print(newPlayer.score)
         
-        CoreDataManager.shared.savePlayer()
+//        CoreDataManager.shared.savePlayer()
         
         
 //        let newPlayer = self.context.map(CoreDataPlayer.init)
@@ -126,6 +128,10 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //        }
     }
     
+    func saveContext() {
+        self.context.saveContext()
+    }
+    
     // MARK: -
     // MARK: Overrided
     
@@ -138,7 +144,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     internal override func handle(event: GameViewEvents) {
         switch event {
         case .needDisplayLeaderBoard:
-            self.presentLeaderboard(user: self.user, bot: self.bot)
+            self.presentLeaderboard(user: self.user, bot: self.bot, context: self.context)
         case .updateDices:
             self.processGame()
         }

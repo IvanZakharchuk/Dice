@@ -22,9 +22,9 @@ import CoreData
 //        self.storage = storage
 //    }
 //
-//    func viewDidApear() {
-//        self.storage.save()
-//    }
+////    func viewDidApear() {
+////        self.storage.save()
+////    }
 //}
 //
 //class DataCoreStorablee: Storable {
@@ -54,13 +54,15 @@ import CoreData
 //        let controller = Controller(storage: CoreDataStorable(context: NSManagedObjectContext.init()))
 //    }
 //}
-
+//
 enum LoginViewControllerEvents {
 
-    case needDisplayGame(Player)
+    case needDisplayGame(Player, CoreDataService)
 }
 
-class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
+class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable, Storable {
+    
+    
     
     typealias RootView = LoginView
 
@@ -72,11 +74,15 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     
 //    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
     
+    private let context: CoreDataService
+    
     // MARK: -
     // MARK: Initialization
 
-    public init(user: Player) {
+    public init(user: Player, context: CoreDataService) {
         self.user = user
+        self.context = context
+        
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -88,7 +94,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Public
     
     public func presentGame(user: Player) {
-        self.eventHandler?(.needDisplayGame(user))
+        self.eventHandler?(.needDisplayGame(user, context))
     }
     
     // MARK: -
@@ -102,14 +108,18 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         newPlayer.name = name
         print(newPlayer.name)
         
-        CoreDataManager.shared.savePlayer()
+//        CoreDataManager.shared.savePlayer()
         
 //        do {
-//            try self.context?.save()
+//            try self.context.saveContext()
 //        }
 //        catch {
 //
 //        }
+    }
+    
+    func saveContext() {
+        self.context.saveContext()
     }
     
     // MARK: -

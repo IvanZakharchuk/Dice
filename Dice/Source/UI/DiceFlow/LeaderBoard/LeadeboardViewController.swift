@@ -23,14 +23,16 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     private var user: Player
     private var bot: Player
     private var playerStorage: [PlayerModel] = []
+    private let context: CoreDataService
 //    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player) {
+    public init(user: Player, bot: Player, context: CoreDataService) {
         self.user = user
         self.bot = bot
+        self.context = context
       
         super.init(nibName: nil, bundle: nil)
     }
