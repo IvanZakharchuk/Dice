@@ -109,7 +109,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         return swipeConfiguration
     }
     
-    func fetch() {
+    private func fetch() {
         self.playerStorage = self.context.fetch().map(PlayerModel.init)
 //        self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
     }

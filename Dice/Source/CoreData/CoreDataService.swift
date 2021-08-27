@@ -10,7 +10,7 @@ import CoreData
 
 protocol Storable {
 
-    func saveContext()
+    func saveContext(player: [CoreDataPlayer])
 }
 
 protocol Fetchable {
@@ -58,10 +58,10 @@ class CoreDataManager: Storable, Fetchable {
     
     public func delete(player: CoreDataPlayer) {
         self.viewContext.delete(player)
-        self.saveContext()
+        try? self.viewContext.save()
     }
     
-    public func saveContext() {
+    public func saveContext(player: [CoreDataPlayer]) {
         try? self.viewContext.save()
     }
     

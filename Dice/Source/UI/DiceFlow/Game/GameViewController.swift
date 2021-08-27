@@ -90,17 +90,28 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
 
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-        newPlayer.name = "Bot"
-        newPlayer.score = Int16(scoreUser)
-        newPlayer.score = Int16(scoreBot)
+//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+//        let newPlayer = self.playerStorage.map { $0.player }
+//        let newPlayer = self.context.fetch()
+//        newPlayer.map { $0.name = "Bot"}
+//        let newPlayer = self.playerStorage[1].player
+        let newPlayer = self.playerStorage.map { $0.player }
+        newPlayer.map { $0.score = Int16(scoreBot) }
+//        let score = self.playerStorage.map { $0.player }
+//        newPlayer.name = "Bot"
+//        newPlayer.score = Int16(scoreUser)
+//        newPlayer.score = Int16(scoreBot)
         
-        print(newPlayer.score)
+//        print(newPlayer.score)
         
-        self.context.saveContext()
+        self.context.saveContext(player: newPlayer)
         
-        CoreDataManager.shared.saveContext()
+//        CoreDataManager.shared.saveContext(player: <#CoreDataPlayer#>)
     }
+    
+//    private func fetch() {
+//        self.playerStorage = self.context.fetch().map(PlayerModel.init)
+//    }
     
     // MARK: -
     // MARK: Overrided
