@@ -57,10 +57,10 @@ import CoreData
 //
 enum LoginViewControllerEvents {
 
-    case needDisplayGame(Player, CoreDataManager)
+    case needDisplayGame(Player, Fetchable & Storable)
 }
 
-class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable, Storable {
+class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
     
     
     
@@ -74,12 +74,12 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     
 //    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
     
-    private let context: CoreDataManager
+    private let context: Fetchable & Storable
     
     // MARK: -
     // MARK: Initialization
 
-    public init(user: Player, context: CoreDataManager) {
+    public init(user: Player, context: Fetchable & Storable) {
         self.user = user
         self.context = context
         
@@ -110,9 +110,9 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         
         newPlayer.name = name
         print(newPlayer.name)
-        self.saveContext()
-        
-//        CoreDataManager.shared.savePlayer()
+
+        self.context.saveContext()
+        CoreDataManager.shared.savePlayer()
         
 //        do {
 //            try self.context.saveContext()
@@ -121,10 +121,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
 //
 //        }
     }
-    
-    func saveContext() {
-        self.context.savePlayer()
-    }
+
     
     // MARK: -
     // MARK: Overrided
@@ -143,6 +140,4 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
             self.presentGame(user: self.user)
         }
     }
-    
-    
 }

@@ -10,10 +10,10 @@ import CoreData
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(Player, Player, CoreDataManager)
+    case needDisplayLeaderboard(Player, Player, Fetchable & Storable)
 }
 
-class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable, Storable {
+class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable {
     
     typealias RootView = GameView
     
@@ -22,7 +22,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-    private let context: CoreDataManager
+    private let context: Fetchable & Storable
 //    private var playerStorage: [CoreDataPlayer]?
     
 //    override var rootView: BaseView<GameViewEvents>? {
@@ -32,7 +32,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: CoreDataManager) {
+    public init(user: Player, bot: Player, context: Fetchable & Storable) {
         self.user = user
         self.bot = bot
         self.context = context
@@ -47,7 +47,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: Player, bot: Player, context: CoreDataManager) {
+    public func presentLeaderboard(user: Player, bot: Player, context: Fetchable & Storable) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
     }
     
@@ -114,9 +114,10 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         newPlayer.score = Int16(scoreBot)
         
         print(newPlayer.score)
-        self.saveContext()
         
-//        CoreDataManager.shared.savePlayer()
+        self.context.saveContext()
+        
+        CoreDataManager.shared.savePlayer()
         
         
 //        let newPlayer = self.context.map(CoreDataPlayer.init)
@@ -130,10 +131,6 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //        catch {
 //
 //        }
-    }
-    
-    func saveContext() {
-        self.context.savePlayer()
     }
     
     // MARK: -

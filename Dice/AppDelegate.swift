@@ -14,11 +14,33 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     // MARK: Properties
     
     var window: UIWindow?
+    
+    
+//    private var diceCoordinator: DiceCoordinator?
+    
+//    let manager = CoreDataManager()
+//    public let context: Fetchable & Storable
+//
+//    init(context: Fetchable & Storable) {
+//        self.context = context
+//    }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
-        let coordinator = DiceCoordinator()
+        
+        
+//        let context = self.diceCoordinator?.context
+//        self.diceCoordinator = DiceCoordinator(context: context!)
+//        let context: Fetchable & Storable
+        
+//        let context = self.diceCoordinator?.context
+//        self.diceCoordinator = DiceCoordinator(context: context)
+//        let context = CoreDataManager.shared.viewContext
+        
+        let coordinator = DiceCoordinator(context: CoreDataManager.init())
+        
+//        let coordinator = DiceCoordinator.self
         window.rootViewController = coordinator
         window.makeKeyAndVisible()
         self.window = window

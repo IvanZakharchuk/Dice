@@ -13,7 +13,7 @@ enum LeaderboardViewControllerEvents {
     case back
 }
 
-class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable, Fetchable {
+class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
     
     
     
@@ -25,13 +25,13 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     private var user: Player
     private var bot: Player
     private var playerStorage: [PlayerModel] = []
-    private let context: CoreDataManager
+    private let context: Fetchable & Storable
 //    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: CoreDataManager) {
+    public init(user: Player, bot: Player, context: Fetchable & Storable) {
         self.user = user
         self.bot = bot
         self.context = context
@@ -68,8 +68,8 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 
         let playerModel = self.playerStorage.first
         let player = playerModel?.name
-        let playerScore = playerModel?.playerScore ?? 77
-        let botScore = playerModel?.botScore ?? 77
+        let playerScore = Int(playerModel?.player.score ?? 77)
+        let botScore = Int(playerModel?.score ?? 77)
         
         
 //        let player = self.playerStorage.compactMap { $0.player.name?.description }[indexPath.row]
@@ -87,7 +87,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 //        let scoreBot = self.playerStorage?[indexPath.row].score ?? 0
 //        print(player)
 //
-        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(playerScore), botScore: String(botScore) )
+        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(playerScore) ?? "77", botScore: String(botScore) ?? "77")
 //
         return cell 
     }
@@ -119,9 +119,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         }
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
-            
         return swipeConfiguration
-        
     }
     
     func fetch() {

@@ -53,16 +53,23 @@ struct PlayerModel {
         return player.name ?? ""
     }
     
-    public var botScore: Int {
-        return Int(player.score)
-    }
-    
-    public var playerScore: Int {
+    public var score: Int {
         return Int(player.score)
     }
 }
 
-class CoreDataManager {
+class CoreDataManager: Storable, Fetchable {
+    
+    func delete(player: CoreDataPlayer) {
+        self.viewContext.delete(player)
+        self.savePlayer()
+    }
+    
+    func saveContext() {
+        try? self.viewContext.save()
+    }
+    
+    
     
     // MARK: -
     // MARK: Properties
@@ -79,20 +86,13 @@ class CoreDataManager {
     
     public func getPlayer() -> [CoreDataPlayer] {
         let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
-        do {
-            return try self.viewContext.fetch(request)
-        } catch  {
-            return []
-        }
+        
+        return (try? self.viewContext.fetch(request)) ?? []
     }
     
     
     public func getPlayerkById(id: NSManagedObjectID) -> CoreDataPlayer? {
-        do {
-            return try viewContext.existingObject(with: id) as? CoreDataPlayer
-        } catch {
-            return nil
-        }
+        return try? viewContext.existingObject(with: id) as? CoreDataPlayer
     }
     
     public func deletePlayer(player: CoreDataPlayer) {
@@ -128,25 +128,13 @@ protocol Storable {
 
 protocol Fetchable {
 
-    func fetch()
-    func delete()
+//    func fetch(id: Int)
+    func delete(player: CoreDataPlayer)
 }
 
 class FetchDataClass {
 
-    let storage: Fetchable
-
-    init(storage: Fetchable) {
-        self.storage = storage
-    }
-    
-    func delete() {
-        self.storage.delete()
-    }
-
-    func fetchData() {
-        self.storage.fetch()
-    }
+   
 }
 
 class StorableClass {
@@ -158,18 +146,24 @@ class StorableClass {
     }
 }
 
-class TestVC: Fetchable {
-    func fetch() {
-        
-    }
-    
-    func delete() {
-        
-    }
-    
-    
-}
-
-
-
-
+//class TestVC {
+//
+//    let storage: Fetchable & Storable
+//    let id: Int
+//
+//    private var user: User?
+//
+//    init(storage: Fetchable & Storable, id: Int) {
+//        self.storage = storage
+//        self.id = id
+//    }
+//
+//    func loadButtonTapped() {
+//        self.user = self.storage.fetch(id: self.id)
+//        self.user.name = "Vasya"
+//    }
+//
+//    func saveButtonTapped() {
+//        self.storage.saveContext()
+//    }
+//}

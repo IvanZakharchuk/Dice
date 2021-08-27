@@ -9,6 +9,19 @@ import Foundation
 import UIKit
 
 class DiceCoordinator: BaseCoordinator {
+
+    let context: Fetchable & Storable
+
+    init(context: Fetchable & Storable) {
+        self.context = context
+
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+//    let context: Fetchable & Storable
     
     // MARK: -
     // MARK: Private
@@ -16,7 +29,10 @@ class DiceCoordinator: BaseCoordinator {
     private func presentLogin() {
         let dice = Dices()
         let user = Player(dice: dice)
-        let controller = LoginViewController(user: user, context: CoreDataManager())
+//        let context: Fetchable & Storable
+//        AppDelegate.init(context: context)
+        let context = CoreDataManager()
+        let controller = LoginViewController(user: user, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -30,7 +46,7 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentGame(user: Player, context: CoreDataManager) {
+    private func presentGame(user: Player, context: Fetchable & Storable) {
         let dice = Dices()
         let bot = Player(dice: dice)
         let controller = GameViewController(user: user, bot: bot, context: context)
@@ -47,7 +63,7 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentLeaderBoard(user: Player, bot: Player, context: CoreDataManager) {
+    private func presentLeaderBoard(user: Player, bot: Player, context: Fetchable & Storable) {
         let controller = LeadeboardViewController(user: user, bot: bot, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
