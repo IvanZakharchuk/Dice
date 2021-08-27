@@ -95,8 +95,8 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //        let newPlayer = self.context.fetch()
 //        newPlayer.map { $0.name = "Bot"}
 //        let newPlayer = self.playerStorage[1].player
-        let newPlayer = self.playerStorage.map { $0.player }
-        newPlayer.map { $0.score = Int16(scoreBot) }
+//        let newPlayer = self.playerStorage.map { $0.player }
+//        newPlayer.map { $0.score = Int16(scoreBot) }
 //        let score = self.playerStorage.map { $0.player }
 //        newPlayer.name = "Bot"
 //        newPlayer.score = Int16(scoreUser)
@@ -104,7 +104,14 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         
 //        print(newPlayer.score)
         
-        self.context.saveContext(player: newPlayer)
+        
+        let storage = self.playerStorage.first
+        let newPlayer = storage?.player
+        newPlayer?.name = "Bot"
+        newPlayer?.score = Int16(scoreUser)
+        newPlayer?.score = Int16(scoreBot)
+        
+        self.context.saveContext(player: newPlayer ?? CoreDataPlayer())
         
 //        CoreDataManager.shared.saveContext(player: <#CoreDataPlayer#>)
     }

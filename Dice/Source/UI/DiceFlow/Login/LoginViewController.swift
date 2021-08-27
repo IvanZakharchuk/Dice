@@ -52,12 +52,17 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
 //        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
 //        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
 //        let newPlayer = self.playerStorage[0].player
-        let newPlayer = self.playerStorage.map { $0.player }
-        newPlayer.map { $0.name = name }
+//        let newPlayer = self.playerStorage.map { $0.player }
+//        newPlayer.map { $0.name = name }
+        
+        
+        let storage = self.playerStorage.first
+        let newPlayer = storage?.player
+        newPlayer?.name = name
 //        newPlayer.name = name
 //        print(newPlayer.name)
         
-        self.context.saveContext(player: newPlayer)
+        self.context.saveContext(player: newPlayer ?? CoreDataPlayer())
 //        CoreDataManager.shared.saveContext()
     }
     
