@@ -14,9 +14,7 @@ enum LeaderboardViewControllerEvents {
 }
 
 class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
-    
-    
-    
+
     typealias RootView = LeaderboardView
     
     // MARK: -
@@ -26,7 +24,6 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     private var bot: Player
     private var playerStorage: [PlayerModel] = []
     private let context: Fetchable & Storable
-//    private var fetchResultController: NSFetchedResultsController<Player>?
     
     // MARK: -
     // MARK: Initialization
@@ -57,14 +54,10 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         self.playerStorage.count
-//        self.context.getPlayer().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
-        
-//        let player = self.context.persistentContainer.viewContext.name
-        
 
         let playerModel = self.playerStorage.first
         let player = playerModel?.name
@@ -104,16 +97,10 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
 //            }
             
             let playerToDelete = self.playerStorage[indexPath.row].player
-            CoreDataManager.shared.deletePlayer(player: playerToDelete)
-            
+//            CoreDataManager.shared.deletePlayer(player: playerToDelete)
+            self.context.delete(player: playerToDelete)
             self.fetch()
             tableView.reloadData()
-            
-            
-//            let userToDelete = self.fetchResultController?.object(at: indexPath)
-//            let userToDelete = self.playerStorage?[indexPath.row]
-////            self.context?.delete(userToDelete ?? DiceStorage())
-//            self.context?.delete(userToDelete ?? CoreDataPlayer())
             completionHandler(true)
             
         }
@@ -123,25 +110,7 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func fetch() {
-        self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
+        self.playerStorage = self.context.fetch().map(PlayerModel.init)
+//        self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
     }
-    
-    func delete() {
-        
-    }
-    
-//    func fetchData() {
-        
-//        self.context.persistentContainer.
-    
-    
-//        do {
-//            self.playerStorage = try self.context?.fetch(CoreDataPlayer.fetchRequest())
-////            let a = self.coreData?[0].name
-//        }
-//        catch {
-//
-//        }
-//    }
-
 }

@@ -22,13 +22,9 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
+    private var playerStorage: [PlayerModel] = []
     private let context: Fetchable & Storable
-//    private var playerStorage: [CoreDataPlayer]?
-    
-//    override var rootView: BaseView<GameViewEvents>? {
-//        return self.view as? BaseView
-//    }
-//
+
     // MARK: -
     // MARK: Initialization
     
@@ -57,16 +53,6 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     private func loadEmptyDices() {
         let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
-//        let root = self.rootView.self
-//
-////        let rootView = self.rootView?.
-//        self.user.score = 0
-//        //
-//
-////        var gameView = self.rootView
-//        root.configureScoreView
-        
-        
 //        let rootView = self.rootView
         
         self.rootView?.configureScoreView(user: self.user.name)
@@ -104,12 +90,8 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
 
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-        //        let newPlayer = CoreDataPlayer(context: self.context ?? NSManagedObjectContext())
-        
         let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-        
-//        let newPlayer = CoreDataPlayer(context: CoreDataService.init())
-        
+        newPlayer.name = "Bot"
         newPlayer.score = Int16(scoreUser)
         newPlayer.score = Int16(scoreBot)
         
@@ -117,20 +99,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         
         self.context.saveContext()
         
-        CoreDataManager.shared.savePlayer()
-        
-        
-//        let newPlayer = self.context.map(CoreDataPlayer.init)
-//        newPlayer?.score = Int16(scoreUser)
-//        newPlayer?.score = Int16(scoreBot)
-//        print("Bot(\(String(describing: newPlayer?.score)) + \(String(describing: newPlayer?.score)))" )
-//        print(playerStorage?[0])
-//        do {
-//            try self.context?.save()
-//        }
-//        catch {
-//
-//        }
+        CoreDataManager.shared.saveContext()
     }
     
     // MARK: -

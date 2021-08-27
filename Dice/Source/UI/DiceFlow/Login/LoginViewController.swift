@@ -8,53 +8,6 @@
 import UIKit
 import CoreData
 
-//protocol Storable {
-//
-//    func save()
-//    func load()
-//}
-//
-//class Controller {
-//
-//    let storage: Storable
-//
-//    init(storage: Storable) {
-//        self.storage = storage
-//    }
-//
-////    func viewDidApear() {
-////        self.storage.save()
-////    }
-//}
-//
-//class DataCoreStorablee: Storable {
-//
-//    func save() {
-////        SharedInstance.save()
-//    }
-//}
-//// дата кор не нада
-//
-//class CoreDataStorable: Storable {
-//
-//    let context: NSManagedObjectContext
-//
-//    init(context: NSManagedObjectContext) {
-//        self.context = context
-//    }
-//
-//    func save() {
-//        try? self.context.save()
-//    }
-//}
-//
-//class Coordinator {
-//
-//    func viewDidApear() {
-//        let controller = Controller(storage: CoreDataStorable(context: NSManagedObjectContext.init()))
-//    }
-//}
-//
 enum LoginViewControllerEvents {
 
     case needDisplayGame(Player, Fetchable & Storable)
@@ -62,18 +15,12 @@ enum LoginViewControllerEvents {
 
 class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
     
-    
-    
     typealias RootView = LoginView
 
     // MARK: -
     // MARK: Properties
         
     private var user: Player
-//    private var playerStorage: [CoreDataPlayer]?
-    
-//    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
-    
     private let context: Fetchable & Storable
     
     // MARK: -
@@ -101,27 +48,15 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Private
     
     private func saveToCoreData(name: String) {
-//        let player = self.coreData?[IndexPath]
-//        let newPlayer = self.context.map(CoreDataPlayer.init)
-        
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-        
-//        let newPlayer = self.context.persistentContainer.viewContext
-        
+//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
         newPlayer.name = name
         print(newPlayer.name)
-
-        self.context.saveContext()
-        CoreDataManager.shared.savePlayer()
         
-//        do {
-//            try self.context.saveContext()
-//        }
-//        catch {
-//
-//        }
+        self.context.saveContext()
+        CoreDataManager.shared.saveContext()
     }
-
+    
     
     // MARK: -
     // MARK: Overrided

@@ -21,7 +21,6 @@ class DiceCoordinator: BaseCoordinator {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-//    let context: Fetchable & Storable
     
     // MARK: -
     // MARK: Private
@@ -29,9 +28,6 @@ class DiceCoordinator: BaseCoordinator {
     private func presentLogin() {
         let dice = Dices()
         let user = Player(dice: dice)
-//        let context: Fetchable & Storable
-//        AppDelegate.init(context: context)
-        let context = CoreDataManager()
         let controller = LoginViewController(user: user, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
