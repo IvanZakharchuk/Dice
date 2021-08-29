@@ -10,7 +10,7 @@ import CoreData
 
 enum LoginViewControllerEvents {
 
-    case needDisplayGame(Player, Fetchable & Storable)
+    case needDisplayGame(Player, CRUD)
 }
 
 class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
@@ -21,12 +21,12 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Properties
         
     private var user: Player
-    private let context: Fetchable & Storable
+    private let context: CRUD
     
     // MARK: -
     // MARK: Initialization
 
-    public init(user: Player, context: Fetchable & Storable) {
+    public init(user: Player, context: CRUD) {
         self.user = user
         self.context = context
         
@@ -53,8 +53,8 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         newPlayer.name = name
         print(newPlayer.name)
         
-        self.context.saveContext()
-        CoreDataManager.shared.saveContext()
+//        self.context.saveContext()
+//        CoreDataManager.shared.saveContext()
     }
     
     

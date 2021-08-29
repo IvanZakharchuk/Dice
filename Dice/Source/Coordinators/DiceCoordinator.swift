@@ -10,9 +10,9 @@ import UIKit
 
 class DiceCoordinator: BaseCoordinator {
 
-    let context: Fetchable & Storable
+    let context: CRUD
 
-    init(context: Fetchable & Storable) {
+    init(context: CRUD) {
         self.context = context
 
         super.init(nibName: nil, bundle: nil)
@@ -42,7 +42,7 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentGame(user: Player, context: Fetchable & Storable) {
+    private func presentGame(user: Player, context: CRUD) {
         let dice = Dices()
         let bot = Player(dice: dice)
         let controller = GameViewController(user: user, bot: bot, context: context)
@@ -59,7 +59,7 @@ class DiceCoordinator: BaseCoordinator {
         }
     }
     
-    private func presentLeaderBoard(user: Player, bot: Player, context: Fetchable & Storable) {
+    private func presentLeaderBoard(user: Player, bot: Player, context: CRUD) {
         let controller = LeadeboardViewController(user: user, bot: bot, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)

@@ -10,7 +10,7 @@ import CoreData
 
 enum GameViewControllerEvents {
     
-    case needDisplayLeaderboard(Player, Player, Fetchable & Storable)
+    case needDisplayLeaderboard(Player, Player, CRUD)
 }
 
 class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable {
@@ -23,12 +23,12 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     private var user: Player
     private var bot: Player
     private var playerStorage: [PlayerModel] = []
-    private let context: Fetchable & Storable
+    private let context: CRUD
 
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: Fetchable & Storable) {
+    public init(user: Player, bot: Player, context: CRUD) {
         self.user = user
         self.bot = bot
         self.context = context
@@ -43,7 +43,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     // MARK: -
     // MARK: Public
     
-    public func presentLeaderboard(user: Player, bot: Player, context: Fetchable & Storable) {
+    public func presentLeaderboard(user: Player, bot: Player, context: CRUD) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
     }
     
@@ -97,9 +97,9 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         
         print(newPlayer.score)
         
-        self.context.saveContext()
+//        self.context.saveContext()
         
-        CoreDataManager.shared.saveContext()
+//        CoreDataManager.shared.saveContext()
     }
     
     // MARK: -
