@@ -13,16 +13,14 @@ class LeaderboardTableViewCell: UITableViewCell {
     // MARK: IBOutlets
     
     @IBOutlet private var userName: UILabel?
-    @IBOutlet private var userScore: UILabel?
-    @IBOutlet private var botScore: UILabel?
+    @IBOutlet private var score: UILabel?
     
     // MARK: -
     // MARK: Public
     
-    public func setupLeaderboardCell(userName: String, userScore: String, botScore: String) {
+    public func setupLeaderboardCell(userName: String, score: String) {
         self.userName?.text = userName
-        self.userScore?.text = userScore
-        self.botScore?.text = botScore
+        self.score?.text = score
         
         self.cornerRadius(radius: 12)
     }

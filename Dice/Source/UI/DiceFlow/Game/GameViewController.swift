@@ -22,7 +22,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-    private var playerStorage: [PlayerModel] = []
+    private var coreDataPlayer:CoreDataPlayer?
     private let context: CRUD
 
     // MARK: -
@@ -100,6 +100,25 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
 //        self.context.saveContext()
         
 //        CoreDataManager.shared.saveContext()
+        
+        
+        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
+        newPlayer.name = "Bot"
+        newPlayer.score = Int16(scoreBot)
+        newPlayer.score = Int16(scoreUser)
+        self.context.update()
+        print(self.context)
+        print(newPlayer.name)
+        print(newPlayer.score)
+        
+//        if let coreDatamanager = (UIApplication.shared.delegate as? CoreDataManager) {
+//            self.coreDataPlayer = CoreDataPlayer(context: coreDatamanager.persistentContainer.viewContext)
+//            self.coreDataPlayer?.name = "Bot"
+//            self.coreDataPlayer?.score = Int16(scoreBot)
+//            self.coreDataPlayer?.score = Int16(scoreUser)
+//
+//            self.context.update()
+//        }
     }
     
     // MARK: -

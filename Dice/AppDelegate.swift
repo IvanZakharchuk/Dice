@@ -19,7 +19,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         
         let window = UIWindow(frame: UIScreen.main.bounds)
         
-        let coordinator = DiceCoordinator(context: CoreDataManager.init())
+        let coordinator = DiceCoordinator(context: CoreDataManager.shared)
         window.rootViewController = coordinator
         window.makeKeyAndVisible()
         self.window = window

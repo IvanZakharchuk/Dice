@@ -13,7 +13,7 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
     // MARK: -
     // MARK: Variables
     
-    public let appDelegate = UIApplication.shared.delegate as? AppDelegate
+//    public let coreDataManager = UIApplication.shared.delegate as? CoreDataManager
     
     public var eventHandler: ((ControllerEvents) -> ())?
     

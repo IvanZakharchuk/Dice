@@ -21,7 +21,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Properties
         
     private var user: Player
-    private var playerStorage: [PlayerModel] = []
+    private var coreDataPlayer:CoreDataPlayer?
     private let context: CRUD
     
     // MARK: -
@@ -61,13 +61,41 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         
 //        let newPLayer = self.playerStorage.map { $0.player }
         
-        let newPlayer = self.playerStorage.first
+        
+//        let newPlayer = self.playerStorage.first
 //        let newPlayer = self.playerStorage.map { self.playerStorage.}
-        newPlayer?.player.name = name
-        print(newPlayer?.name)
-        self.context.create(player: newPlayer?.player ?? CoreDataPlayer())
+//        newPlayer?.name = name
+//        print(newPlayer?.name)
+//        self.context.create(player: newPlayer ?? CoreDataPlayer())
+        
+//        coreDataManager?.create(player: newPlayer)
+//        if let coreDatamanager = (UIApplication.shared.delegate as? CoreDataManager) {
+//            self.coreDataPlayer = CoreDataPlayer(context: coreDatamanager.persistentContainer.viewContext)
+//            self.coreDataPlayer?.name = name
+//
+//            print(coreDataPlayer?.name)
+//            self.context.create()
+//
+//        }
+        
+        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
+        newPlayer.name = name
+        print(newPlayer.name)
+        
+        self.coreDataPlayer?.name = name
+        print(coreDataPlayer?.name)
+        self.context.create()
+//        self.context.create(player: self.coreDataPlayer ?? CoreDataPlayer())
         
     }
+    
+//    func workWithData() {
+//        if let coreDataManager = (UIApplication.shared.delegate as? CoreDataManager) {
+////            let context = coreDataManager.persistentContainer.viewContext
+//            self.storage =
+//        }
+//    }
+    
     
     
     // MARK: -
