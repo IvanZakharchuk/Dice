@@ -21,6 +21,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Properties
         
     private var user: Player
+    private var playerStorage: [PlayerModel] = []
     private let context: CRUD
     
     // MARK: -
@@ -49,12 +50,23 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     
     private func saveToCoreData(name: String) {
 //        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
-        newPlayer.name = name
-        print(newPlayer.name)
-        
+//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
+//        newPlayer.name = name
+//        print(newPlayer.name)
+    
 //        self.context.saveContext()
 //        CoreDataManager.shared.saveContext()
+        
+//        let player: CoreDataPlayer = self.playerStorage.first?.player
+        
+//        let newPLayer = self.playerStorage.map { $0.player }
+        
+        let newPlayer = self.playerStorage.first
+//        let newPlayer = self.playerStorage.map { self.playerStorage.}
+        newPlayer?.player.name = name
+        print(newPlayer?.name)
+        self.context.create(player: newPlayer?.player ?? CoreDataPlayer())
+        
     }
     
     

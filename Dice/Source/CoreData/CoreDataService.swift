@@ -11,7 +11,7 @@ import CoreData
 protocol CRUD {
     
     func create(player: CoreDataPlayer)
-    func read(player: CoreDataPlayer)
+//    func read() -> CoreDataPlayer
     func update(player: CoreDataPlayer)
     func delete(player: CoreDataPlayer)
 }
@@ -43,13 +43,22 @@ struct PlayerModel {
     }
 }
 
+//
+//extension CoreDataPlayer {
+//
+//}
+
+
 class CoreDataManager: CRUD {
  
     // MARK: -
     // MARK: Properties
     
+    
+    
+//    private let entity = NSEntityDescription.entity(forEntityName: "CoreDataPlayer", in: mana)
+    
     public let persistentContainer: NSPersistentContainer
-    static let shared = CoreDataManager()
 
     public var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
@@ -61,11 +70,15 @@ class CoreDataManager: CRUD {
     public func create(player: CoreDataPlayer) {
         // create
         
+        try? self.viewContext.save()
     }
     
-    public func read(player: CoreDataPlayer) {
-        //read data
-    }
+//    public func read() -> CoreDataPlayer {
+//        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
+//        return
+//        return (try? self.viewContext.fetch(request)) ?? []
+//    }
     
     public func update(player: CoreDataPlayer) {
         // updarte
@@ -90,6 +103,14 @@ class CoreDataManager: CRUD {
 //        try? self.viewContext.save()
 //    }
     
+    
+    private func saveContext() {
+        let context = self.viewContext
+        
+        if context.hasChanges {
+            try? self.viewContext.save()
+        }
+    }
     // MARK: -
     // MARK: Initialization
 

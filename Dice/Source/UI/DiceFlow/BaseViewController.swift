@@ -13,6 +13,8 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
     // MARK: -
     // MARK: Variables
     
+    public let appDelegate = UIApplication.shared.delegate as? AppDelegate
+    
     public var eventHandler: ((ControllerEvents) -> ())?
     
     public var rootView: BaseView<ViewEvent>? {

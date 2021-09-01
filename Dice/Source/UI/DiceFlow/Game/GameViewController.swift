@@ -90,12 +90,12 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     }
 
     private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-        newPlayer.name = "Bot"
-        newPlayer.score = Int16(scoreUser)
-        newPlayer.score = Int16(scoreBot)
+//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
+//        newPlayer.name = "Bot"
+//        newPlayer.score = Int16(scoreUser)
+//        newPlayer.score = Int16(scoreBot)
         
-        print(newPlayer.score)
+//        print(newPlayer.score)
         
 //        self.context.saveContext()
         
