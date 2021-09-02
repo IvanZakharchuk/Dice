@@ -11,10 +11,10 @@ import UIKit
 
 protocol CRUD {
     
-    func create()
-    func read()
-    func update()
-    func delete(player: NSManagedObject)
+    func create(player: Player)
+    func read() -> [CoreDataPlayer]
+    func update(player: Player)
+    func delete(player: Player)
 }
 
 class CoreDataManager: CRUD {
@@ -27,45 +27,68 @@ class CoreDataManager: CRUD {
     public var viewContext: NSManagedObjectContext {
         return persistentContainer.viewContext
     }
-
-    static let shared = CoreDataManager()
     
     // MARK: -
     // MARK: Public
     
-    public func create() {
-        // create
+    public func create(player: Player) {
+        CoreDataPlayer().name = player.name
+        self.save()
+    }
+    
+//    public func read() -> Player {
+//        let coreDataPlayer = self.fetchCoreData().first
+//
+//
+//    }
+    
+    public func read() -> [CoreDataPlayer] {
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
         
+        do {
+            return try self.viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
+    public func update(player: Player) {
+        
+        guard let userCoreData = self.read().first(where: {$0.name == player.name})  else {
+            return self.create(player: player)
+        }
+        userCoreData.score = Int16(player.score)
+        self.save()
+    }
+    
+    public func delete(player: Player) {
+        guard let userCoreData = self.read().first(where: {$0.name == player.name})  else {
+            return self.create(player: player)
+        }
+        self.viewContext.delete(userCoreData)
+        self.save()
+    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func save() {
         try? self.viewContext.save()
     }
     
-    public func read() {
-        try? viewContext.fetch(CoreDataPlayer.fetchRequest())
-
-    }
-    
-    public func update() {
-        self.create()
-        self.read()
-    }
-    
-    public func delete(player: NSManagedObject) {
-        // delete
-        self.viewContext.delete(player)
-    }
-    
-    private func coreData() {
+    private func fetchCoreData() -> [CoreDataPlayer] {
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
         
-        guard let coreDataManager = UIApplication.shared.delegate as? CoreDataManager else { return }
-        
-        let managedContext = coreDataManager.persistentContainer.viewContext
-        
-        guard let entity = NSEntityDescription.entity(forEntityName: "CoreDataPlayer", in: managedContext) else { return }
+        do {
+            return try self.viewContext.fetch(request)
+        } catch {
+            return []
+        }
     }
     // MARK: -
     // MARK: Initialization
 
-    private init() {
+    public init() {
         self.persistentContainer = NSPersistentContainer(name: "CoreData")
         self.persistentContainer.loadPersistentStores { (description, error) in
             if let error = error {
@@ -74,48 +97,3 @@ class CoreDataManager: CRUD {
         }
     }
 }
-
-//class CoreDataService: CRUD {
-//
-//    // MARK: - Core Data stack
-//
-//    lazy var persistentContainer: NSPersistentContainer = {
-//        let container = NSPersistentContainer(name: "CoreData")
-//        container.loadPersistentStores(completionHandler: { (storeDescription, error) in
-//            if let error = error as NSError? {
-//                fatalError("Unresolved error \(error), \(error.userInfo)")
-//            }
-//        })
-//        return container
-//    }()
-//
-//    // MARK: - Core Data Saving support
-//
-//    func saveContext () {
-//        let context = persistentContainer.viewContext
-//        if context.hasChanges {
-//            do {
-//                try context.save()
-//            } catch {
-//                let nserror = error as NSError
-//                fatalError("Unresolved error \(nserror), \(nserror.userInfo)")
-//            }
-//        }
-//    }
-//
-//    public func create(player: CoreDataPlayer) {
-//        self.saveContext()
-//    }
-//
-//    public func read(player: CoreDataPlayer) {
-//
-//    }
-//
-//    public func update(player: CoreDataPlayer) {
-//
-//    }
-//
-//    public func delete(player: CoreDataPlayer) {
-//
-//    }
-//}

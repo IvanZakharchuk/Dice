@@ -53,43 +53,21 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
 extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.coreDataPlayer?.count ?? 3
+        self.context.read().count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
-
         
+        guard let player = self.context.read().first(where: {$0.name == user.name}) else {
+            return cell
+        }
         
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
-
-        let player = newPlayer.name ?? "user"
-        let playerScore = newPlayer.score
-//        let playerModel = self.coreDataPlayer?[indexPath.row]
-//        let player = playerModel?.name ?? "user"
-//        let playerScore = Int(playerModel?.score ?? 77)
-//        let botScore = Int(playerModel?.score ?? 77)
+        let name = player.name ?? "userDefault"
+        let score = String(player.score)
         
+        cell.setupLeaderboardCell(userName: name, score: score)
         
-//        let player = self.playerStorage.compactMap { $0.player.name?.description }[indexPath.row]
-//        let playerScore = self.playerStorage.map { $0.playerScore } [indexPath.row]
-//        let botScore = self.playerStorage.map { $0.botScore} [indexPath.row]
-        
-//        let player = self.playerStorage[indexPath.row].name
-//        let playerScore = self.playerStorage[indexPath.row].player.score
-//        let botScore = self.playerStorage[indexPath.row].player.score
-
-//
-//        self.user.name = self.playerStorage?[indexPath.row].name ?? ""
-//        let player = self.playerStorage?[indexPath.row].name ?? "user"
-//        let scoreUser = self.playerStorage?[indexPath.row].score ?? 0
-//        let scoreBot = self.playerStorage?[indexPath.row].score ?? 0
-//        print(player)
-//
-//        cell.setupLeaderboardCell(userName: player ?? "user", userScore: String(playerScore) ?? "77", botScore: String(botScore) ?? "77")
-        
-        cell.setupLeaderboardCell(userName: player, score: playerScore.description)
-
         return cell
     }
     
@@ -97,16 +75,6 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
             
-//            func delete(_ playerToDelete: PlayerModel) {
-//                let existingPlayer = CoreDataManager.shared.getPlayerkById(id: playerToDelete.id)
-//                if let existingPlayer = existingPlayer {
-//                    CoreDataManager.shared.deletePlayer(player: existingPlayer)
-//                }
-//            }
-            
-            let playerToDelete = self.coreDataPlayer?[indexPath.row]
-//            CoreDataManager.shared.deletePlayer(player: playerToDelete)
-            self.context.delete(player: playerToDelete ?? CoreDataPlayer())
             self.fetch()
             tableView.reloadData()
             completionHandler(true)
@@ -117,15 +85,8 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
         return swipeConfiguration
     }
     
-    func fetch() {
-            
-//        if let coreDatamanager = (UIApplication.shared.delegate as? CoreDataManager) {
-//            self.coreDataPlayer = CoreDataPlayer(context: coreDatamanager.persistentContainer.viewContext)
-        
+    private func fetch() {
         self.context.read()
-            
-        }
-//        self.playerStorage = self.context.fetch().map(PlayerModel.init)
-//        self.playerStorage = CoreDataManager.shared.getPlayer().map(PlayerModel.init)
-//    }
+        
+    }
 }

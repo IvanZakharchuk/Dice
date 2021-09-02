@@ -22,7 +22,6 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     private var user: Player
     private var bot: Player
-    private var coreDataPlayer:CoreDataPlayer?
     private let context: CRUD
 
     // MARK: -
@@ -45,6 +44,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     public func presentLeaderboard(user: Player, bot: Player, context: CRUD) {
         self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
+        self.saveToCoreData(player: self.user, bot: self.bot)
     }
     
     // MARK: -
@@ -78,8 +78,6 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-        self.saveToCoreData(scoreUser: self.user.score, scoreBot: self.bot.score)
-        
         self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
     }
     
@@ -89,36 +87,10 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         })
     }
 
-    private func saveToCoreData(scoreUser: Int, scoreBot: Int) {
-//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-//        newPlayer.name = "Bot"
-//        newPlayer.score = Int16(scoreUser)
-//        newPlayer.score = Int16(scoreBot)
-        
-//        print(newPlayer.score)
-        
-//        self.context.saveContext()
-        
-//        CoreDataManager.shared.saveContext()
-        
-        
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
-        newPlayer.name = "Bot"
-        newPlayer.score = Int16(scoreBot)
-        newPlayer.score = Int16(scoreUser)
-        self.context.update()
-        print(self.context)
-        print(newPlayer.name)
-        print(newPlayer.score)
-        
-//        if let coreDatamanager = (UIApplication.shared.delegate as? CoreDataManager) {
-//            self.coreDataPlayer = CoreDataPlayer(context: coreDatamanager.persistentContainer.viewContext)
-//            self.coreDataPlayer?.name = "Bot"
-//            self.coreDataPlayer?.score = Int16(scoreBot)
-//            self.coreDataPlayer?.score = Int16(scoreUser)
-//
-//            self.context.update()
-//        }
+    private func saveToCoreData(player: Player, bot: Player) {
+        self.context.update(player: player)
+        self.context.create(player: bot)
+        self.context.update(player: bot)
     }
     
     // MARK: -

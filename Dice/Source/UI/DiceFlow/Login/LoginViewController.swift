@@ -48,55 +48,9 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: -
     // MARK: Private
     
-    private func saveToCoreData(name: String) {
-//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.persistentContainer.viewContext)
-//        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
-//        newPlayer.name = name
-//        print(newPlayer.name)
-    
-//        self.context.saveContext()
-//        CoreDataManager.shared.saveContext()
-        
-//        let player: CoreDataPlayer = self.playerStorage.first?.player
-        
-//        let newPLayer = self.playerStorage.map { $0.player }
-        
-        
-//        let newPlayer = self.playerStorage.first
-//        let newPlayer = self.playerStorage.map { self.playerStorage.}
-//        newPlayer?.name = name
-//        print(newPlayer?.name)
-//        self.context.create(player: newPlayer ?? CoreDataPlayer())
-        
-//        coreDataManager?.create(player: newPlayer)
-//        if let coreDatamanager = (UIApplication.shared.delegate as? CoreDataManager) {
-//            self.coreDataPlayer = CoreDataPlayer(context: coreDatamanager.persistentContainer.viewContext)
-//            self.coreDataPlayer?.name = name
-//
-//            print(coreDataPlayer?.name)
-//            self.context.create()
-//
-//        }
-        
-        let newPlayer = CoreDataPlayer(context: CoreDataManager.shared.viewContext)
-        newPlayer.name = name
-        print(newPlayer.name)
-        
-        self.coreDataPlayer?.name = name
-        print(coreDataPlayer?.name)
-        self.context.create()
-//        self.context.create(player: self.coreDataPlayer ?? CoreDataPlayer())
-        
+    private func saveToCoreData(user: Player) {
+        self.context.create(player: self.user)
     }
-    
-//    func workWithData() {
-//        if let coreDataManager = (UIApplication.shared.delegate as? CoreDataManager) {
-////            let context = coreDataManager.persistentContainer.viewContext
-//            self.storage =
-//        }
-//    }
-    
-    
     
     // MARK: -
     // MARK: Overrided
@@ -111,7 +65,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         switch event {
         case let .shareUserName(name):
             self.user.name = name
-            self.saveToCoreData(name: name)
+            self.saveToCoreData(user: self.user)
             self.presentGame(user: self.user)
         }
     }
