@@ -12,7 +12,8 @@ import UIKit
 protocol CRUD {
     
     func create(player: Player)
-    func read() -> [CoreDataPlayer]
+    //func read() -> Player
+    func read() -> [Player]
     func update(player: Player)
     func delete(player: Player)
 }
@@ -42,19 +43,25 @@ class CoreDataManager: CRUD {
 //
 //    }
     
-    public func read() -> [CoreDataPlayer] {
+    public func read() -> [Player] {
         let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
         
         do {
-            return try self.viewContext.fetch(request)
+            return try self.corePlayers().map { Player(name: $0.name, score: $0.score) }
         } catch {
             return []
         }
     }
     
-    public func update(player: Player) {
+    private func corePlayers() -> [CoreDataPlayer] {
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
+        // request.predicate Zadatb predicate
         
-        guard let userCoreData = self.read().first(where: {$0.name == player.name})  else {
+        return self.viewContext.fetch(request)
+    }
+    
+    public func update(player: Player) {
+        guard let userCoreData = self.corePlayers().first { $0.name == player.name } else {
             return self.create(player: player)
         }
         userCoreData.score = Int16(player.score)
