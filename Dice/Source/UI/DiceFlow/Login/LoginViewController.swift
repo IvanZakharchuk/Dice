@@ -13,22 +13,19 @@ enum LoginViewControllerEvents {
     case needDisplayGame(Player, CRUD)
 }
 
-class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
+class LoginViewController: BaseViewController<LoginView, LoginViewEvents, LoginViewControllerEvents>, RootViewGetable {
     
     typealias RootView = LoginView
 
     // MARK: -
     // MARK: Properties
         
-    private var user: Player
-    private var coreDataPlayer:CoreDataPlayer?
     private let context: CRUD
     
     // MARK: -
     // MARK: Initialization
 
-    public init(user: Player, context: CRUD) {
-        self.user = user
+    public init(context: CRUD) {
         self.context = context
         
         super.init(nibName: nil, bundle: nil)
@@ -42,14 +39,7 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
     // MARK: Public
     
     public func presentGame(user: Player) {
-        self.eventHandler?(.needDisplayGame(user, context))
-    }
-    
-    // MARK: -
-    // MARK: Private
-    
-    private func saveToCoreData(user: Player) {
-        self.context.create(player: self.user)
+        self.eventHandler?(.needDisplayGame(user, self.context))
     }
     
     // MARK: -
@@ -64,9 +54,10 @@ class LoginViewController: BaseViewController<LoginViewEvents, LoginViewControll
         
         switch event {
         case let .shareUserName(name):
-            self.user.name = name
-            self.saveToCoreData(user: self.user)
-            self.presentGame(user: self.user)
+            let player = self.context.read(name: name) ?? Player(name: name, score: 0)
+            
+            self.context.create(player: player)
+            self.presentGame(user: player)
         }
     }
 }

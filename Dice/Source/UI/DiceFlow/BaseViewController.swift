@@ -8,25 +8,16 @@
 import Foundation
 import UIKit
 
-class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
+class BaseViewController<View, ViewEvents, ControllerEvents>: UIViewController where View: BaseView<ViewEvents> {
         
     // MARK: -
     // MARK: Variables
-    
-//    public let coreDataManager = UIApplication.shared.delegate as? CoreDataManager
-    
+        
     public var eventHandler: ((ControllerEvents) -> ())?
     
-    public var rootView: BaseView<ViewEvent>? {
-        return self.view as? BaseView
+    public var rootView: View? {
+        return self.view as? View
     }
-    
-    //дженерик тип добавить
-    // на луа посмотреть контрлер берет вю дженерик типом и сетит вю
-    
-//    public var coreData: [Player]?
-    
-//    public let context = (UIApplication.shared.delegate as? CoreDataService)?.persistentContainer.viewContext
 
     // MARK: -
     // MARK: Initialization
@@ -54,7 +45,7 @@ class BaseViewController<ViewEvent, ControllerEvents>: UIViewController {
         }
     }
     
-    func handle(event: ViewEvent) {
+    func handle(event: ViewEvents) {
         
     }
 }

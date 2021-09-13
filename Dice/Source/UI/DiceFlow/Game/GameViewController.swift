@@ -13,7 +13,7 @@ enum GameViewControllerEvents {
     case needDisplayLeaderboard(Player, Player, CRUD)
 }
 
-class GameViewController: BaseViewController<GameViewEvents, GameViewControllerEvents>, RootViewGetable {
+class GameViewController: BaseViewController<GameView, GameViewEvents, GameViewControllerEvents>, RootViewGetable {
     
     typealias RootView = GameView
     
@@ -24,12 +24,15 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     private var bot: Player
     private let context: CRUD
 
+
     // MARK: -
     // MARK: Initialization
     
-    public init(user: Player, bot: Player, context: CRUD) {
+    public init(user: Player, context: CRUD) {
         self.user = user
-        self.bot = bot
+        self.bot = context.read(name: "Bot") ?? Player(name: "Bot", score: 0)
+        context.update(player: self.bot)
+        
         self.context = context
         
         super.init(nibName: nil, bundle: nil)
@@ -41,23 +44,31 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     
     // MARK: -
     // MARK: Public
-    
-    public func presentLeaderboard(user: Player, bot: Player, context: CRUD) {
-        self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
-        self.saveToCoreData(player: self.user, bot: self.bot)
+
+    public func refreshModelFromLeadreboard(user: Player) {
+        if self.user.name == user.name {
+            self.user = user
+        } else if self.bot.name == user.name {
+            self.bot = user
+        }
+//        self.bot.score = user.score
+//        self.bot = context.read(name: "Bot") ?? Player(name: "Bot", score: 0)
+        
+        let rootView = self.rootView
+        rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
     }
-    
+        
     // MARK: -
     // MARK: Private
     
     private func loadEmptyDices() {
         let botDice = self.bot.emptyPosition
         let userDice = self.user.emptyPosition
-//        let rootView = self.rootView
+        let rootView = self.rootView
         
-        self.rootView?.configureScoreView(user: self.user.name)
-        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-        self.rootView?.setupGameameImages(botImage: botDice.description, userImage: userDice.description)
+        rootView?.configureScoreView(user: self.user.name)
+        rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
+        rootView?.setupGameImages(botImage: botDice.description, userImage: userDice.description)
     }
     
     private func processGame() {
@@ -69,28 +80,21 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
         
         if botDice > userDice {
             self.bot.score += 1
-            self.alertWithTimer(title: BaseTexts.botWin.rawValue)
         } else if botDice < userDice {
             self.user.score += 1
-            self.alertWithTimer(title: self.user.name + BaseTexts.win.rawValue)
-        } else if botDice == userDice {
-            self.alertWithTimer(title: BaseTexts.standOff.rawValue)
         }
         
         self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
-        self.rootView?.setupGameameImages(botImage: String(botDice), userImage: String(userDice))
+        self.rootView?.setupGameImages(botImage: String(botDice), userImage: String(userDice))
+        
+        self.saveToCoreData(player: self.user, bot: self.bot)
     }
     
-    private func alertWithTimer(title: String) {
-        DispatchQueue.main.asyncAfter(deadline: .now()+1, execute: {
-            self.showAlert(title: title)
-        })
-    }
-
     private func saveToCoreData(player: Player, bot: Player) {
-        self.context.update(player: player)
-        self.context.create(player: bot)
-        self.context.update(player: bot)
+        let context = self.context
+        
+        context.update(player: player)
+        context.update(player: bot)
     }
     
     // MARK: -
@@ -105,7 +109,7 @@ class GameViewController: BaseViewController<GameViewEvents, GameViewControllerE
     internal override func handle(event: GameViewEvents) {
         switch event {
         case .needDisplayLeaderBoard:
-            self.presentLeaderboard(user: self.user, bot: self.bot, context: self.context)
+            self.eventHandler?(.needDisplayLeaderboard(user, bot, context))
         case .updateDices:
             self.processGame()
         }

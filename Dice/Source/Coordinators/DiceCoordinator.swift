@@ -9,9 +9,17 @@ import Foundation
 import UIKit
 
 class DiceCoordinator: BaseCoordinator {
+    
+    // MARK: -
+    // MARK: Properties
 
     let context: CRUD
 
+    private weak var gameViewController: GameViewController?
+    
+    // MARK: -
+    // MARK: Initialization
+    
     init(context: CRUD) {
         self.context = context
 
@@ -26,9 +34,7 @@ class DiceCoordinator: BaseCoordinator {
     // MARK: Private
     
     private func presentLogin() {
-        let dice = Dices()
-        let user = Player(dice: dice)
-        let controller = LoginViewController(user: user, context: context)
+        let controller = LoginViewController(context: self.context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
@@ -43,12 +49,11 @@ class DiceCoordinator: BaseCoordinator {
     }
     
     private func presentGame(user: Player, context: CRUD) {
-        let dice = Dices()
-        let bot = Player(dice: dice)
-        let controller = GameViewController(user: user, bot: bot, context: context)
+        let controller = GameViewController(user: user, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
         }
+        self.gameViewController = controller
         self.pushViewController(controller, animated: true)
     }
     
@@ -63,7 +68,7 @@ class DiceCoordinator: BaseCoordinator {
         let controller = LeadeboardViewController(user: user, bot: bot, context: context)
         controller.eventHandler = { [weak self] event in
             self?.handle(event: event)
-        } 
+        }
         self.present(controller, animated: true, completion: nil)
     }
     
@@ -71,6 +76,8 @@ class DiceCoordinator: BaseCoordinator {
         switch event {
         case .back:
             self.dismiss(animated: true, completion: nil)
+        case let .refreshModelToGame(user):
+            self.gameViewController?.refreshModelFromLeadreboard(user: user)
         }
     }
     

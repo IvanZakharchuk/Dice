@@ -37,7 +37,7 @@ class GameView: BaseView<GameViewEvents> {
         self.scoreView?.setupScoreView(botScore: botScore, userScore: userScore )
     }
     
-    public func setupGameameImages(botImage: String, userImage: String) {
+    public func setupGameImages(botImage: String, userImage: String) {
         self.botImage?.image = UIImage(named: botImage)
         self.userImage?.image = UIImage(named: userImage)
     }

@@ -12,7 +12,7 @@ import UIKit
 protocol CRUD {
     
     func create(player: Player)
-    //func read() -> Player
+    func read(name: String) -> Player?
     func read() -> [Player]
     func update(player: Player)
     func delete(player: Player)
@@ -23,56 +23,43 @@ class CoreDataManager: CRUD {
     // MARK: -
     // MARK: Properties
     
-    public let persistentContainer: NSPersistentContainer
-
     public var viewContext: NSManagedObjectContext {
-        return persistentContainer.viewContext
+        return self.persistentContainer.viewContext
     }
+    
+    public let persistentContainer: NSPersistentContainer
     
     // MARK: -
     // MARK: Public
     
     public func create(player: Player) {
-        CoreDataPlayer().name = player.name
+        let coreDataPlayer = CoreDataPlayer(context: self.viewContext)
+        coreDataPlayer.nameValue = player.name
+        coreDataPlayer.scoreValue = Int16(player.score)
         self.save()
     }
-    
-//    public func read() -> Player {
-//        let coreDataPlayer = self.fetchCoreData().first
-//
-//
-//    }
-    
-    public func read() -> [Player] {
-        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
-        
-        do {
-            return try self.corePlayers().map { Player(name: $0.name, score: $0.score) }
-        } catch {
-            return []
-        }
+
+    public func read(name: String) -> Player? {
+        let players = self.fetchCoreData(name: name)
+        return players.map { Player(name: $0.nameValue ?? "User", score: Int($0.scoreValue)) }.first
     }
     
-    private func corePlayers() -> [CoreDataPlayer] {
-        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
-        // request.predicate Zadatb predicate
-        
-        return self.viewContext.fetch(request)
+    public func read() -> [Player] {
+        return self.fetchData().map { Player(name: $0.nameValue ?? "User", score: Int($0.scoreValue))}
     }
     
     public func update(player: Player) {
-        guard let userCoreData = self.corePlayers().first { $0.name == player.name } else {
-            return self.create(player: player)
-        }
-        userCoreData.score = Int16(player.score)
+        let userCoreData = self.fetchCoreData(name: player.name).first ?? CoreDataPlayer(context: self.viewContext)
+        userCoreData.scoreValue = Int16(player.score)
+        userCoreData.nameValue = player.name
+        
         self.save()
     }
     
     public func delete(player: Player) {
-        guard let userCoreData = self.read().first(where: {$0.name == player.name})  else {
-            return self.create(player: player)
-        }
-        self.viewContext.delete(userCoreData)
+        let userToDelete = self.fetchCoreData(name: player.name).first
+        userToDelete.map(self.viewContext.delete)
+
         self.save()
     }
     
@@ -83,9 +70,20 @@ class CoreDataManager: CRUD {
         try? self.viewContext.save()
     }
     
-    private func fetchCoreData() -> [CoreDataPlayer] {
+    private func fetchCoreData(name: String) -> [CoreDataPlayer] {
         let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
-        
+        request.predicate = NSPredicate(format: "nameValue == '\(name)'")
+    
+        do {
+            return try self.viewContext.fetch(request)
+        } catch {
+            return []
+        }
+    }
+    
+    private func fetchData() -> [CoreDataPlayer] {
+        let request: NSFetchRequest<CoreDataPlayer> = CoreDataPlayer.fetchRequest()
+    
         do {
             return try self.viewContext.fetch(request)
         } catch {

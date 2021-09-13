@@ -11,9 +11,10 @@ import CoreData
 enum LeaderboardViewControllerEvents {
     
     case back
+    case refreshModelToGame(Player)
 }
 
-class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
+class LeadeboardViewController: BaseViewController<LeaderboardView, LeaderboardViewEvents, LeaderboardViewControllerEvents>, RootViewGetable {
 
     typealias RootView = LeaderboardView
     
@@ -22,8 +23,8 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         
     private var user: Player
     private var bot: Player
-    private var coreDataPlayer:[CoreDataPlayer]?
     private let context: CRUD
+    private var users: [Player]
     
     // MARK: -
     // MARK: Initialization
@@ -32,12 +33,31 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
         self.user = user
         self.bot = bot
         self.context = context
-      
+        self.users = context.read()
+        
         super.init(nibName: nil, bundle: nil)
+        
+        self.prepareData()
     }
     
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+//    public func refreshData() -> Player {
+//        self.user
+//    }
+    
+    // MARK: -
+    // MARK: Private
+    
+    private func prepareData() {
+        let current = self.user
+        let bot = self.bot
+        
+        self.users.removeAll { $0 == bot || $0 == current }
+        
+        self.users = [bot, current] + self.users
     }
     
     // MARK: -
@@ -45,28 +65,19 @@ class LeadeboardViewController: BaseViewController<LeaderboardViewEvents, Leader
     
     internal override func configureView() {
         super.configureView()
-        
-        self.fetch()
     }
 }
 
 extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        self.context.read().count
+        self.users.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(cellClass: LeaderboardTableViewCell.self, for: indexPath)
-        
-        guard let player = self.context.read().first(where: {$0.name == user.name}) else {
-            return cell
-        }
-        
-        let name = player.name ?? "userDefault"
-        let score = String(player.score)
-        
-        cell.setupLeaderboardCell(userName: name, score: score)
+        let user = self.users[indexPath.row]
+        cell.setupLeaderboardCell(userName: user.name, score: user.score.description)
         
         return cell
     }
@@ -74,19 +85,19 @@ extension LeadeboardViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, trailingSwipeActionsConfigurationForRowAt indexPath: IndexPath) -> UISwipeActionsConfiguration? {
         
         let deleteAction = UIContextualAction(style: .destructive, title: "Delete") { (action, sourceView, completionHandler) in
+            let user = self.users[indexPath.row]
             
-            self.fetch()
+            self.context.delete(player: user)
+            self.users.removeAll { $0 == user }
+            
+            user.score = user.emptyPosition
+            self.eventHandler?(.refreshModelToGame(user))
+            
             tableView.reloadData()
             completionHandler(true)
-            
         }
         
         let swipeConfiguration = UISwipeActionsConfiguration(actions: [deleteAction])
         return swipeConfiguration
-    }
-    
-    private func fetch() {
-        self.context.read()
-        
     }
 }

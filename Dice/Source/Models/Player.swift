@@ -9,7 +9,7 @@ import Foundation
 import CoreData
 import UIKit
 
-class Player {
+class Player: Equatable {
     
     // MARK: -
     // MARK: Properties
@@ -20,17 +20,14 @@ class Player {
     
     public var score = 0
     
-    public var dice: Dices
-    
-//    public var userStorage: [DiceStorage] = []
-    
-//    private var fetchResult: NSFetchedResultsController<DiceStorage>?
-    
+    public let dice = Dices()
+
     // MARK: -
     // MARK: Initialization
     
-    public init(dice: Dices) {
-        self.dice = dice
+    public init(name: String, score: Int) {
+        self.name = name
+        self.score = score
     }
     
     // MARK: -
@@ -40,22 +37,10 @@ class Player {
         self.currentPosition = self.dice.random()
     }
     
-//    private func coreDataFunc() {
-//        let fetchRequest: NSFetchRequest<DiceStorage> = DiceStorage.fetchRequest()
-//
-//        if let appDelegate = (UIApplication.shared.delegate as? AppDelegate) {
-//            let context = appDelegate.persistentContainer.viewContext
-//            fetchResult = NSFetchedResultsController(fetchRequest: fetchRequest, managedObjectContext: context, sectionNameKeyPath: nil, cacheName: nil)
-//
-//            do {
-//                try fetchResult?.performFetch()
-//                if let fetchedObjects = fetchResult?.fetchedObjects {
-//                    userStorage = fetchedObjects
-//                }
-//            } catch {
-//                print(error)
-//            }
-//        }
-//
-//    }
+    // MARK: -
+    // MARK: Equatable
+    
+    static func == (lhs: Player, rhs: Player) -> Bool {
+        lhs.name == rhs.name && lhs.score == rhs.score
+    }
 }
