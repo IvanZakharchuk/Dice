@@ -51,11 +51,7 @@ class GameViewController: BaseViewController<GameView, GameViewEvents, GameViewC
         } else if self.bot.name == user.name {
             self.bot = user
         }
-//        self.bot.score = user.score
-//        self.bot = context.read(name: "Bot") ?? Player(name: "Bot", score: 0)
-        
-        let rootView = self.rootView
-        rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
+        self.rootView?.scoreViewUpdate(botScore: String(self.bot.score), userScore: String(self.user.score))
     }
         
     // MARK: -
