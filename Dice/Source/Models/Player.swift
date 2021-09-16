@@ -17,7 +17,6 @@ class Player: Equatable {
     public var name = ""
     public var currentPosition = 0
     public let emptyPosition = 0
-    
     public var score = 0
     
     public let dice = Dices()

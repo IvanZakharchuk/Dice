@@ -44,10 +44,6 @@ class LeadeboardViewController: BaseViewController<LeaderboardView, LeaderboardV
         fatalError("init(coder:) has not been implemented")
     }
     
-//    public func refreshData() -> Player {
-//        self.user
-//    }
-    
     // MARK: -
     // MARK: Private
     

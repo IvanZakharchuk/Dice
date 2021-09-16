@@ -24,7 +24,6 @@ class GameViewController: BaseViewController<GameView, GameViewEvents, GameViewC
     private var bot: Player
     private let context: CRUD
 
-
     // MARK: -
     // MARK: Initialization
     
