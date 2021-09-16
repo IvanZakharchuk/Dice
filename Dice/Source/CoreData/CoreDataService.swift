@@ -23,11 +23,11 @@ class CoreDataManager: CRUD {
     // MARK: -
     // MARK: Properties
     
-    public var viewContext: NSManagedObjectContext {
+    private var viewContext: NSManagedObjectContext {
         return self.persistentContainer.viewContext
     }
     
-    public let persistentContainer: NSPersistentContainer
+    private let persistentContainer: NSPersistentContainer
     
     // MARK: -
     // MARK: Public
