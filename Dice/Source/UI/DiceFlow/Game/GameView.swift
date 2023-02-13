@@ -9,7 +9,6 @@ import Foundation
 import UIKit
 
 enum GameViewEvents {
-    
     case needDisplayLeaderBoard
     case updateDices
 }

@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 enum LoginViewControllerEvents {
-
     case needDisplayGame(Player, CRUD)
 }
 

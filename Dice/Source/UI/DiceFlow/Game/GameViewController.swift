@@ -9,7 +9,6 @@ import UIKit
 import CoreData
 
 enum GameViewControllerEvents {
-    
     case needDisplayLeaderboard(Player, Player, CRUD)
 }
 

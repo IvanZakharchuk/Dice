@@ -73,7 +73,6 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
     
     @IBAction func enterButtonPressed(_ sender: UIButton) {
         let userName = userNameTextField?.text
-        
         self.eventHandler?(.shareUserName(userName ?? "user"))
     }
 }

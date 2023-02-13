@@ -36,7 +36,6 @@ class LeadeboardViewController: BaseViewController<LeaderboardView, LeaderboardV
         self.users = context.read()
         
         super.init(nibName: nil, bundle: nil)
-        
         self.prepareData()
     }
     
@@ -52,7 +51,6 @@ class LeadeboardViewController: BaseViewController<LeaderboardView, LeaderboardV
         let bot = self.bot
         
         self.users.removeAll { $0 == bot || $0 == current }
-        
         self.users = [bot, current] + self.users
     }
     
