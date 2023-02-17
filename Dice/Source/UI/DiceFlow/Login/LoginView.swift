@@ -51,6 +51,10 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
                 { [weak self] in
                     self?.enterButton?.center.x += self?.bounds.width ?? CGFloat() },
             completion: nil)
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3, execute: { [weak self] in
+            self?.userNameTextField?.becomeFirstResponder()    
+        })
     }
     
     // MARK: -
@@ -60,7 +64,6 @@ class LoginView: BaseView<LoginViewEvents>, UITextFieldDelegate {
         super.setupView()
         
         self.backgroundColor = UIColor(patternImage: UIImage(named: "background-png") ?? UIImage())
-        self.userNameTextField?.becomeFirstResponder()        
         self.animatedElements()
     }
     
