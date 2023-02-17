@@ -30,6 +30,8 @@ class GameView: BaseView<GameViewEvents> {
     
     public func configureScoreView(user: String) {
         self.scoreView?.configureScoreView(user: user)
+        self.scoreView?.dropDefaultShadow()
+        self.playGameButton?.dropDefaultShadow() 
     }
     
     public func scoreViewUpdate(botScore: String, userScore: String) {
@@ -38,7 +40,9 @@ class GameView: BaseView<GameViewEvents> {
     
     public func setupGameImages(botImage: String, userImage: String) {
         self.botImage?.image = UIImage(named: botImage)
+        self.botImage?.dropDefaultShadow()
         self.userImage?.image = UIImage(named: userImage)
+        self.userImage?.dropDefaultShadow()
     }
     
     // MARK: -
